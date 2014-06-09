@@ -68,6 +68,12 @@
     // It's all about programming based on the UI events and understanding the syntax and the order of concepts etc...this shit's easy and rough...
     [self.view addSubview:textField];
     
+    UILabel *testLabel = [[UILabel alloc]init];
+    testLabel.text = @"I want it...";
+    testLabel.frame = CGRectMake(20, 200, 280, 31);
+    testLabel.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:testLabel];
+    
     /* !!! */
 
 }
