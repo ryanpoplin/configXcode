@@ -91,6 +91,7 @@
     } else if (hours == 0 && mins == 0 && secs >= 0) {
         NSString *displayText = [[NSString alloc] initWithFormat:@"%2u s", secs];
         self.displayLabel.text = displayText;
+        // When 'secs' is zero, you need to stop the countdown timer...
     }
 }
 

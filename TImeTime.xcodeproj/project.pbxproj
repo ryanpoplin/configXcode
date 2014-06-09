@@ -23,6 +23,7 @@
 		5AD9528B194584B900A70F3C /* TImeTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9528A194584B900A70F3C /* TImeTimeTests.m */; };
 		5AD952961946069400A70F3C /* ECTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD952951946069400A70F3C /* ECTTestViewController.m */; };
 		5AD9529A1946347700A70F3C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD952991946347700A70F3C /* Main_iPhone.storyboard */; };
+		5AD9529D1946706E00A70F3C /* ECTCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9529C1946706E00A70F3C /* ECTCalculator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		5AD952941946069400A70F3C /* ECTTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTTestViewController.h; sourceTree = "<group>"; };
 		5AD952951946069400A70F3C /* ECTTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTTestViewController.m; sourceTree = "<group>"; };
 		5AD952991946347700A70F3C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
+		5AD9529B1946706E00A70F3C /* ECTCalculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTCalculator.h; sourceTree = "<group>"; };
+		5AD9529C1946706E00A70F3C /* ECTCalculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTCalculator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				5AD9526C194584B900A70F3C /* ECTAppDelegate.m */,
 				5AD95274194584B900A70F3C /* ECTViewController.h */,
 				5AD95275194584B900A70F3C /* ECTViewController.m */,
+				5AD9529B1946706E00A70F3C /* ECTCalculator.h */,
+				5AD9529C1946706E00A70F3C /* ECTCalculator.m */,
 				5AD952941946069400A70F3C /* ECTTestViewController.h */,
 				5AD952951946069400A70F3C /* ECTTestViewController.m */,
 				5AD95277194584B900A70F3C /* Images.xcassets */,
@@ -263,6 +268,7 @@
 				5AD952961946069400A70F3C /* ECTTestViewController.m in Sources */,
 				5AD95269194584B900A70F3C /* main.m in Sources */,
 				5AD9526D194584B900A70F3C /* ECTAppDelegate.m in Sources */,
+				5AD9529D1946706E00A70F3C /* ECTCalculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
