@@ -59,7 +59,6 @@
     [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
 }
 
-// Saxena Number:
 - (void)updateCountDown {
     NSLog(@"%d", afterRemainder);
     afterRemainder --;

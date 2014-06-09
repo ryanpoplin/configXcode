@@ -32,12 +32,27 @@
     // Enter the Tuxedo mode and drag and drop the to that class's .h file and connect it to the @interface for a new prop. creation to take place...
     
     // [testString(object we sending the message to...) stringByAppendingString:(Here's the method name...)@""(Here's the literal value we are passing to the method as an arguement...)];
-    
-    /* !!! */
-    
+
+    // Why pointer...?
     NSString *testString = @"SETTINGS VIEW...";
     self.testLabelf.text = [testString stringByAppendingString:@"!"];
+    self.testLabelf.text = [testString stringByReplacingOccurrencesOfString:@"..." withString:@"***"];
 
+    /* !!! */
+
+    // Why no pointer...?
+    NSUInteger testStringLength = [testString length];
+    NSLog(@"%d", testStringLength);
+    
+    BOOL isStringEqual = [testString isEqualToString:@"SETTINGS VIEW..."];
+    NSLog(@" %s", isStringEqual ? "true" : "false");
+    
+    // Why a pointer...?
+    NSURL *myURL = [NSURL URLWithString:@"http://developer.apple.com"];
+    NSLog(@"%@", myURL);
+    
+    // ...
+    
     /* !!! */
 
 }
