@@ -12,7 +12,6 @@
 - (IBAction)startButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;
 @property (weak, nonatomic) IBOutlet UIDatePicker *countDownTimer;
-// Here's a view controller prop.
 @property (weak, nonatomic) IBOutlet UILabel *excepappsString;
 
 @end

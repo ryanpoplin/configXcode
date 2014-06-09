@@ -13,7 +13,6 @@
 		5AD95267194584B900A70F3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD95265194584B900A70F3C /* InfoPlist.strings */; };
 		5AD95269194584B900A70F3C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD95268194584B900A70F3C /* main.m */; };
 		5AD9526D194584B900A70F3C /* ECTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9526C194584B900A70F3C /* ECTAppDelegate.m */; };
-		5AD95270194584B900A70F3C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD9526E194584B900A70F3C /* Main_iPhone.storyboard */; };
 		5AD95273194584B900A70F3C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD95271194584B900A70F3C /* Main_iPad.storyboard */; };
 		5AD95276194584B900A70F3C /* ECTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD95275194584B900A70F3C /* ECTViewController.m */; };
 		5AD95278194584B900A70F3C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AD95277194584B900A70F3C /* Images.xcassets */; };
@@ -23,6 +22,7 @@
 		5AD95289194584B900A70F3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD95287194584B900A70F3C /* InfoPlist.strings */; };
 		5AD9528B194584B900A70F3C /* TImeTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9528A194584B900A70F3C /* TImeTimeTests.m */; };
 		5AD952961946069400A70F3C /* ECTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD952951946069400A70F3C /* ECTTestViewController.m */; };
+		5AD9529A1946347700A70F3C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD952991946347700A70F3C /* Main_iPhone.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,6 @@
 		5AD9526A194584B900A70F3C /* TImeTime-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TImeTime-Prefix.pch"; sourceTree = "<group>"; };
 		5AD9526B194584B900A70F3C /* ECTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECTAppDelegate.h; sourceTree = "<group>"; };
 		5AD9526C194584B900A70F3C /* ECTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECTAppDelegate.m; sourceTree = "<group>"; };
-		5AD9526F194584B900A70F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		5AD95272194584B900A70F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		5AD95274194584B900A70F3C /* ECTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECTViewController.h; sourceTree = "<group>"; };
 		5AD95275194584B900A70F3C /* ECTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECTViewController.m; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		5AD9528A194584B900A70F3C /* TImeTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TImeTimeTests.m; sourceTree = "<group>"; };
 		5AD952941946069400A70F3C /* ECTTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTTestViewController.h; sourceTree = "<group>"; };
 		5AD952951946069400A70F3C /* ECTTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTTestViewController.m; sourceTree = "<group>"; };
+		5AD952991946347700A70F3C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +117,8 @@
 		5AD95262194584B900A70F3C /* TImeTime */ = {
 			isa = PBXGroup;
 			children = (
+				5AD952991946347700A70F3C /* Main_iPhone.storyboard */,
 				5AD95271194584B900A70F3C /* Main_iPad.storyboard */,
-				5AD9526E194584B900A70F3C /* Main_iPhone.storyboard */,
 				5AD9526B194584B900A70F3C /* ECTAppDelegate.h */,
 				5AD9526C194584B900A70F3C /* ECTAppDelegate.m */,
 				5AD95274194584B900A70F3C /* ECTViewController.h */,
@@ -237,9 +237,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AD9529A1946347700A70F3C /* Main_iPhone.storyboard in Resources */,
 				5AD95273194584B900A70F3C /* Main_iPad.storyboard in Resources */,
 				5AD95278194584B900A70F3C /* Images.xcassets in Resources */,
-				5AD95270194584B900A70F3C /* Main_iPhone.storyboard in Resources */,
 				5AD95267194584B900A70F3C /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,14 +291,6 @@
 				5AD95266194584B900A70F3C /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		5AD9526E194584B900A70F3C /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5AD9526F194584B900A70F3C /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		5AD95271194584B900A70F3C /* Main_iPad.storyboard */ = {

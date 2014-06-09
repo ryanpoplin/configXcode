@@ -10,7 +10,6 @@
 
 @interface ECTTestViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *testLabelf;
-
-
+@property (weak, nonatomic) IBOutlet UITextField *testTextField;
 
 @end
