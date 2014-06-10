@@ -112,10 +112,26 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="Qtq-g9-PXB">
+                                <rect key="frame" x="18" y="228" width="284" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="4Ro-Ns-hdP" eventType="valueChanged" id="vc2-Pn-7uZ"/>
+                                </connections>
+                            </slider>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="UeU-ac-2oN">
+                                <rect key="frame" x="20" y="289" width="280" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="2zP-tE-y9k"/>
+                    <connections>
+                        <outlet property="label" destination="FBH-k6-pTN" id="teQ-IW-jyg"/>
+                        <outlet property="progressView" destination="UeU-ac-2oN" id="Tdt-gd-GFC"/>
+                        <outlet property="slider" destination="Qtq-g9-PXB" id="xMu-bY-bfZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6Z-qD-aeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

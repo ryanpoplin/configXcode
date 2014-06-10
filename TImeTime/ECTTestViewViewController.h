@@ -10,6 +10,4 @@
 
 @interface ECTTestViewViewController : UIViewController
 
-
-
 @end

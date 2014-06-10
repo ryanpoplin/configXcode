@@ -6,11 +6,17 @@
 //  Copyright (c) 2014 ExcepApps. All rights reserved.
 //
 
+// IT'S A TALL ORDER!!!
+
 #import "ECTTestViewViewController.h"
 
 @interface ECTTestViewViewController ()
 
-
+/* PROPS! */
+@property (nonatomic, strong) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
+- (IBAction)sliderValueChanged:(id)sender;
 
 @end
 
@@ -38,9 +44,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+/* BUTTON WAS PRESSED... */
+
 - (IBAction)buttonWasPressed:(id)sender
 {
     NSLog(@"Button was pressed...");
+    NSDate *date = [NSDate date];
+    // Label is the new prop. we just created...
+    self.label.text = [NSString stringWithFormat:@"Button was pressed at %@", date];
 }
 
 /*
@@ -53,5 +64,12 @@
     // Pass the selected object to the new view controller.
 }
 */
-
+/*- (IBAction)sliderValueChanged:(id)sender {
+    NSLog(@"Slider Value: %f", self.slider.value);
+    self.progressView.progress = self.slider.value;
+}*/
+- (IBAction)sliderValueChanged:(id)sender {
+    NSLog(@"Slider Value: %f", self.slider.value);
+    self.progressView.progress = self.slider.value;
+}
 @end
