@@ -68,7 +68,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Sr1-1u-qDJ" kind="push" id="kDf-Ef-Ori"/>
+                                    <segue destination="4Ro-Ns-hdP" kind="push" id="i2f-Dg-fbK"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtI-aq-P4p">
@@ -91,64 +91,24 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="110" y="355"/>
         </scene>
-        <!--Test View Controller-->
-        <scene sceneID="1wT-Ld-V86">
+        <!--View Controller-->
+        <scene sceneID="ui7-A9-Ssv">
             <objects>
-                <viewController id="Sr1-1u-qDJ" customClass="ECTTestViewController" sceneMemberID="viewController">
+                <viewController id="4Ro-Ns-hdP" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Izr-jO-afW"/>
-                        <viewControllerLayoutGuide type="bottom" id="Uh5-CZ-KMu"/>
+                        <viewControllerLayoutGuide type="top" id="GZh-Vq-rW4"/>
+                        <viewControllerLayoutGuide type="bottom" id="JBI-mc-GoX"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sI9-WR-vvv">
+                    <view key="view" contentMode="scaleToFill" id="hq7-tP-Foi">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TEST LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdL-LK-YTE">
-                                <rect key="frame" x="20" y="97" width="280" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXi-UW-Cqg">
-                                <rect key="frame" x="137" y="320" width="47" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="START">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="Sr1-1u-qDJ" eventType="touchUpInside" id="XMn-J4-dU8"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3T-Cf-2gO">
-                                <rect key="frame" x="20" y="399" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsY-Gs-bDF">
-                                <rect key="frame" x="20" y="442" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem id="i9m-tt-Q9K"/>
-                    </toolbarItems>
-                    <navigationItem key="navigationItem" id="zM8-IU-SL0"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="anotherLabel" destination="MsY-Gs-bDF" id="xmu-l4-UkD"/>
-                        <outlet property="countdownLabel" destination="O3T-Cf-2gO" id="0Sb-er-3di"/>
-                        <outlet property="startStopButton" destination="XXi-UW-Cqg" id="vYd-CC-Jv5"/>
-                        <outlet property="testLabelf" destination="vdL-LK-YTE" id="8tO-ZX-GqE"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="2zP-tE-y9k"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AwO-eJ-yCZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o6Z-qD-aeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="542" y="355"/>
+            <point key="canvasLocation" x="565" y="355"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Ff3-6T-EXM">
