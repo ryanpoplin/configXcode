@@ -63,9 +63,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <state key="normal" title="SETTINGS">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="4Ro-Ns-hdP" kind="push" id="i2f-Dg-fbK"/>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YtI-aq-P4p">
                                 <rect key="frame" x="20" y="427" width="280" height="21"/>
@@ -87,6 +84,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="110" y="355"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ame-7t-YKO">
+            <objects>
+                <viewController id="bJl-ec-RPz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9so-ld-Cyo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="5jf-6y-wgv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aup-EI-ZFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1007" y="355"/>
+        </scene>
         <!--Test View View Controller-->
         <scene sceneID="ui7-A9-Ssv">
             <objects>
@@ -103,6 +115,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="buttonWasPressed:" destination="4Ro-Ns-hdP" eventType="touchUpInside" id="YDa-5j-TDM"/>
+                                    <segue destination="bJl-ec-RPz" kind="push" id="wUm-aq-Sh6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FBH-k6-pTN">
@@ -112,25 +125,15 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="Qtq-g9-PXB">
-                                <rect key="frame" x="18" y="228" width="284" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="4Ro-Ns-hdP" eventType="valueChanged" id="vc2-Pn-7uZ"/>
-                                </connections>
-                            </slider>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" id="UeU-ac-2oN">
-                                <rect key="frame" x="20" y="289" width="280" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2zP-tE-y9k"/>
+                    <navigationItem key="navigationItem" id="2zP-tE-y9k">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="cancel" id="qcd-Sx-DWB"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="K4q-eE-zuc"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="label" destination="FBH-k6-pTN" id="teQ-IW-jyg"/>
-                        <outlet property="progressView" destination="UeU-ac-2oN" id="Tdt-gd-GFC"/>
-                        <outlet property="slider" destination="Qtq-g9-PXB" id="xMu-bY-bfZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o6Z-qD-aeQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -183,7 +186,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="FWg-Hl-Ihe"/>
+                        <segue destination="4Ro-Ns-hdP" kind="relationship" relationship="rootViewController" id="UfC-Hm-Bby"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GzX-kk-2ar" userLabel="First Responder" sceneMemberID="firstResponder"/>

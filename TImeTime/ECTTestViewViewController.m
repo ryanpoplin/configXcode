@@ -14,9 +14,6 @@
 
 /* PROPS! */
 @property (nonatomic, strong) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UISlider *slider;
-@property (weak, nonatomic) IBOutlet UIProgressView *progressView;
-- (IBAction)sliderValueChanged:(id)sender;
 
 @end
 
@@ -36,6 +33,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     NSLog(@"VIEW IS LOADED...");
+    
+    [self setupModel];
+    
+    self.title = @"ROOT...";
+    
+}
+
+- (void)setupModel
+{
+    self.timerModel = [[ECTTimerModel alloc]initWithCoffeeName:@"Columbian Coffee" duration:240];
+}
+
+- (void)setTimerModel:(ECTTimerModel *)timerModel
+{
+    _timerModel = timerModel;
+    [self updateUserInterface];
+}
+
+-(void)updateUserInterface
+{
+    self.label.text = self.timerModel.coffeeName;
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,12 +82,4 @@
     // Pass the selected object to the new view controller.
 }
 */
-/*- (IBAction)sliderValueChanged:(id)sender {
-    NSLog(@"Slider Value: %f", self.slider.value);
-    self.progressView.progress = self.slider.value;
-}*/
-- (IBAction)sliderValueChanged:(id)sender {
-    NSLog(@"Slider Value: %f", self.slider.value);
-    self.progressView.progress = self.slider.value;
-}
 @end

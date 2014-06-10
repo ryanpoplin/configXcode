@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ECTTimerModel.h"
 
 @interface ECTTestViewViewController : UIViewController
+
+@property (nonatomic, strong) ECTTimerModel *timerModel;
 
 @end
