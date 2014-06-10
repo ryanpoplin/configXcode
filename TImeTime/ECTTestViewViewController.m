@@ -38,6 +38,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)buttonWasPressed:(id)sender
+{
+    NSLog(@"Button was pressed...");
+}
+
 /*
 #pragma mark - Navigation
 
