@@ -10,6 +10,9 @@
 
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 
+// PUBLIC PROPS. AND METHS. THAT OTHER CLASSES SHOULD HAVE ACCESS TO...
+
+//...
 @property (strong, nonatomic) UIWindow *window;
 
 @end

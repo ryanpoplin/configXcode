@@ -22,6 +22,7 @@
 		5AD95289194584B900A70F3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD95287194584B900A70F3C /* InfoPlist.strings */; };
 		5AD9528B194584B900A70F3C /* TImeTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9528A194584B900A70F3C /* TImeTimeTests.m */; };
 		5AD9529A1946347700A70F3C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD952991946347700A70F3C /* Main_iPhone.storyboard */; };
+		5AD952A01946A6B500A70F3C /* ECTTestViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9529F1946A6B500A70F3C /* ECTTestViewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		5AD95288194584B900A70F3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AD9528A194584B900A70F3C /* TImeTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TImeTimeTests.m; sourceTree = "<group>"; };
 		5AD952991946347700A70F3C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
+		5AD9529E1946A6B500A70F3C /* ECTTestViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTTestViewViewController.h; sourceTree = "<group>"; };
+		5AD9529F1946A6B500A70F3C /* ECTTestViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTTestViewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				5AD9526C194584B900A70F3C /* ECTAppDelegate.m */,
 				5AD95274194584B900A70F3C /* ECTViewController.h */,
 				5AD95275194584B900A70F3C /* ECTViewController.m */,
+				5AD9529E1946A6B500A70F3C /* ECTTestViewViewController.h */,
+				5AD9529F1946A6B500A70F3C /* ECTTestViewViewController.m */,
 				5AD95277194584B900A70F3C /* Images.xcassets */,
 				5AD95263194584B900A70F3C /* Supporting Files */,
 			);
@@ -254,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AD952A01946A6B500A70F3C /* ECTTestViewViewController.m in Sources */,
 				5AD95276194584B900A70F3C /* ECTViewController.m in Sources */,
 				5AD95269194584B900A70F3C /* main.m in Sources */,
 				5AD9526D194584B900A70F3C /* ECTAppDelegate.m in Sources */,
