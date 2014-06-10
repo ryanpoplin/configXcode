@@ -84,10 +84,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="110" y="355"/>
         </scene>
-        <!--View Controller-->
+        <!--Timer Detail View Controller-->
         <scene sceneID="ame-7t-YKO">
             <objects>
-                <viewController id="bJl-ec-RPz" sceneMemberID="viewController">
+                <viewController id="bJl-ec-RPz" customClass="ECTTimerDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9so-ld-Cyo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -115,7 +115,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                                 </state>
                                 <connections>
                                     <action selector="buttonWasPressed:" destination="4Ro-Ns-hdP" eventType="touchUpInside" id="YDa-5j-TDM"/>
-                                    <segue destination="bJl-ec-RPz" kind="push" id="wUm-aq-Sh6"/>
+                                    <segue destination="bJl-ec-RPz" kind="push" identifier="pushDetail" id="wUm-aq-Sh6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FBH-k6-pTN">

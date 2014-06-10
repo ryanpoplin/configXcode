@@ -14,6 +14,7 @@
 {
     self = [super init];
     if (self == nil) return nil;
+    NSLog(@"%@", coffeeName);
     self.coffeeName = coffeeName;
     self.duration = duration;
     return self;

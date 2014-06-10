@@ -9,6 +9,7 @@
 // IT'S A TALL ORDER!!!
 
 #import "ECTTestViewViewController.h"
+#import "ECTTimerDetailViewController.h"
 
 @interface ECTTestViewViewController ()
 
@@ -18,6 +19,16 @@
 @end
 
 @implementation ECTTestViewViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"Preparing for segue with identifier: %@", segue.identifier);
+    // FIGURE OUT THE 0 RETURN FOR THIS CONDITION...
+    /*if ([segue.identifier isEqualToString:@"pushDetial"]) {*/
+        ECTTimerDetailViewController *viewController = segue.destinationViewController;
+        viewController.timerModel = self.timerModel;
+    // }
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,13 +47,13 @@
     
     [self setupModel];
     
-    self.title = @"ROOT...";
+    self.title = @"ROOT";
     
 }
 
 - (void)setupModel
 {
-    self.timerModel = [[ECTTimerModel alloc]initWithCoffeeName:@"Columbian Coffee" duration:240];
+    self.timerModel = [[ECTTimerModel alloc]initWithCoffeeName:@"Columbian" duration:240];
 }
 
 - (void)setTimerModel:(ECTTimerModel *)timerModel
