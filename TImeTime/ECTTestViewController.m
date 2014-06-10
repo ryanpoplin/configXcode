@@ -74,8 +74,17 @@
     testLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:testLabel];
     
+    self.countdownLabel.text = @"Timer is not started...";
+    
+    
+    
     /* !!! */
 
+}
+
+-(IBAction)buttonPressed:(id)sender
+{
+    NSLog(@"Button was pressed...");
 }
 
 - (void)didReceiveMemoryWarning
