@@ -91,9 +91,20 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <view key="view" contentMode="scaleToFill" id="9so-ld-Cyo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vj6-9W-fjs">
+                                <rect key="frame" x="20" y="227" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="5jf-6y-wgv"/>
+                    <connections>
+                        <outlet property="durationLabel" destination="Vj6-9W-fjs" id="d5D-sZ-wFg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aup-EI-ZFz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,7 +197,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="4Ro-Ns-hdP" kind="relationship" relationship="rootViewController" id="UfC-Hm-Bby"/>
+                        <segue destination="4Ro-Ns-hdP" kind="relationship" relationship="rootViewController" id="ZN1-1E-G1S"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GzX-kk-2ar" userLabel="First Responder" sceneMemberID="firstResponder"/>

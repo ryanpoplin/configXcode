@@ -10,6 +10,7 @@
 
 @interface ECTTimerDetailViewController ()
 
+@property (nonatomic, strong) IBOutlet UILabel *durationLabel;
 @end
 
 @implementation ECTTimerDetailViewController
@@ -29,6 +30,20 @@
     // Do any additional setup after loading the view.
     // self.title = @"DETAIL";
     self.title = self.timerModel.coffeeName;
+    
+    // !!!
+    
+    // ADD HOUR...
+    
+    // %d hour
+    
+    // self.timerModel.duration (something...),
+    
+    // !!!
+
+    // ADD HOURS...
+    
+    self.durationLabel.text = [NSString stringWithFormat:@"%d mins %d secs", self.timerModel.duration / 60, self.timerModel.duration % 60];
 }
 
 - (void)didReceiveMemoryWarning
