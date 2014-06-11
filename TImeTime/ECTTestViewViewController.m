@@ -23,11 +23,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"Preparing for segue with identifier: %@", segue.identifier);
-    // FIGURE OUT THE 0 RETURN FOR THIS CONDITION...
-    /*if ([segue.identifier isEqualToString:@"pushDetial"]) {*/
+    if ([segue.identifier isEqualToString:@"pushDetail"]) {
         ECTTimerDetailViewController *viewController = segue.destinationViewController;
         viewController.timerModel = self.timerModel;
-    // }
+    }
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
