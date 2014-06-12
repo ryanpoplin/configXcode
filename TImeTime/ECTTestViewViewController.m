@@ -10,6 +10,7 @@
 
 #import "ECTTestViewViewController.h"
 #import "ECTTimerDetailViewController.h"
+#import "ECTTimerEditViewController.h"
 
 @interface ECTTestViewViewController ()
 
@@ -25,6 +26,10 @@
     NSLog(@"Preparing for segue with identifier: %@", segue.identifier);
     if ([segue.identifier isEqualToString:@"pushDetail"]) {
         ECTTimerDetailViewController *viewController = segue.destinationViewController;
+        viewController.timerModel = self.timerModel;
+    } else if ([segue.identifier isEqualToString:@"editDetail"]) {
+        UINavigationController *navigationController     = segue.destinationViewController;
+        ECTTimerEditViewController *viewController = (ECTTimerEditViewController *)(navigationController.topViewController);
         viewController.timerModel = self.timerModel;
     }
 }

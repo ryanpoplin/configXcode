@@ -229,16 +229,57 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
             </objects>
             <point key="canvasLocation" x="590" y="-347"/>
         </scene>
-        <!--View Controller-->
+        <!--Timer Edit View Controller-->
         <scene sceneID="mCA-SP-JqV">
             <objects>
-                <viewController id="YRR-JD-pKo" sceneMemberID="viewController">
+                <viewController id="YRR-JD-pKo" customClass="ECTTimerEditViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vmz-GU-K7C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Countdown Event Name" minimumFontSize="17" id="cin-0y-Ccw">
+                                <rect key="frame" x="20" y="89" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="Qcz-Bf-zOY">
+                                <rect key="frame" x="18" y="216" width="284" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="Y6e-Ud-Kbn">
+                                <rect key="frame" x="18" y="295" width="284" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wzH-I4-7vY">
+                                <rect key="frame" x="126" y="266" width="68" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NDX-bt-PKr">
+                                <rect key="frame" x="130" y="187" width="61" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gb0-hl-Vc3"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gb0-hl-Vc3">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wEG-qS-eQu">
+                            <connections>
+                                <action selector="cancelButtonWasPressed:" destination="YRR-JD-pKo" id="YRZ-d5-stq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="881-8c-Xsv">
+                            <connections>
+                                <action selector="doneButtonWasPressed:" destination="YRR-JD-pKo" id="GhJ-L5-UaK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sVR-eD-jNa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
