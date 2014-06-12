@@ -16,6 +16,7 @@
     int threeFourthsWay;
     int halfWay;
     int quarterWay;
+    IBOutlet UIButton *startButton;
     NSTimer *autoTimer;
     NSTimeInterval countDownInterval;
 }
@@ -28,9 +29,6 @@
 {
     
     [super viewDidLoad];
-    
-    // NSString *excepappsString = @"by ExcepApps";
-    // self.excepappsString.text = excepappsString;
 
 }
 
@@ -42,6 +40,12 @@
     
 }
 
+- (IBAction)resetButton:(id)sender {
+    [autoTimer invalidate];
+    self.displayLabel.text = @"00 h : 00 m : 00 s";
+    startButton.enabled = YES;
+}
+
 - (IBAction)startButton:(id)sender {
     countDownInterval = (NSTimeInterval)_countDownTimer.countDownDuration;
     remainder = countDownInterval;
@@ -51,6 +55,7 @@
     halfWay = bgConSum / 2;
     quarterWay = bgConSum * 0.25;
     autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+    startButton.enabled = NO;
 }
 
 - (void)updateCountDown {
