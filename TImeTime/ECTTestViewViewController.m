@@ -57,7 +57,7 @@
 
 - (void)setupModel
 {
-    self.timerModel = [[ECTTimerModel alloc]initWithCoffeeName:@"Columbian" duration:240];
+    self.timerModel = [[ECTTimerModel alloc]initWithCoffeeName:@"Watch T.V. " duration:220];
 }
 
 - (void)setTimerModel:(ECTTimerModel *)timerModel

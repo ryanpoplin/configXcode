@@ -27,6 +27,22 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    NSInteger numberOfMinutes = self.timerModel.duration / 60;
+    NSInteger numberOfSeconds = self.timerModel.duration % 60;
+    
+    self.nameField.text = self.timerModel.coffeeName;
+    self.minutesLabel.text = [NSString stringWithFormat:@"%d Minutes", numberOfMinutes];
+    self.secondsLabel.text = [NSString stringWithFormat:@"%d Seconds", numberOfSeconds];
+    self.minutesSlider.value = numberOfMinutes;
+    self.secondsSlider.value = numberOfSeconds;
+}
+
+-(IBAction)sliderValueChanged:(id)sender
+{
+    NSInteger numberOfMinutes = (NSInteger)self.minutesSlider.value;
+    NSInteger numberOfSeconds = (NSInteger)self.secondsSlider.value;
+    self.minutesLabel.text = [NSString stringWithFormat:@"%d Minutes", numberOfMinutes];
+    self.secondsLabel.text = [NSString stringWithFormat:@"%d Seconds", numberOfSeconds];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,7 +51,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)cancelButtonWasPressed:(id)sender:(id)sender
+-(IBAction)cancelButtonWasPressed:(id)sender
 {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
