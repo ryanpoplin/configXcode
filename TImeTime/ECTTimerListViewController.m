@@ -42,15 +42,13 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+/*- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return 10;
 }
 
@@ -60,7 +58,6 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
     cell.textLabel.text = [NSString stringWithFormat:@"Section %d row %d", indexPath.section, indexPath.row];
     
     return cell;
@@ -70,7 +67,7 @@
 -(NSString *)tableView:(UITableView *)tableView  titleForHeaderSection:(NSInteger)section
 {
     return [NSString stringWithFormat:@"Section %d", section];
-}
+}*/
 
 /*
 // Override to support conditional editing of the table view.

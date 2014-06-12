@@ -264,16 +264,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="gb0-hl-Vc3">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wEG-qS-eQu">
-                            <connections>
-                                <action selector="cancelButtonWasPressed:" destination="YRR-JD-pKo" id="YRZ-d5-stq"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="881-8c-Xsv">
-                            <connections>
-                                <action selector="doneButtonWasPressed:" destination="YRR-JD-pKo" id="GhJ-L5-UaK"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wEG-qS-eQu"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="881-8c-Xsv"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
