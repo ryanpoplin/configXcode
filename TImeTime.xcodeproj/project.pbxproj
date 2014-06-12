@@ -10,6 +10,7 @@
 		5A065C0119475FA9001ABAC7 /* ECTTimerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A065C0019475FA9001ABAC7 /* ECTTimerModel.m */; };
 		5A065C0419477A11001ABAC7 /* ECTTimerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A065C0319477A11001ABAC7 /* ECTTimerDetailViewController.m */; };
 		5A065C09194924FD001ABAC7 /* ECTTimerEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A065C08194924FD001ABAC7 /* ECTTimerEditViewController.m */; };
+		5A065C0C1949517D001ABAC7 /* ECTTimerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A065C0B1949517D001ABAC7 /* ECTTimerListViewController.m */; };
 		5AD9525D194584B900A70F3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9525C194584B900A70F3C /* Foundation.framework */; };
 		5AD9525F194584B900A70F3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9525E194584B900A70F3C /* CoreGraphics.framework */; };
 		5AD95261194584B900A70F3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD95260194584B900A70F3C /* UIKit.framework */; };
@@ -25,7 +26,6 @@
 		5AD95289194584B900A70F3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AD95287194584B900A70F3C /* InfoPlist.strings */; };
 		5AD9528B194584B900A70F3C /* TImeTimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9528A194584B900A70F3C /* TImeTimeTests.m */; };
 		5AD9529A1946347700A70F3C /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD952991946347700A70F3C /* Main_iPhone.storyboard */; };
-		5AD952A01946A6B500A70F3C /* ECTTestViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AD9529F1946A6B500A70F3C /* ECTTestViewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +45,8 @@
 		5A065C0319477A11001ABAC7 /* ECTTimerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTTimerDetailViewController.m; sourceTree = "<group>"; };
 		5A065C07194924FD001ABAC7 /* ECTTimerEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTTimerEditViewController.h; sourceTree = "<group>"; };
 		5A065C08194924FD001ABAC7 /* ECTTimerEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTTimerEditViewController.m; sourceTree = "<group>"; };
+		5A065C0A1949517D001ABAC7 /* ECTTimerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTTimerListViewController.h; sourceTree = "<group>"; };
+		5A065C0B1949517D001ABAC7 /* ECTTimerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTTimerListViewController.m; sourceTree = "<group>"; };
 		5AD95259194584B900A70F3C /* TImeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TImeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD9525C194584B900A70F3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AD9525E194584B900A70F3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,8 +67,6 @@
 		5AD95288194584B900A70F3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AD9528A194584B900A70F3C /* TImeTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TImeTimeTests.m; sourceTree = "<group>"; };
 		5AD952991946347700A70F3C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
-		5AD9529E1946A6B500A70F3C /* ECTTestViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTTestViewViewController.h; sourceTree = "<group>"; };
-		5AD9529F1946A6B500A70F3C /* ECTTestViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTTestViewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +98,8 @@
 			children = (
 				5AD95274194584B900A70F3C /* ECTViewController.h */,
 				5AD95275194584B900A70F3C /* ECTViewController.m */,
-				5AD9529E1946A6B500A70F3C /* ECTTestViewViewController.h */,
-				5AD9529F1946A6B500A70F3C /* ECTTestViewViewController.m */,
+				5A065C0A1949517D001ABAC7 /* ECTTimerListViewController.h */,
+				5A065C0B1949517D001ABAC7 /* ECTTimerListViewController.m */,
 				5A065C0219477A11001ABAC7 /* ECTTimerDetailViewController.h */,
 				5A065C0319477A11001ABAC7 /* ECTTimerDetailViewController.m */,
 				5A065C07194924FD001ABAC7 /* ECTTimerEditViewController.h */,
@@ -290,8 +290,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AD952A01946A6B500A70F3C /* ECTTestViewViewController.m in Sources */,
 				5A065C0119475FA9001ABAC7 /* ECTTimerModel.m in Sources */,
+				5A065C0C1949517D001ABAC7 /* ECTTimerListViewController.m in Sources */,
 				5AD95276194584B900A70F3C /* ECTViewController.m in Sources */,
 				5A065C09194924FD001ABAC7 /* ECTTimerEditViewController.m in Sources */,
 				5AD95269194584B900A70F3C /* main.m in Sources */,
