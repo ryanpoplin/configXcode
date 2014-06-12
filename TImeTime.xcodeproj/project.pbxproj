@@ -86,8 +86,16 @@
 			children = (
 				5AD95274194584B900A70F3C /* ECTViewController.h */,
 				5AD95275194584B900A70F3C /* ECTViewController.m */,
+				5A365B9019497F1100AF1958 /* testone */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5A365B9019497F1100AF1958 /* testone */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = testone;
 			sourceTree = "<group>";
 		};
 		5AD95250194584B900A70F3C = {
