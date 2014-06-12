@@ -31,18 +31,37 @@
     NSInteger numberOfSeconds = self.timerModel.duration % 60;
     
     self.nameField.text = self.timerModel.coffeeName;
-    self.minutesLabel.text = [NSString stringWithFormat:@"%d Minutes", numberOfMinutes];
-    self.secondsLabel.text = [NSString stringWithFormat:@"%d Seconds", numberOfSeconds];
+    [self updateLabelWithMinutes:numberOfMinutes seconds:numberOfSeconds];
+    // self.minutesLabel.text = [NSString stringWithFormat:@"%d Minutes", numberOfMinutes];
+    // self.secondsLabel.text = [NSString stringWithFormat:@"%d Seconds", numberOfSeconds];
     self.minutesSlider.value = numberOfMinutes;
     self.secondsSlider.value = numberOfSeconds;
+
+}
+
+-(void)updateLabelWithMinutes:(NSInteger)numberOfMinutes seconds:(NSInteger)numberOfSeconds
+{
+    if (numberOfMinutes == 1) {
+        self.minutesLabel.text = @"1 Minute";
+    } else {
+        self.minutesLabel.text = [NSString stringWithFormat:@"%d Minutes", numberOfMinutes];
+    }
+    if (numberOfSeconds == 1) {
+        self.secondsLabel.text = @"1 Second";
+    } else {
+        self.secondsLabel.text = [NSString stringWithFormat:@"%d Seconds", numberOfSeconds];
+    }
 }
 
 -(IBAction)sliderValueChanged:(id)sender
 {
     NSInteger numberOfMinutes = (NSInteger)self.minutesSlider.value;
     NSInteger numberOfSeconds = (NSInteger)self.secondsSlider.value;
-    self.minutesLabel.text = [NSString stringWithFormat:@"%d Minutes", numberOfMinutes];
-    self.secondsLabel.text = [NSString stringWithFormat:@"%d Seconds", numberOfSeconds];
+    
+    [self updateLabelWithMinutes:numberOfMinutes seconds:numberOfSeconds];
+    
+    // self.minutesLabel.text = [NSString stringWithFormat:@"%d Minutes", numberOfMinutes];
+    // self.secondsLabel.text = [NSString stringWithFormat:@"%d Seconds", numberOfSeconds];
 }
 
 - (void)didReceiveMemoryWarning
