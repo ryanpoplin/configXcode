@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface ECTViewController : UIViewController
+
 - (IBAction)resetButton:(id)sender;
+
 - (IBAction)startButton:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;
+
 @property (weak, nonatomic) IBOutlet UIDatePicker *countDownTimer;
 
 @end

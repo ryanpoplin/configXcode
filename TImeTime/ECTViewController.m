@@ -11,19 +11,26 @@
 @interface ECTViewController ()
 {
     int afterRemainder;
+   
     int remainder;
+    
     int bgConSum;
+    
     // config a toggle for this button for pause and start...
+    
     IBOutlet UIButton *startButton;
+    
     NSTimer *autoTimer;
+    
     NSTimeInterval countDownInterval;
+
 }
+
 @end
 
 @implementation ECTViewController
 
 - (void)viewDidLoad
-
 {
     
     [super viewDidLoad];
@@ -31,26 +38,36 @@
 }
 
 - (void)didReceiveMemoryWarning
-
 {
     
     [super didReceiveMemoryWarning];
     
 }
 
-- (IBAction)resetButton:(id)sender {
-    self.view.backgroundColor = [UIColor whiteColor];
-    [autoTimer invalidate];
-    autoTimer = nil;
-    self.displayLabel.text = @"00 h : 00 m : 00 s";
+- (IBAction)startButton:(id)sender {
+
+    countDownInterval = (NSTimeInterval)_countDownTimer.countDownDuration;
+    
+    remainder = countDownInterval;
+    
+    afterRemainder = countDownInterval - remainder % 60;
+    
+    bgConSum = afterRemainder;
+    
+    autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+
 }
 
-- (IBAction)startButton:(id)sender {
-    countDownInterval = (NSTimeInterval)_countDownTimer.countDownDuration;
-    remainder = countDownInterval;
-    afterRemainder = countDownInterval - remainder % 60;
-    bgConSum = afterRemainder;
-    autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+- (IBAction)resetButton:(id)sender {
+
+    [autoTimer invalidate];
+    
+    autoTimer = nil;
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.displayLabel.text = @"00 h : 00 m : 00 s";
+    
 }
 
 - (void)updateCountDown {
@@ -58,8 +75,11 @@
     NSLog(@"%d", afterRemainder);
     
     static dispatch_once_t onceToken;
+
     dispatch_once(&onceToken, ^{
+    
         self.view.backgroundColor = [UIColor greenColor];
+    
     });
     
     afterRemainder --;
