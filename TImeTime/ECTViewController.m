@@ -27,7 +27,6 @@
 {
     
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
     
 }
 
@@ -40,9 +39,9 @@
 }
 
 - (IBAction)resetButton:(id)sender {
+    self.view.backgroundColor = [UIColor whiteColor];
     [autoTimer invalidate];
     autoTimer = nil;
-    self.view.backgroundColor = [UIColor whiteColor];
     self.displayLabel.text = @"00 h : 00 m : 00 s";
 }
 
@@ -57,6 +56,11 @@
 - (void)updateCountDown {
     
     NSLog(@"%d", afterRemainder);
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        self.view.backgroundColor = [UIColor greenColor];
+    });
     
     afterRemainder --;
     
