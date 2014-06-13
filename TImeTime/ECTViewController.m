@@ -108,7 +108,7 @@
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:bgConSum / 5];
+        [UIView setAnimationDuration:2.0];
         
         self.view.backgroundColor = [UIColor redColor];
         
