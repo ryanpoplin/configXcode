@@ -13,9 +13,7 @@
     int afterRemainder;
     int remainder;
     int bgConSum;
-    int threeFourthsWay;
-    int halfWay;
-    int quarterWay;
+    // config a toggle for this button for pause and start...
     IBOutlet UIButton *startButton;
     NSTimer *autoTimer;
     NSTimeInterval countDownInterval;
@@ -29,7 +27,8 @@
 {
     
     [super viewDidLoad];
-
+    self.view.backgroundColor = [UIColor greenColor];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,66 +41,107 @@
 
 - (IBAction)resetButton:(id)sender {
     [autoTimer invalidate];
+    autoTimer = nil;
+    self.view.backgroundColor = [UIColor whiteColor];
     self.displayLabel.text = @"00 h : 00 m : 00 s";
-    startButton.enabled = YES;
 }
 
 - (IBAction)startButton:(id)sender {
     countDownInterval = (NSTimeInterval)_countDownTimer.countDownDuration;
     remainder = countDownInterval;
-    afterRemainder = countDownInterval - remainder%60;
+    afterRemainder = countDownInterval - remainder % 60;
     bgConSum = afterRemainder;
-    threeFourthsWay = bgConSum * 0.75;
-    halfWay = bgConSum / 2;
-    quarterWay = bgConSum * 0.25;
     autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
-    startButton.enabled = NO;
 }
 
 - (void)updateCountDown {
+    
     NSLog(@"%d", afterRemainder);
+    
     afterRemainder --;
-    if (afterRemainder > threeFourthsWay) {
-        [UIView animateWithDuration:1.0 animations:^{
-            self.view.backgroundColor = [UIColor greenColor];
-        }];
+    
+    if (afterRemainder > bgConSum * 0.75) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor yellowColor];
+        
         [UIView commitAnimations];
-    } else if (afterRemainder > halfWay) {
-        [UIView animateWithDuration:1.0 animations:^{
-            self.view.backgroundColor = [UIColor blueColor];
-        }];
+    
+    } else if (afterRemainder < bgConSum * 0.75 && afterRemainder > bgConSum / 2) {
+    
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor orangeColor];
+        
         [UIView commitAnimations];
-    } else if (afterRemainder > quarterWay) {
-        [UIView animateWithDuration:1.0 animations:^{
-            self.view.backgroundColor = [UIColor yellowColor];
-        }];
+    
+    } else if (afterRemainder < bgConSum / 2 && afterRemainder > bgConSum * 0.25) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor blueColor];
+        
         [UIView commitAnimations];
-    } else if (afterRemainder > 0) {
-        [UIView animateWithDuration:1.0 animations:^{
-            self.view.backgroundColor = [UIColor orangeColor];
-        }];
+    
+    } else if (afterRemainder < bgConSum * 0.25 && afterRemainder > 0) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor purpleColor];
+        
         [UIView commitAnimations];
+        
     } else if (afterRemainder == 0) {
-        [UIView animateWithDuration:1.0 animations:^{
-            self.view.backgroundColor = [UIColor redColor];
-        }];
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor redColor];
+        
         [UIView commitAnimations];
+        
         [autoTimer invalidate];
+        
         autoTimer = nil;
+    
     }
+    
     int hours = (int)(afterRemainder/(60*60));
+    
     int mins = (int)(((int)afterRemainder/60)-(hours*60));
+    
     int secs = (int)(((int)afterRemainder-(60*mins)-(60*hours*60)));
+    
     if (hours != 0 && mins != 0 && secs != 0) {
+    
         NSString *displayText = [[NSString alloc] initWithFormat:@"%2u h : %2u m : %02u s", hours, mins, secs];
+        
         self.displayLabel.text = displayText;
+    
     } else if (hours == 0 && mins != 0) {
+    
         NSString *displayText = [[NSString alloc] initWithFormat:@"%2u m : %02u s", mins, secs];
+        
         self.displayLabel.text = displayText;
+    
     } else if (hours == 0 && mins == 0 && secs >= 0) {
+    
         NSString *displayText = [[NSString alloc] initWithFormat:@"%2u s", secs];
+        
         self.displayLabel.text = displayText;
+
     }
+
 }
 
 @end
