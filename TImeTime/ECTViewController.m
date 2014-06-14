@@ -10,13 +10,12 @@
 
 @interface ECTViewController ()
 {
+    
     int afterRemainder;
    
     int remainder;
     
     int bgConSum;
-    
-    // config a toggle for this button for pause and start...
     
     IBOutlet UIButton *startButton;
     
