@@ -17,6 +17,8 @@
     
     int bgConSum;
     
+    BOOL boolean;
+    
     IBOutlet UIButton *startButton;
     
     NSTimer *autoTimer;
@@ -34,6 +36,25 @@
     
     [super viewDidLoad];
     
+    // assumes global UIPickerView declared. Move the frame to wherever you want it
+    /*picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 200)];
+    picker.dataSource = self;
+    picker.delegate = self;
+    
+    UILabel *hourLabel = [[UILabel alloc] initWithFrame:CGRectMake(42, picker.frame.size.height / 2 - 15, 75, 30)];
+    hourLabel.text = @"hour";
+    [picker addSubview:hourLabel];
+    
+    UILabel *minsLabel = [[UILabel alloc] initWithFrame:CGRectMake(42 + (picker.frame.size.width / 3), picker.frame.size.height / 2 - 15, 75, 30)];
+    minsLabel.text = @"min";
+    [picker addSubview:minsLabel];
+    
+    UILabel *secsLabel = [[UILabel alloc] initWithFrame:CGRectMake(42 + ((picker.frame.size.width / 3) * 2), picker.frame.size.height / 2 - 15, 75, 30)];
+    secsLabel.text = @"sec";
+    [picker addSubview:secsLabel];
+    
+    [self.view addSubview:picker];*/
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,6 +65,18 @@
 }
 
 - (IBAction)startButton:(id)sender {
+    
+    boolean = !boolean;
+    
+    if (boolean == false) {
+        
+        [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+        
+    } else {
+        
+        [startButton setTitle:NSLocalizedString(@"Pause", @"Pause It...") forState: UIControlStateNormal];
+        
+    }
 
     countDownInterval = (NSTimeInterval)_countDownTimer.countDownDuration;
     
@@ -65,6 +98,10 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+    
+    boolean = false;
+    
     self.displayLabel.text = @"00 h : 00 m : 00 s";
     
 }
@@ -72,6 +109,8 @@
 - (void)updateCountDown {
     
     NSLog(@"%d", afterRemainder);
+    
+    // MITIGATE...
     
     static dispatch_once_t onceToken;
 

@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+// TESTING GLOBAL...
+// UIDatePicker *picker;
+
 @interface ECTViewController : UIViewController
 
 - (IBAction)resetButton:(id)sender;
