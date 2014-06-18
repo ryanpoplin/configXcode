@@ -74,7 +74,7 @@
         
     } else {
     
-        convertedHours = 1 + userHours * (60 * 60);
+        convertedHours = userHours * (60 * 60);
         
     }
     
@@ -84,7 +84,7 @@
         
     } else {
         
-        convertedMinutes = 1 + userMinutes * 60;
+        convertedMinutes = userMinutes * 60;
         
     }
     
