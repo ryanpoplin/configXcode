@@ -94,7 +94,7 @@
         
     } else {
         
-        convertedSeconds = userSeconds + 1;
+        convertedSeconds = userSeconds;
         
     }
     
@@ -116,7 +116,7 @@
 
     // countDownInterval = (NSTimeInterval)_countDownTimer.countDownDuration;
     
-    countDownInterval = convertedHours + convertedMinutes + convertedSeconds;
+    countDownInterval = 1 + convertedHours + convertedMinutes + convertedSeconds;
     
     remainder = countDownInterval;
     
