@@ -11,13 +11,23 @@
 @interface ECTViewController ()
 {
     
+    int userHours;
+    
+    int userMinutes;
+    
+    int userSeconds;
+    
+    int convertedHours;
+    
+    int convertedMinutes;
+    
+    int convertedSeconds;
+    
     int afterRemainder;
    
     int remainder;
     
     int bgConSum;
-    
-    BOOL boolean;
     
     IBOutlet UIButton *startButton;
     
@@ -27,34 +37,20 @@
 
 }
 
+@property (nonatomic, strong) NSDate *startTime;
+@property (nonatomic) NSTimeInterval totalTime;
+@property (nonatomic) BOOL isRunning;
+@property (nonatomic, strong) void (^updateBlock)();
+
 @end
 
 @implementation ECTViewController
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
-    
-    // assumes global UIPickerView declared. Move the frame to wherever you want it
-    /*picker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 200)];
-    picker.dataSource = self;
-    picker.delegate = self;
-    
-    UILabel *hourLabel = [[UILabel alloc] initWithFrame:CGRectMake(42, picker.frame.size.height / 2 - 15, 75, 30)];
-    hourLabel.text = @"hour";
-    [picker addSubview:hourLabel];
-    
-    UILabel *minsLabel = [[UILabel alloc] initWithFrame:CGRectMake(42 + (picker.frame.size.width / 3), picker.frame.size.height / 2 - 15, 75, 30)];
-    minsLabel.text = @"min";
-    [picker addSubview:minsLabel];
-    
-    UILabel *secsLabel = [[UILabel alloc] initWithFrame:CGRectMake(42 + ((picker.frame.size.width / 3) * 2), picker.frame.size.height / 2 - 15, 75, 30)];
-    secsLabel.text = @"sec";
-    [picker addSubview:secsLabel];
-    
-    [self.view addSubview:picker];*/
-    
+ 
+    self.isRunning = false;
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,41 +62,89 @@
 
 - (IBAction)startButton:(id)sender {
     
-    boolean = !boolean;
+    self.startTime = [[NSDate alloc] init];
     
-    if (boolean == false) {
+    self.startTime = [NSDate date];
+    
+    // FOR CLARITY...
+    
+    if (userHours == 0) {
+        
+        convertedHours = 0;
+        
+    } else {
+    
+        convertedHours = userHours * (60 * 60);
+        
+    }
+    
+    if (userMinutes == 0) {
+        
+        userMinutes = 0;
+        
+    } else {
+        
+        convertedMinutes = userMinutes * 60;
+        
+    }
+    
+    if (userSeconds == 0) {
+        
+        convertedSeconds = 0;
+        
+    } else {
+        
+        convertedSeconds = userSeconds;
+        
+    }
+    
+    self.totalTime = convertedHours + convertedMinutes + convertedSeconds;
+    
+    self.isRunning = !self.isRunning;
+    
+    if (self.isRunning == false) {
         
         [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
         
     } else {
         
+        [self.view setBackgroundColor:[UIColor greenColor]];
+        
         [startButton setTitle:NSLocalizedString(@"Pause", @"Pause It...") forState: UIControlStateNormal];
         
     }
 
-    countDownInterval = (NSTimeInterval)_countDownTimer.countDownDuration;
+    // countDownInterval = (NSTimeInterval)_countDownTimer.countDownDuration;
+    
+    countDownInterval = convertedHours + convertedMinutes + convertedSeconds;
     
     remainder = countDownInterval;
     
-    afterRemainder = countDownInterval - remainder % 60;
+    // afterRemainder = countDownInterval - remainder % 60;
+    
+    afterRemainder = countDownInterval;
     
     bgConSum = afterRemainder;
     
     autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
-
+    
 }
 
-- (IBAction)resetButton:(id)sender {
+/* RESET METHOD... */
 
+- (IBAction)resetButton:(id)sender {
+    
     [autoTimer invalidate];
     
     autoTimer = nil;
     
+    [UIView beginAnimations:nil context:nil];
+
     self.view.backgroundColor = [UIColor whiteColor];
     
     [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
     
-    boolean = false;
+    self.isRunning = false;
     
     self.displayLabel.text = @"00 h : 00 m : 00 s";
     
@@ -108,19 +152,13 @@
 
 - (void)updateCountDown {
     
+    [self updateCountDown2];
+    
     NSLog(@"%d", afterRemainder);
     
     // MITIGATE...
     
-    static dispatch_once_t onceToken;
-
-    dispatch_once(&onceToken, ^{
-    
-        self.view.backgroundColor = [UIColor greenColor];
-    
-    });
-    
-    afterRemainder --;
+    afterRemainder--;
     
     if (afterRemainder > bgConSum * 0.75) {
         
@@ -128,7 +166,7 @@
         
         [UIView setAnimationDuration:bgConSum / 5];
         
-        self.view.backgroundColor = [UIColor yellowColor];
+        self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
         
         [UIView commitAnimations];
     
@@ -138,7 +176,7 @@
         
         [UIView setAnimationDuration:bgConSum / 5];
         
-        self.view.backgroundColor = [UIColor orangeColor];
+        self.view.backgroundColor = [UIColor yellowColor];
         
         [UIView commitAnimations];
     
@@ -148,7 +186,7 @@
         
         [UIView setAnimationDuration:bgConSum / 5];
         
-        self.view.backgroundColor = [UIColor blueColor];
+        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:174.0/255.0 blue:66.0/255.0 alpha:1];
         
         [UIView commitAnimations];
     
@@ -158,7 +196,7 @@
         
         [UIView setAnimationDuration:bgConSum / 5];
         
-        self.view.backgroundColor = [UIColor purpleColor];
+        self.view.backgroundColor = [UIColor orangeColor];
         
         [UIView commitAnimations];
         
@@ -206,4 +244,43 @@
 
 }
 
+- (void)updateCountDown2
+{
+
+    NSTimeInterval elapsedTime = -[self.startTime timeIntervalSinceNow];
+    
+    CGFloat elapsedPercent = elapsedTime / self.totalTime;
+    
+    NSLog(@"Elapsed Percent: %f", elapsedPercent);
+
+}
+
+- (IBAction)hoursMoved:(id)sender {
+    
+    UISlider *hourSlider = (UISlider *)sender;
+    NSString *sliderValueAsStringHours = [NSString stringWithFormat:@"%d Hours", (int)[hourSlider value]];
+    self.hourLabel.text = sliderValueAsStringHours;
+    userHours = (int)[hourSlider value];
+    
+}
+
+- (IBAction)minutesMoved:(id)sender {
+
+    UISlider *minuteSlider = (UISlider *)sender;
+    NSString *sliderValueAsStringMinutes = [NSString stringWithFormat:@"%d Minutes", (int)[minuteSlider value]];
+    self.minuteLabel.text = sliderValueAsStringMinutes;
+    userMinutes = (int)[minuteSlider value];
+
+}
+
+- (IBAction)secondsMoved:(id)sender {
+
+    UISlider *secondSlider = (UISlider *)sender;
+    NSString *sliderValueAsStringSeconds = [NSString stringWithFormat:@"%d Seconds", (int)[secondSlider value]];
+    self.secondLabel.text = sliderValueAsStringSeconds;
+    userSeconds = (int)[secondSlider value];
+    
+}
+
 @end
+

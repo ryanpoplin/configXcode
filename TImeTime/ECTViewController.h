@@ -17,8 +17,24 @@
 
 - (IBAction)startButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISlider *hourSlider;
+
+@property (weak, nonatomic) IBOutlet UISlider *minuteSlider;
+
+@property (weak, nonatomic) IBOutlet UISlider *secondsSlider;
+
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;
 
-@property (weak, nonatomic) IBOutlet UIDatePicker *countDownTimer;
+@property (weak, nonatomic) IBOutlet UILabel *hourLabel;
+
+- (IBAction)hoursMoved:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *minuteLabel;
+
+- (IBAction)minutesMoved:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UILabel *secondLabel;
+
+- (IBAction)secondsMoved:(id)sender;
 
 @end
