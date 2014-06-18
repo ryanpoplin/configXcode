@@ -48,9 +48,13 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
  
     self.isRunning = false;
+    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
