@@ -104,9 +104,19 @@
 
 - (IBAction)startButton:(id)sender {
     
-    if (afterRemainder > 0) {
-        
-    }
+    self.hourLabel.hidden = YES;
+    
+    self.minuteLabel.hidden = YES;
+    
+    self.secondLabel.hidden = YES;
+    
+    self.hourSlider.hidden = YES;
+    
+    self.minuteSlider.hidden = YES;
+    
+    self.secondsSlider.hidden = YES;
+    
+    self.settingsButton.hidden = YES;
     
     [startButton setEnabled: NO];
     
@@ -213,7 +223,23 @@
     
     self.displayLabel.text = @"00 h : 00 m : 00 s";
     
+    self.hourLabel.hidden = NO;
+    
+    self.minuteLabel.hidden = NO;
+    
+    self.secondLabel.hidden = NO;
+    
+    self.hourSlider.hidden = NO;
+    
+    self.minuteSlider.hidden = NO;
+    
+    self.secondsSlider.hidden = NO;
+    
+    self.settingsButton.hidden = NO;
+    
     [startButton setEnabled: YES];
+    
+    self.settingsButton.hidden = NO;
     
 }
 
@@ -287,7 +313,6 @@
         
         // Figure out the alarm with sound and vibrations...
         // SystemSound.Vibrate.PlayAlertSound()
-
         
     }
     
