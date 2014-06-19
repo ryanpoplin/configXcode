@@ -8,6 +8,7 @@
 //
 
 #import "ECTViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 // Defining the implementation of the ECTViewController...
 
@@ -30,6 +31,8 @@
     // Pause Functionality...
     
     BOOL pauseBool;
+    
+    int pauseTracker;
     
     int pauseTime;
     
@@ -66,10 +69,21 @@
 {
     
     [super viewDidLoad];
+    
+    [[_startButton layer] setBorderWidth:0.5f];
+    [[_startButton layer] setBorderColor:[UIColor grayColor].CGColor];
+    
+    [[_pauseButton layer] setBorderWidth:0.5f];
+    [[_pauseButton layer] setBorderColor:[UIColor grayColor].CGColor];
+    
+    [[_resetButton layer] setBorderWidth:0.5f];
+    [[_resetButton layer] setBorderColor:[UIColor grayColor].CGColor];
  
     self.isRunning = false;
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
+    self.resetButton.enabled = NO;
     
     self.pauseButton.enabled = NO;
     
@@ -111,6 +125,12 @@
 /* START BUTTON METHOD... */
 
 - (IBAction)startButton:(id)sender {
+    
+    self.userOptionOne.hidden = YES;
+    
+    self.userOptionTwo.hidden = YES;
+    
+    self.resetButton.enabled = YES;
     
     self.hourLabel.hidden = YES;
     
@@ -170,13 +190,9 @@
         
         [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
         
-        // pauseBool = NO;
-        
     } else {
         
         [self.view setBackgroundColor:[UIColor greenColor]];
-        
-        // [startButton setTitle:NSLocalizedString(@"Pause", @"Pause It...") forState: UIControlStateNormal];
         
     }
     
@@ -188,7 +204,9 @@
         
         afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
         
-        // Config the pause algorithm...
+        // What's the difference between a formula and an algorithm?
+        
+        
         
         afterRemainder -= pauseTime;
         
@@ -214,6 +232,12 @@
 /* RESET METHOD... */
 
 - (IBAction)resetButton:(id)sender {
+    
+    self.resetButton.enabled = NO;
+    
+    self.userOptionTwo.hidden = NO;
+    
+    self.userOptionOne.hidden = NO;
     
     [autoTimer invalidate];
     
