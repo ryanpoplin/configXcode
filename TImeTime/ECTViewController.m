@@ -9,6 +9,13 @@
 
 #import "ECTViewController.h"
 
+/*
+ 
+ 1. When I press the pause button, a pauseMeth runs that invals the NSTimer...
+ 2. Get the original afterRemainder value and subtract it by the current seconds remaining;
+ 
+*/
+
 // Defining the implementation of the ECTViewController...
 
 @interface ECTViewController ()
@@ -26,6 +33,14 @@
     int convertedMinutes;
     
     int convertedSeconds;
+    
+    // Pause Functionality...
+    
+    BOOL pauseBool;
+    
+    int pauseTime;
+    
+    // Pause Functionality...
     
     int afterRemainder;
    
@@ -71,15 +86,34 @@
     
 }
 
+// PAUSE BUTTON METHOD...
+
 - (IBAction)pauseMeth:(id)sender {
+    
+    [startButton setEnabled: YES];
+    
+    [_pauseButton setEnabled: NO];
     
     [autoTimer invalidate];
     
+    // redundant???...
     autoTimer = nil;
+    
+    pauseBool = true;
+    
+    pauseTime = bgConSum - afterRemainder;
+    
+    NSLog(@"%d", pauseTime);
     
 }
 
+/* START BUTTON METHOD... */
+
 - (IBAction)startButton:(id)sender {
+    
+    [startButton setEnabled: NO];
+    
+    [_pauseButton setEnabled: YES];
     
     self.startTime = [[NSDate alloc] init];
     
@@ -123,22 +157,43 @@
         
         [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
         
+        // pauseBool = NO;
+        
     } else {
         
         [self.view setBackgroundColor:[UIColor greenColor]];
         
-        [startButton setTitle:NSLocalizedString(@"Pause", @"Pause It...") forState: UIControlStateNormal];
+        // [startButton setTitle:NSLocalizedString(@"Pause", @"Pause It...") forState: UIControlStateNormal];
         
     }
     
-    countDownInterval = 1 + convertedHours + convertedMinutes;
+    if (pauseBool) {
+        
+        countDownInterval = 1 + convertedHours + convertedMinutes;
+        
+        remainder = countDownInterval;
+        
+        afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
+        
+        // Config the pause algorithm...
+        
+        afterRemainder -= pauseTime;
+        
+        pauseBool = false;
+        
+    } else {
+        
+        countDownInterval = 1 + convertedHours + convertedMinutes;
     
-    remainder = countDownInterval;
+        remainder = countDownInterval;
     
-    afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
+        afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
     
+    }
+        
     bgConSum = afterRemainder;
     
+        
     autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
     
 }
@@ -170,8 +225,6 @@
     [self updateCountDown2];
     
     NSLog(@"%d", afterRemainder);
-    
-    // MITIGATE...
     
     afterRemainder--;
     
@@ -229,10 +282,15 @@
         
         [startButton setEnabled: NO];
         
+        [_pauseButton setEnabled: NO];
+        
         [autoTimer invalidate];
         
         autoTimer = nil;
-    
+        
+        // SystemSound.Vibrate.PlayAlertSound()
+
+        
     }
     
     int hours = (int)(afterRemainder/(60*60));
