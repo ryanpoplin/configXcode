@@ -9,13 +9,6 @@
 
 #import "ECTViewController.h"
 
-/*
- 
- 1. When I press the pause button, a pauseMeth runs that invals the NSTimer...
- 2. Get the original afterRemainder value and subtract it by the current seconds remaining;
- 
-*/
-
 // Defining the implementation of the ECTViewController...
 
 @interface ECTViewController ()
@@ -110,6 +103,10 @@
 /* START BUTTON METHOD... */
 
 - (IBAction)startButton:(id)sender {
+    
+    if (afterRemainder > 0) {
+        
+    }
     
     [startButton setEnabled: NO];
     
@@ -288,6 +285,7 @@
         
         autoTimer = nil;
         
+        // Figure out the alarm with sound and vibrations...
         // SystemSound.Vibrate.PlayAlertSound()
 
         

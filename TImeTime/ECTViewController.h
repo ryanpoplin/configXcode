@@ -41,4 +41,6 @@
 
 - (IBAction)pauseMeth:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+
 @end
