@@ -124,7 +124,7 @@
             </objects>
             <point key="canvasLocation" x="-432" y="474"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Settings-->
         <scene sceneID="dFQ-u2-gO0">
             <objects>
                 <viewController id="NJ7-Qr-tIr" sceneMemberID="viewController">
@@ -132,10 +132,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uqi-KK-qTs">
-                                <rect key="frame" x="20" y="150" width="280" height="40"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Color Options:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uqi-KK-qTs">
+                                <rect key="frame" x="14" y="150" width="292" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -150,7 +150,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ocD-Wy-Hps"/>
+                    <navigationItem key="navigationItem" title="Settings" id="ocD-Wy-Hps"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v5V-fs-3iP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
