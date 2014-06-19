@@ -13,6 +13,10 @@
 
 @interface ECTViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
+
 - (IBAction)resetButton:(id)sender;
 
 - (IBAction)startButton:(id)sender;
@@ -40,7 +44,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 
 - (IBAction)pauseMeth:(id)sender;
-
-@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
 
 @end

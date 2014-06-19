@@ -57,6 +57,8 @@
 
 @end
 
+// FIGURE OUT THE AUTOSYNTH ISSUE WITH THE START BUTTON PROP...
+
 @implementation ECTViewController
 
 - (void)viewDidLoad
@@ -68,6 +70,12 @@
     self.isRunning = false;
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
+    self.pauseButton.enabled = NO;
+    
+    /*[self->startButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
+    [self.pauseButton.layer setBorderColor:[[UIColor blackColor] CGColor]];*/
+    // [self.resetButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
     
 }
 
@@ -83,7 +91,7 @@
 
 - (IBAction)pauseMeth:(id)sender {
     
-    [startButton setEnabled: YES];
+    [_startButton setEnabled: YES];
     
     [_pauseButton setEnabled: NO];
     
@@ -116,9 +124,7 @@
     
     self.secondsSlider.hidden = YES;
     
-    self.settingsButton.hidden = YES;
-    
-    [startButton setEnabled: NO];
+    [_startButton setEnabled: NO];
     
     [_pauseButton setEnabled: YES];
     
@@ -162,7 +168,7 @@
     
     if (self.isRunning == false) {
         
-        [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+        [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
         
         // pauseBool = NO;
         
@@ -217,7 +223,7 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+    [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
     
     self.isRunning = false;
     
@@ -235,11 +241,9 @@
     
     self.secondsSlider.hidden = NO;
     
-    self.settingsButton.hidden = NO;
+    [_startButton setEnabled: YES];
     
-    [startButton setEnabled: YES];
-    
-    self.settingsButton.hidden = NO;
+    [_pauseButton setEnabled: NO];
     
 }
 
