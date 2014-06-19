@@ -1,3 +1,4 @@
+
 //
 //  ECTViewController.m
 //  TImeTime
@@ -8,7 +9,10 @@
 
 #import "ECTViewController.h"
 
+// Defining the implementation of the ECTViewController...
+
 @interface ECTViewController ()
+
 {
     
     int userHours;
@@ -37,6 +41,7 @@
 
 }
 
+// Props. def. in the @interface ... @end...
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic) NSTimeInterval totalTime;
 @property (nonatomic) BOOL isRunning;
@@ -47,6 +52,7 @@
 @implementation ECTViewController
 
 - (void)viewDidLoad
+
 {
     
     [super viewDidLoad];
@@ -58,9 +64,18 @@
 }
 
 - (void)didReceiveMemoryWarning
+
 {
     
     [super didReceiveMemoryWarning];
+    
+}
+
+- (IBAction)pauseMeth:(id)sender {
+    
+    [autoTimer invalidate];
+    
+    autoTimer = nil;
     
 }
 
@@ -84,7 +99,7 @@
     
     if (userMinutes == 0) {
         
-        userMinutes = 0;
+        convertedMinutes = 0;
         
     } else {
         
@@ -102,8 +117,6 @@
         
     }
     
-    self.totalTime = convertedHours + convertedMinutes + convertedSeconds;
-    
     self.isRunning = !self.isRunning;
     
     if (self.isRunning == false) {
@@ -117,16 +130,12 @@
         [startButton setTitle:NSLocalizedString(@"Pause", @"Pause It...") forState: UIControlStateNormal];
         
     }
-
-    // countDownInterval = (NSTimeInterval)_countDownTimer.countDownDuration;
     
-    countDownInterval = 1 + convertedHours + convertedMinutes + convertedSeconds;
+    countDownInterval = 1 + convertedHours + convertedMinutes;
     
     remainder = countDownInterval;
     
-    // afterRemainder = countDownInterval - remainder % 60;
-    
-    afterRemainder = countDownInterval;
+    afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
     
     bgConSum = afterRemainder;
     
@@ -151,6 +160,8 @@
     self.isRunning = false;
     
     self.displayLabel.text = @"00 h : 00 m : 00 s";
+    
+    [startButton setEnabled: YES];
     
 }
 
@@ -214,6 +225,10 @@
         
         [UIView commitAnimations];
         
+        [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+        
+        [startButton setEnabled: NO];
+        
         [autoTimer invalidate];
         
         autoTimer = nil;
@@ -226,9 +241,9 @@
     
     int secs = (int)(((int)afterRemainder-(60*mins)-(60*hours*60)));
     
-    if (hours != 0 && mins != 0 && secs != 0) {
+    if (hours != 0) {
     
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u h : %2u m : %02u s", hours, mins, secs];
+        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u h : %02u m : %02u s", hours, mins, secs];
         
         self.displayLabel.text = displayText;
     
@@ -249,6 +264,7 @@
 }
 
 - (void)updateCountDown2
+
 {
 
     NSTimeInterval elapsedTime = -[self.startTime timeIntervalSinceNow];

@@ -37,4 +37,8 @@
 
 - (IBAction)secondsMoved:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+
+- (IBAction)pauseMeth:(id)sender;
+
 @end

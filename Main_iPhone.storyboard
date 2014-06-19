@@ -81,6 +81,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B4f-z1-Lvj">
+                                <rect key="frame" x="139" y="439" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pauseMeth:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cIS-Br-lrr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NsA-c1-QLG">
+                                <rect key="frame" x="116" y="477" width="89" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Paused Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -91,6 +108,7 @@
                         <outlet property="hourSlider" destination="HQt-FU-BCc" id="kbT-Qm-zK0"/>
                         <outlet property="minuteLabel" destination="udI-46-5QZ" id="15i-de-ssw"/>
                         <outlet property="minuteSlider" destination="W9Y-mO-7O7" id="U97-86-We5"/>
+                        <outlet property="pauseButton" destination="B4f-z1-Lvj" id="Uld-Ie-Aqi"/>
                         <outlet property="secondLabel" destination="sdv-fC-NoO" id="lSm-Q6-9mT"/>
                         <outlet property="secondsSlider" destination="G1J-mf-2Fv" id="k2N-07-eRa"/>
                         <outlet property="startButton" destination="OVf-MO-eWU" id="kZ9-gO-Sk9"/>
