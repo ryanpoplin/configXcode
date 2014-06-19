@@ -324,19 +324,19 @@
     
     if (hours != 0) {
     
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u h : %02u m : %02u s", hours, mins, secs];
+        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u : %02u ", hours, mins, secs];
         
         self.displayLabel.text = displayText;
     
     } else if (hours == 0 && mins != 0) {
     
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u m : %02u s", mins, secs];
+        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u ", mins, secs];
         
         self.displayLabel.text = displayText;
     
     } else if (hours == 0 && mins == 0 && secs >= 0) {
     
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u s", secs];
+        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
         
         self.displayLabel.text = displayText;
 
