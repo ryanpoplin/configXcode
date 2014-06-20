@@ -93,11 +93,19 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="8yQ-Bd-EF8">
-                                <rect key="frame" x="20" y="474" width="277" height="29"/>
+                                <rect key="frame" x="20" y="458" width="277" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Green to Red"/>
                                     <segment title="Red to Green"/>
+                                </segments>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="JMA-9O-WMb">
+                                <rect key="frame" x="20" y="506" width="277" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Animation"/>
+                                    <segment title="No Animation"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
@@ -115,6 +123,7 @@
                         <outlet property="secondLabel" destination="sdv-fC-NoO" id="lSm-Q6-9mT"/>
                         <outlet property="secondsSlider" destination="G1J-mf-2Fv" id="k2N-07-eRa"/>
                         <outlet property="startButton" destination="OVf-MO-eWU" id="bfP-my-uYz"/>
+                        <outlet property="userAnimation" destination="JMA-9O-WMb" id="h0S-pU-DJF"/>
                         <outlet property="userOptionOne" destination="8yQ-Bd-EF8" id="UGc-by-0Xq"/>
                     </connections>
                 </viewController>

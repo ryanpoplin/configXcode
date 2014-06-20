@@ -136,8 +136,8 @@
 - (IBAction)startButton:(id)sender {
     
     self.userOptionOne.hidden = YES;
-    
-    self.userOptionTwo.hidden = YES;
+
+    self.userAnimation.hidden = YES;
     
     self.resetButton.enabled = YES;
     
@@ -244,7 +244,7 @@
     
     self.resetButton.enabled = NO;
     
-    self.userOptionTwo.hidden = NO;
+    self.userAnimation.hidden = NO;
     
     self.userOptionOne.hidden = NO;
     
@@ -352,7 +352,7 @@
         
         autoTimer = nil;
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"You did it!" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         
         [alert show];
         
@@ -388,6 +388,112 @@
     }
 
 }
+
+- (void)updateCountDownReverse {
+    
+    [self updateCountDown2];
+    
+    NSLog(@"%d", afterRemainder);
+    
+    afterRemainder--;
+    
+    if (afterRemainder > bgConSum * 0.75) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
+        
+        [UIView commitAnimations];
+        
+    } else if (afterRemainder < bgConSum * 0.75 && afterRemainder > bgConSum / 2) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor yellowColor];
+        
+        [UIView commitAnimations];
+        
+    } else if (afterRemainder < bgConSum / 2 && afterRemainder > bgConSum * 0.25) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:174.0/255.0 blue:66.0/255.0 alpha:1];
+        
+        [UIView commitAnimations];
+        
+    } else if (afterRemainder < bgConSum * 0.25 && afterRemainder > 0) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor orangeColor];
+        
+        [UIView commitAnimations];
+        
+    } else if (afterRemainder == 0) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:2.0];
+        
+        self.view.backgroundColor = [UIColor redColor];
+        
+        [UIView commitAnimations];
+        
+        [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+        
+        [startButton setEnabled: NO];
+        
+        [_pauseButton setEnabled: NO];
+        
+        [autoTimer invalidate];
+        
+        autoTimer = nil;
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        
+        // AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        AudioServicesPlaySystemSound(1304);
+        
+    }
+    
+    int hours = (int)(afterRemainder/(60*60));
+    
+    int mins = (int)(((int)afterRemainder/60)-(hours*60));
+    
+    int secs = (int)(((int)afterRemainder-(60*mins)-(60*hours*60)));
+    
+    if (hours != 0) {
+        
+        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u : %02u ", hours, mins, secs];
+        
+        self.displayLabel.text = displayText;
+        
+    } else if (hours == 0 && mins != 0) {
+        
+        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u ", mins, secs];
+        
+        self.displayLabel.text = displayText;
+        
+    } else if (hours == 0 && mins == 0 && secs >= 0) {
+        
+        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
+        
+        self.displayLabel.text = displayText;
+        
+    }
+    
+}
+
 
 - (void)updateCountDown2
 
