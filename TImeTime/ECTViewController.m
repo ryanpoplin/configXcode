@@ -206,8 +206,6 @@
         
         // What's the difference between a formula and an algorithm?
         
-        
-        
         afterRemainder -= pauseTime;
         
         pauseBool = false;
