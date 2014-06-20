@@ -87,6 +87,14 @@
     
     self.pauseButton.enabled = NO;
     
+    self.displayLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
+
+    self.hourLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
+
+    self.minuteLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
+
+    self.secondLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
+    
     /*[self->startButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
     [self.pauseButton.layer setBorderColor:[[UIColor blackColor] CGColor]];*/
     // [self.resetButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
@@ -271,7 +279,7 @@
     
     self.displayLabel.frame = CGRectMake(20, 351, 280, 35);
     
-    self.displayLabel.font = [self.displayLabel.font fontWithSize:20];
+    self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
     
 }
 
