@@ -152,6 +152,10 @@
     
     self.startTime = [NSDate date];
     
+    self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
+    
+    self.displayLabel.font = [self.displayLabel.font fontWithSize:35];
+    
     // FOR CLARITY...
     
     if (userHours == 0) {
@@ -203,8 +207,6 @@
         remainder = countDownInterval;
         
         afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
-        
-        // What's the difference between a formula and an algorithm?
         
         afterRemainder -= pauseTime;
         
@@ -266,6 +268,10 @@
     [_startButton setEnabled: YES];
     
     [_pauseButton setEnabled: NO];
+    
+    self.displayLabel.frame = CGRectMake(20, 351, 280, 35);
+    
+    self.displayLabel.font = [self.displayLabel.font fontWithSize:20];
     
 }
 

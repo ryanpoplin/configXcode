@@ -25,7 +25,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 h : 00 m : 00 s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wmo-Vg-LEJ">
-                                <rect key="frame" x="17" y="335" width="280" height="54"/>
+                                <rect key="frame" x="17" y="340" width="280" height="54"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -85,7 +85,7 @@
                                 <rect key="frame" x="107" y="64" width="106" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.99511024599082165" green="1" blue="0.98096489669614351" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Pause">
+                                <state key="normal" title=" Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -93,19 +93,11 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="8yQ-Bd-EF8">
-                                <rect key="frame" x="20" y="416" width="277" height="29"/>
+                                <rect key="frame" x="20" y="474" width="277" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Green to Red"/>
                                     <segment title="Red to Green"/>
-                                </segments>
-                            </segmentedControl>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="jB6-DD-yVX">
-                                <rect key="frame" x="20" y="468" width="277" height="29"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="Animation"/>
-                                    <segment title="No Animation"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
@@ -124,7 +116,6 @@
                         <outlet property="secondsSlider" destination="G1J-mf-2Fv" id="k2N-07-eRa"/>
                         <outlet property="startButton" destination="OVf-MO-eWU" id="bfP-my-uYz"/>
                         <outlet property="userOptionOne" destination="8yQ-Bd-EF8" id="UGc-by-0Xq"/>
-                        <outlet property="userOptionTwo" destination="jB6-DD-yVX" id="UMi-TC-Z57"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
