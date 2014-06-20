@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A9F98E219537D7900A77EC6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9F98E119537D7900A77EC6 /* QuartzCore.framework */; };
+		5A9F98E41953F41600A77EC6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9F98E31953F41600A77EC6 /* AudioToolbox.framework */; };
 		5AD9525D194584B900A70F3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9525C194584B900A70F3C /* Foundation.framework */; };
 		5AD9525F194584B900A70F3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9525E194584B900A70F3C /* CoreGraphics.framework */; };
 		5AD95261194584B900A70F3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD95260194584B900A70F3C /* UIKit.framework */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		5A9F98E119537D7900A77EC6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5A9F98E31953F41600A77EC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5AD95259194584B900A70F3C /* TImeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TImeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD9525C194584B900A70F3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AD9525E194584B900A70F3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A9F98E41953F41600A77EC6 /* AudioToolbox.framework in Frameworks */,
 				5A9F98E219537D7900A77EC6 /* QuartzCore.framework in Frameworks */,
 				5AD9525F194584B900A70F3C /* CoreGraphics.framework in Frameworks */,
 				5AD95261194584B900A70F3C /* UIKit.framework in Frameworks */,
@@ -123,6 +126,7 @@
 		5AD9525B194584B900A70F3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A9F98E31953F41600A77EC6 /* AudioToolbox.framework */,
 				5A9F98E119537D7900A77EC6 /* QuartzCore.framework */,
 				5AD9525C194584B900A70F3C /* Foundation.framework */,
 				5AD9525E194584B900A70F3C /* CoreGraphics.framework */,

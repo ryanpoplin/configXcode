@@ -9,6 +9,7 @@
 
 #import "ECTViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 // Defining the implementation of the ECTViewController...
 
@@ -49,7 +50,7 @@
     NSTimer *autoTimer;
     
     NSTimeInterval countDownInterval;
-
+    
 }
 
 // Props. def. in the @interface ... @end...
@@ -351,8 +352,12 @@
         
         autoTimer = nil;
         
-        // Figure out the alarm with sound and vibrations...
-        // SystemSound.Vibrate.PlayAlertSound()
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"You did it!" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        
+        // AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        AudioServicesPlaySystemSound(1304);
         
     }
     
