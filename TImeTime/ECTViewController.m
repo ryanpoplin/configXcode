@@ -33,6 +33,10 @@
     
     BOOL pauseBool;
     
+    int currentPauseBuild;
+    
+    BOOL pausePress;
+    
     int pauseTracker;
     
     int pauseTime;
@@ -71,6 +75,8 @@
     
     [super viewDidLoad];
     
+    pausePress = true;
+    
     [[_startButton layer] setBorderWidth:0.5f];
     [[_startButton layer] setBorderColor:[UIColor grayColor].CGColor];
     
@@ -96,10 +102,6 @@
 
     self.secondLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
     
-    /*[self->startButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-    [self.pauseButton.layer setBorderColor:[[UIColor blackColor] CGColor]];*/
-    // [self.resetButton.layer setBorderColor:[[UIColor blackColor] CGColor]];
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -124,10 +126,8 @@
     autoTimer = nil;
     
     pauseBool = true;
-    
-    pauseTime = bgConSum - afterRemainder;
-    
-    NSLog(@"%d", pauseTime);
+        
+    pauseTime = pauseTracker;
     
 }
 
@@ -203,10 +203,10 @@
         
         [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
         
-    } else {
+    } else if (pausePress) {
         
         [self.view setBackgroundColor:[UIColor greenColor]];
-        
+                
     }
     
     if (pauseBool) {
@@ -217,7 +217,7 @@
         
         afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
         
-        afterRemainder -= pauseTime;
+        afterRemainder -= pauseTracker;
         
         pauseBool = false;
         
@@ -228,7 +228,7 @@
         remainder = countDownInterval;
     
         afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
-    
+        
     }
         
     bgConSum = afterRemainder;
@@ -241,6 +241,10 @@
 /* RESET METHOD... */
 
 - (IBAction)resetButton:(id)sender {
+    
+    pausePress = true;
+    
+    pauseTracker = 0;
     
     self.resetButton.enabled = NO;
     
@@ -289,6 +293,10 @@
     [self updateCountDown2];
     
     NSLog(@"%d", afterRemainder);
+    
+    pauseTracker++;
+    
+    NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
     
@@ -461,7 +469,6 @@
         
         [alert show];
         
-        // AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         AudioServicesPlaySystemSound(1304);
         
     }
