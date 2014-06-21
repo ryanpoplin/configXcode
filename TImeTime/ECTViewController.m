@@ -165,7 +165,7 @@
     
     self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
     
-    self.displayLabel.font = [self.displayLabel.font fontWithSize:35];
+    self.displayLabel.font = [self.displayLabel.font fontWithSize:45];
     
     if (userHours == 0) {
         
@@ -271,7 +271,7 @@
     
     self.isRunning = false;
     
-    self.displayLabel.text = @"00 h : 00 m : 00 s";
+    self.displayLabel.text = @"00 : 00 : 00";
     
     self.hourLabel.hidden = NO;
     
