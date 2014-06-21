@@ -60,6 +60,8 @@
 
 @end
 
+// ISSUE...
+
 @implementation ECTViewController
 
 - (void)viewDidLoad
@@ -305,7 +307,7 @@
     
     afterRemainder--;
     
-    if (afterRemainder > bgConSum * 0.75) {
+    if (afterRemainder > bgConSum * 0.80) {
         
         [UIView beginAnimations:nil context:nil];
         
@@ -314,9 +316,9 @@
         self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
         
         [UIView commitAnimations];
-    
-    } else if (afterRemainder < bgConSum * 0.75 && afterRemainder > bgConSum / 2) {
-    
+        
+    } else if (afterRemainder < bgConSum * 0.80 && afterRemainder > bgConSum * 0.60) {
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -325,23 +327,33 @@
         
         [UIView commitAnimations];
     
-    } else if (afterRemainder < bgConSum / 2 && afterRemainder > bgConSum * 0.25) {
+    } else if (afterRemainder < bgConSum * 0.60 && afterRemainder > bgConSum * 0.40) {
         
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
         
-        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:174.0/255.0 blue:66.0/255.0 alpha:1];
+        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
         
         [UIView commitAnimations];
-    
-    } else if (afterRemainder < bgConSum * 0.25 && afterRemainder > 0) {
+        
+    } else if (afterRemainder < bgConSum * 0.40 && afterRemainder > bgConSum * 0.20) {
         
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
         
         self.view.backgroundColor = [UIColor orangeColor];
+        
+        [UIView commitAnimations];
+    
+    } else if (afterRemainder < bgConSum * 0.20 && afterRemainder > 0) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
         
         [UIView commitAnimations];
         
@@ -405,15 +417,25 @@
     
     [self updateCountDown2];
     
+    NSLog(@"%d", afterRemainder);
+    
     pauseTracker++;
     
     NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
     
-    NSLog(@"%d", afterRemainder);
-    
-    if (afterRemainder > bgConSum * 0.75) {
+    if (afterRemainder > bgConSum * 0.80) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
+        
+        [UIView commitAnimations];
+        
+    } else if (afterRemainder < bgConSum * 0.80 && afterRemainder > bgConSum * 0.60) {
         
         [UIView beginAnimations:nil context:nil];
         
@@ -423,17 +445,17 @@
         
         [UIView commitAnimations];
         
-    } else if (afterRemainder < bgConSum * 0.75 && afterRemainder > bgConSum / 2) {
+    } else if (afterRemainder < bgConSum * 0.60 && afterRemainder > bgConSum * 0.40) {
         
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
-        
-        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:174.0/255.0 blue:66.0/255.0 alpha:1];
+
+        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
         
         [UIView commitAnimations];
         
-    } else if (afterRemainder < bgConSum / 2 && afterRemainder > bgConSum * 0.25) {
+    } else if (afterRemainder < bgConSum * 0.40 && afterRemainder > bgConSum * 0.20) {
         
         [UIView beginAnimations:nil context:nil];
         
@@ -443,7 +465,7 @@
         
         [UIView commitAnimations];
         
-    } else if (afterRemainder < bgConSum * 0.25 && afterRemainder > 0) {
+    } else if (afterRemainder < bgConSum * 0.20 && afterRemainder > 0) {
         
         [UIView beginAnimations:nil context:nil];
         
