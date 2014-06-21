@@ -11,8 +11,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-// Defining the implementation of the ECTViewController...
-
 @interface ECTViewController ()
 
 {
@@ -97,13 +95,7 @@
 
     self.secondLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
     
-    
-    // TESTING>>>
-    
-    bgColorOption = false;
-    
-    // TESTING>>>
-    
+    bgColorOption = true;
     
 }
 
@@ -113,6 +105,18 @@
     
     [super didReceiveMemoryWarning];
     
+}
+
+- (IBAction)segmentSwitch:(id)sender {
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    if (selectedSegment == 0) {
+        bgColorOption = true;
+
+    }
+    else{
+        bgColorOption = false;
+    }
 }
 
 - (IBAction)pauseMeth:(id)sender {
@@ -132,6 +136,8 @@
 }
 
 - (IBAction)startButton:(id)sender {
+    
+    self.colorSegment.hidden = YES;
     
     self.resetButton.enabled = YES;
     
@@ -242,6 +248,8 @@
 }
 
 - (IBAction)resetButton:(id)sender {
+    
+    self.colorSegment.hidden = NO;
     
     pausePress = true;
     

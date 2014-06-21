@@ -21,6 +21,8 @@
 
 - (IBAction)startButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *colorSegment;
+
 @property (weak, nonatomic) IBOutlet UISlider *hourSlider;
 
 @property (weak, nonatomic) IBOutlet UISlider *minuteSlider;
