@@ -29,8 +29,6 @@
     
     int convertedSeconds;
     
-    // Pause Functionality...
-    
     BOOL pauseBool;
     
     int currentPauseBuild;
@@ -40,8 +38,6 @@
     int pauseTracker;
     
     int pauseTime;
-    
-    // Pause Functionality...
     
     int afterRemainder;
    
@@ -57,15 +53,12 @@
     
 }
 
-// Props. def. in the @interface ... @end...
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic) NSTimeInterval totalTime;
 @property (nonatomic) BOOL isRunning;
 @property (nonatomic, strong) void (^updateBlock)();
 
 @end
-
-// FIGURE OUT THE AUTOSYNTH ISSUE WITH THE START BUTTON PROP...
 
 @implementation ECTViewController
 
@@ -112,8 +105,6 @@
     
 }
 
-// PAUSE BUTTON METHOD...
-
 - (IBAction)pauseMeth:(id)sender {
     
     [_startButton setEnabled: YES];
@@ -122,7 +113,6 @@
     
     [autoTimer invalidate];
     
-    // redundant???...
     autoTimer = nil;
     
     pauseBool = true;
@@ -130,8 +120,6 @@
     pauseTime = pauseTracker;
     
 }
-
-/* START BUTTON METHOD... */
 
 - (IBAction)startButton:(id)sender {
     
@@ -164,8 +152,6 @@
     self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:35];
-    
-    // FOR CLARITY...
     
     if (userHours == 0) {
         
@@ -206,7 +192,7 @@
     } else if (pausePress) {
         
         [self.view setBackgroundColor:[UIColor greenColor]];
-                
+        
     }
     
     if (pauseBool) {
@@ -237,8 +223,6 @@
     autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
     
 }
-
-/* RESET METHOD... */
 
 - (IBAction)resetButton:(id)sender {
     
@@ -364,7 +348,6 @@
         
         [alert show];
         
-        // AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         AudioServicesPlaySystemSound(1304);
         
     }
