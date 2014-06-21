@@ -13,10 +13,6 @@
 
 @interface ECTViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *userOptionOne;
-
-@property (weak, nonatomic) IBOutlet UISegmentedControl *userAnimation;
-
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;

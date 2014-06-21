@@ -45,6 +45,8 @@
     
     int bgConSum;
     
+    BOOL bgColorOption;
+    
     IBOutlet UIButton *startButton;
     
     NSTimer *autoTimer;
@@ -95,6 +97,14 @@
 
     self.secondLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
     
+    
+    // TESTING>>>
+    
+    bgColorOption = false;
+    
+    // TESTING>>>
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -122,10 +132,6 @@
 }
 
 - (IBAction)startButton:(id)sender {
-    
-    self.userOptionOne.hidden = YES;
-
-    self.userAnimation.hidden = YES;
     
     self.resetButton.enabled = YES;
     
@@ -189,9 +195,13 @@
         
         [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
         
-    } else if (pausePress) {
+    } else if (pausePress && bgColorOption == true) {
         
         [self.view setBackgroundColor:[UIColor greenColor]];
+        
+    } else if (pausePress && bgColorOption == false) {
+        
+        [self.view setBackgroundColor:[UIColor redColor]];
         
     }
     
@@ -219,8 +229,15 @@
         
     bgConSum = afterRemainder;
     
+    if (bgColorOption) {
         
-    autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+        autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+        
+    } else {
+        
+        autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+        
+    }
     
 }
 
@@ -231,10 +248,6 @@
     pauseTracker = 0;
     
     self.resetButton.enabled = NO;
-    
-    self.userAnimation.hidden = NO;
-    
-    self.userOptionOne.hidden = NO;
     
     [autoTimer invalidate];
     
@@ -266,7 +279,7 @@
     
     [_pauseButton setEnabled: NO];
     
-    self.displayLabel.frame = CGRectMake(20, 351, 280, 35);
+    self.displayLabel.frame = CGRectMake(20, 371, 280, 35);
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
     
@@ -384,41 +397,15 @@
     
     [self updateCountDown2];
     
-    NSLog(@"%d", afterRemainder);
+    pauseTracker++;
+    
+    NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
     
+    NSLog(@"%d", afterRemainder);
+    
     if (afterRemainder > bgConSum * 0.75) {
-        
-        [UIView beginAnimations:nil context:nil];
-        
-        [UIView setAnimationDuration:bgConSum / 5];
-        
-        self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
-        
-        [UIView commitAnimations];
-        
-    } else if (afterRemainder < bgConSum * 0.75 && afterRemainder > bgConSum / 2) {
-        
-        [UIView beginAnimations:nil context:nil];
-        
-        [UIView setAnimationDuration:bgConSum / 5];
-        
-        self.view.backgroundColor = [UIColor yellowColor];
-        
-        [UIView commitAnimations];
-        
-    } else if (afterRemainder < bgConSum / 2 && afterRemainder > bgConSum * 0.25) {
-        
-        [UIView beginAnimations:nil context:nil];
-        
-        [UIView setAnimationDuration:bgConSum / 5];
-        
-        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:174.0/255.0 blue:66.0/255.0 alpha:1];
-        
-        [UIView commitAnimations];
-        
-    } else if (afterRemainder < bgConSum * 0.25 && afterRemainder > 0) {
         
         [UIView beginAnimations:nil context:nil];
         
@@ -428,13 +415,43 @@
         
         [UIView commitAnimations];
         
+    } else if (afterRemainder < bgConSum * 0.75 && afterRemainder > bgConSum / 2) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:174.0/255.0 blue:66.0/255.0 alpha:1];
+        
+        [UIView commitAnimations];
+        
+    } else if (afterRemainder < bgConSum / 2 && afterRemainder > bgConSum * 0.25) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor yellowColor];
+        
+        [UIView commitAnimations];
+        
+    } else if (afterRemainder < bgConSum * 0.25 && afterRemainder > 0) {
+        
+        [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationDuration:bgConSum / 5];
+        
+        self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
+        
+        [UIView commitAnimations];
+        
     } else if (afterRemainder == 0) {
         
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:2.0];
         
-        self.view.backgroundColor = [UIColor redColor];
+        self.view.backgroundColor = [UIColor greenColor];
         
         [UIView commitAnimations];
         
