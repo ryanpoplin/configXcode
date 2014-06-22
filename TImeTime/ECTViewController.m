@@ -7,13 +7,19 @@
 //  Copyright (c) 2014 ExcepApps. All rights reserved.
 //
 
+// IMPORTED DEPENDENCIES...
+
 #import "ECTViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+// ECTViewController Class...
+
 @interface ECTViewController ()
 
 {
+    
+    // Class Vars...
     
     int userHours;
     
@@ -53,6 +59,8 @@
     
 }
 
+// .m Class Props...
+
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic) NSTimeInterval totalTime;
 @property (nonatomic) BOOL isRunning;
@@ -60,9 +68,13 @@
 
 @end
 
-// ISSUE...
+// ISSUE!!!
+
+// IMPLEMENTATION OF THE CLASS...
 
 @implementation ECTViewController
+
+// VIEW OBJECT IS LOADED...
 
 - (void)viewDidLoad
 
@@ -70,7 +82,7 @@
     
     [super viewDidLoad];
     
-    pausePress = true;
+    // VIEW OBJECT FORMATTING...
     
     [[_startButton layer] setBorderWidth:0.5f];
     [[_startButton layer] setBorderColor:[UIColor grayColor].CGColor];
@@ -80,8 +92,6 @@
     
     [[_resetButton layer] setBorderWidth:0.5f];
     [[_resetButton layer] setBorderColor:[UIColor grayColor].CGColor];
- 
-    self.isRunning = false;
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
@@ -97,9 +107,17 @@
 
     self.secondLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
     
+    // viewDidLoad BOOLS...
+    
+    pausePress = true;
+
+    self.isRunning = false;
+    
     bgColorOption = true;
     
 }
+
+// MEMORY ISSUES...
 
 - (void)didReceiveMemoryWarning
 
@@ -109,35 +127,11 @@
     
 }
 
-- (IBAction)segmentSwitch:(id)sender {
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    if (selectedSegment == 0) {
-        bgColorOption = true;
-
-    }
-    else{
-        bgColorOption = false;
-    }
-}
-
-- (IBAction)pauseMeth:(id)sender {
-    
-    [_startButton setEnabled: YES];
-    
-    [_pauseButton setEnabled: NO];
-    
-    [autoTimer invalidate];
-    
-    autoTimer = nil;
-    
-    pauseBool = true;
-        
-    pauseTime = pauseTracker;
-    
-}
+// START BUTTON...
 
 - (IBAction)startButton:(id)sender {
+    
+    // START BUTTON METHOD FORMATTING...
     
     self.colorSegment.hidden = YES;
     
@@ -166,6 +160,10 @@
     self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:45];
+    
+    // SET THE HOURS, MINUTES, AND SECONDS...
+    
+    // REDUNDANT IF {} ELSE {} FOR CLARITY...
     
     if (userHours == 0) {
         
@@ -197,21 +195,25 @@
         
     }
     
+    // INIT BACKGROUND COLORS DURING COUNTDOWN...
+    
     self.isRunning = !self.isRunning;
     
     if (self.isRunning == false) {
         
         [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
         
-    } else if (pausePress && bgColorOption == true) {
+    } else if (pausePress && bgColorOption == true && pauseBool == false) {
         
         [self.view setBackgroundColor:[UIColor greenColor]];
         
-    } else if (pausePress && bgColorOption == false) {
+    } else if (pausePress && bgColorOption == false && pauseBool == false) {
         
         [self.view setBackgroundColor:[UIColor redColor]];
         
     }
+    
+    // SET THE TIME AND ADD PAUSE IMPLEMENTATION...
     
     if (pauseBool) {
         
@@ -237,6 +239,8 @@
         
     bgConSum = afterRemainder;
     
+    // CONFIG. IT...
+    
     if (bgColorOption) {
         
         autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
@@ -249,27 +253,57 @@
     
 }
 
+// PAUSE BUTTON...
+
+- (IBAction)pauseMeth:(id)sender {
+    
+    // FORMATTING...
+    
+    [_startButton setEnabled: YES];
+    
+    [_pauseButton setEnabled: NO];
+    
+    // STOP IT...
+    
+    [autoTimer invalidate];
+    
+    autoTimer = nil;
+    
+    // SET IT...
+    
+    pauseBool = true;
+    
+    pauseTime = pauseTracker;
+    
+}
+
+// RESET BUTTON...
+
 - (IBAction)resetButton:(id)sender {
     
-    self.colorSegment.hidden = NO;
-    
-    pausePress = true;
+    // SET THE VARS...
     
     pauseTracker = 0;
     
-    self.resetButton.enabled = NO;
+    pausePress = true;
+    
+    self.isRunning = false;
     
     [autoTimer invalidate];
     
     autoTimer = nil;
     
     [UIView beginAnimations:nil context:nil];
+    
+    // FORMATTING...
+    
+    self.colorSegment.hidden = NO;
+    
+    self.resetButton.enabled = NO;
 
     self.view.backgroundColor = [UIColor whiteColor];
     
     [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
-    
-    self.isRunning = false;
     
     self.displayLabel.text = @"00 : 00 : 00";
     
@@ -295,15 +329,17 @@
     
 }
 
+// GREEN TO RED...
+
 - (void)updateCountDown {
     
     [self updateCountDown2];
     
-    NSLog(@"%d", afterRemainder);
+    // NSLog(@"%d", afterRemainder);
     
     pauseTracker++;
     
-    NSLog(@"%d", pauseTracker);
+    // NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
     
@@ -385,11 +421,11 @@
         
     }
     
-    int hours = (int)(afterRemainder/(60*60));
+    int hours = (int)(afterRemainder / ( 60 * 60 ));
     
-    int mins = (int)(((int)afterRemainder/60)-(hours*60));
+    int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
     
-    int secs = (int)(((int)afterRemainder-(60*mins)-(60*hours*60)));
+    int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60 )));
     
     if (hours != 0) {
     
@@ -413,15 +449,17 @@
 
 }
 
+// RED TO GREEN...
+
 - (void)updateCountDownReverse {
     
     [self updateCountDown2];
     
-    NSLog(@"%d", afterRemainder);
+    // NSLog(@"%d", afterRemainder);
     
     pauseTracker++;
     
-    NSLog(@"%d", pauseTracker);
+    // NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
     
@@ -503,11 +541,11 @@
         
     }
     
-    int hours = (int)(afterRemainder/(60*60));
+    int hours = (int)(afterRemainder / ( 60 * 60 ));
     
-    int mins = (int)(((int)afterRemainder/60)-(hours*60));
+    int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
     
-    int secs = (int)(((int)afterRemainder-(60*mins)-(60*hours*60)));
+    int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60)));
     
     if (hours != 0) {
         
@@ -531,45 +569,87 @@
     
 }
 
+// LOG THE NUMBERS...
 
 - (void)updateCountDown2
 
 {
 
-    NSTimeInterval elapsedTime = -[self.startTime timeIntervalSinceNow];
+    /*NSTimeInterval elapsedTime = -[self.startTime timeIntervalSinceNow];
     
     CGFloat elapsedPercent = elapsedTime / self.totalTime;
     
-    NSLog(@"Elapsed Percent: %f", elapsedPercent);
+    NSLog(@"Elapsed Percent: %f", elapsedPercent);*/
 
 }
+
+// HOURS UISLIDER...
 
 - (IBAction)hoursMoved:(id)sender {
     
     UISlider *hourSlider = (UISlider *)sender;
+    
     NSString *sliderValueAsStringHours = [NSString stringWithFormat:@"%d Hours", (int)[hourSlider value]];
+    
     self.hourLabel.text = sliderValueAsStringHours;
+    
     userHours = (int)[hourSlider value];
     
 }
 
+// MINUTES UISLIDER...
+
 - (IBAction)minutesMoved:(id)sender {
 
     UISlider *minuteSlider = (UISlider *)sender;
+    
     NSString *sliderValueAsStringMinutes = [NSString stringWithFormat:@"%d Minutes", (int)[minuteSlider value]];
+    
     self.minuteLabel.text = sliderValueAsStringMinutes;
+    
     userMinutes = (int)[minuteSlider value];
 
 }
 
+// SECONDS UISLIDER...
+
 - (IBAction)secondsMoved:(id)sender {
 
     UISlider *secondSlider = (UISlider *)sender;
+    
     NSString *sliderValueAsStringSeconds = [NSString stringWithFormat:@"%d Seconds", (int)[secondSlider value]];
+    
     self.secondLabel.text = sliderValueAsStringSeconds;
+    
     userSeconds = (int)[secondSlider value];
     
 }
+
+// COLOR OPTIONS UISEGMENT...
+
+- (IBAction)segmentSwitch:(id)sender {
+    
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    
+    if (selectedSegment == 0) {
+        
+        bgColorOption = true;
+        
+    }
+    
+    else{
+    
+        bgColorOption = false;
+    
+    }
+
+}
+
+// ANIMATION OPTIONS UISEGMENT...
+
+// END THE CLASS...
 
 @end
 
