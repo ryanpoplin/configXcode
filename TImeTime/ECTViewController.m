@@ -115,6 +115,8 @@
     
     bgColorOption = true;
     
+    pauseTracker = 0;
+    
 }
 
 // MEMORY ISSUES...
@@ -195,24 +197,6 @@
         
     }
     
-    // INIT BACKGROUND COLORS DURING COUNTDOWN...
-    
-    self.isRunning = !self.isRunning;
-    
-    if (self.isRunning == false) {
-        
-        [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
-        
-    } else if (pausePress && bgColorOption == true && pauseBool == false) {
-        
-        [self.view setBackgroundColor:[UIColor greenColor]];
-        
-    } else if (pausePress && bgColorOption == false && pauseBool == false) {
-        
-        [self.view setBackgroundColor:[UIColor redColor]];
-        
-    }
-    
     // SET THE TIME AND ADD PAUSE IMPLEMENTATION...
     
     if (pauseBool) {
@@ -225,19 +209,21 @@
         
         afterRemainder -= pauseTracker;
         
-        pauseBool = false;
-        
     } else {
         
         countDownInterval = 1 + convertedHours + convertedMinutes;
-    
+        
         remainder = countDownInterval;
-    
+        
         afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
         
     }
+    
+    if (pauseBool != true) {
+    
+        bgConSum = afterRemainder;
         
-    bgConSum = afterRemainder;
+    }
     
     // CONFIG. IT...
     
@@ -248,6 +234,24 @@
     } else {
         
         autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+        
+    }
+    
+    // INIT BACKGROUND COLORS DURING COUNTDOWN...
+    
+    self.isRunning = !self.isRunning;
+    
+    if (self.isRunning == false) {
+        
+        [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+        
+    } else if (pausePress && bgColorOption == true && pauseBool != true) {
+        
+        [self.view setBackgroundColor:[UIColor greenColor]];
+        
+    } else if (pausePress && bgColorOption == false && pauseBool != true) {
+        
+        [self.view setBackgroundColor:[UIColor redColor]];
         
     }
     
@@ -282,6 +286,8 @@
 - (IBAction)resetButton:(id)sender {
     
     // SET THE VARS...
+    
+    pauseBool = false;
     
     pauseTracker = 0;
     
@@ -352,6 +358,8 @@
         self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
         
         [UIView commitAnimations];
+        
+        NSLog(@"%d and %d", afterRemainder, bgConSum);
         
     } else if (afterRemainder < bgConSum * 0.80 && afterRemainder > bgConSum * 0.60) {
         
@@ -462,6 +470,8 @@
     // NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
+    
+    // NEED MORE CONDITIONS FOR THE PAUSE...
     
     if (afterRemainder > bgConSum * 0.80) {
         
@@ -639,7 +649,7 @@
         
     }
     
-    else{
+    else {
     
         bgColorOption = false;
     
