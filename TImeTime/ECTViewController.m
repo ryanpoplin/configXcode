@@ -161,7 +161,7 @@
     
     self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
     
-    self.displayLabel.font = [self.displayLabel.font fontWithSize:45];
+    self.displayLabel.font = [self.displayLabel.font fontWithSize:48];
     
     // SET THE HOURS, MINUTES, AND SECONDS...
     
