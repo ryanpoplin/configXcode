@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5A9F98E219537D7900A77EC6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9F98E119537D7900A77EC6 /* QuartzCore.framework */; };
 		5A9F98E41953F41600A77EC6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9F98E31953F41600A77EC6 /* AudioToolbox.framework */; };
+		5A9F98EB195874EC00A77EC6 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F98E8195874EC00A77EC6 /* DACircularProgressView.m */; };
+		5A9F98EC195874EC00A77EC6 /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9F98EA195874EC00A77EC6 /* DALabeledCircularProgressView.m */; };
 		5AD9525D194584B900A70F3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9525C194584B900A70F3C /* Foundation.framework */; };
 		5AD9525F194584B900A70F3C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9525E194584B900A70F3C /* CoreGraphics.framework */; };
 		5AD95261194584B900A70F3C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD95260194584B900A70F3C /* UIKit.framework */; };
@@ -39,6 +41,10 @@
 /* Begin PBXFileReference section */
 		5A9F98E119537D7900A77EC6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5A9F98E31953F41600A77EC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		5A9F98E61958746100A77EC6 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		5A9F98E8195874EC00A77EC6 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DACircularProgressView.m; path = ../DACircularProgress/DACircularProgressView.m; sourceTree = "<group>"; };
+		5A9F98E9195874EC00A77EC6 /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DALabeledCircularProgressView.h; path = ../DACircularProgress/DALabeledCircularProgressView.h; sourceTree = "<group>"; };
+		5A9F98EA195874EC00A77EC6 /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DALabeledCircularProgressView.m; path = ../DACircularProgress/DALabeledCircularProgressView.m; sourceTree = "<group>"; };
 		5AD95259194584B900A70F3C /* TImeTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TImeTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD9525C194584B900A70F3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AD9525E194584B900A70F3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,6 +110,26 @@
 			name = testone;
 			sourceTree = "<group>";
 		};
+		5A9F98E51958740500A77EC6 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5AD9526B194584B900A70F3C /* ECTAppDelegate.h */,
+				5AD9526C194584B900A70F3C /* ECTAppDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		5A9F98E71958749000A77EC6 /* DACircularProgress */ = {
+			isa = PBXGroup;
+			children = (
+				5A9F98E61958746100A77EC6 /* DACircularProgressView.h */,
+				5A9F98E8195874EC00A77EC6 /* DACircularProgressView.m */,
+				5A9F98E9195874EC00A77EC6 /* DALabeledCircularProgressView.h */,
+				5A9F98EA195874EC00A77EC6 /* DALabeledCircularProgressView.m */,
+			);
+			name = DACircularProgress;
+			sourceTree = "<group>";
+		};
 		5AD95250194584B900A70F3C = {
 			isa = PBXGroup;
 			children = (
@@ -141,8 +167,8 @@
 			children = (
 				5AD952991946347700A70F3C /* Main_iPhone.storyboard */,
 				5AD95271194584B900A70F3C /* Main_iPad.storyboard */,
-				5AD9526B194584B900A70F3C /* ECTAppDelegate.h */,
-				5AD9526C194584B900A70F3C /* ECTAppDelegate.m */,
+				5A9F98E51958740500A77EC6 /* Delegate */,
+				5A9F98E71958749000A77EC6 /* DACircularProgress */,
 				5A065C0519477B63001ABAC7 /* ViewControllers */,
 				5AD95277194584B900A70F3C /* Images.xcassets */,
 				5AD95263194584B900A70F3C /* Supporting Files */,
@@ -282,8 +308,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD95276194584B900A70F3C /* ECTViewController.m in Sources */,
+				5A9F98EB195874EC00A77EC6 /* DACircularProgressView.m in Sources */,
 				5AD95269194584B900A70F3C /* main.m in Sources */,
 				5AD9526D194584B900A70F3C /* ECTAppDelegate.m in Sources */,
+				5A9F98EC195874EC00A77EC6 /* DALabeledCircularProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

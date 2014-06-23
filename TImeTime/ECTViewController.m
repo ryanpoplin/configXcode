@@ -12,6 +12,7 @@
 #import "ECTViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import "DACircularProgressView.h"
 
 // ECTViewController Class...
 
@@ -427,6 +428,10 @@
         
         AudioServicesPlaySystemSound(1304);
         
+        /*UILocalNotification *notification = [[UILocalNotification alloc] init];
+        notification.alertBody = @"ExcepApps: ExcepTimer has finished its countdown!";
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];*/
+        
     }
     
     int hours = (int)(afterRemainder / ( 60 * 60 ));
@@ -548,6 +553,9 @@
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
+        
+        NSNotification* notification = [NSNotification notificationWithName:@"ExcepApps: ExcepTimer has finished its countdown..." object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];
         
     }
     
