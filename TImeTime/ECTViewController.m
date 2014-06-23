@@ -12,7 +12,9 @@
 #import "ECTViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
-#import "DACircularProgressView.h"
+
+// ADDED IMPORT FILES FOR THE ANIMATION...
+// #import "DACircularProgressView.h"
 
 // ECTViewController Class...
 
@@ -73,6 +75,7 @@
 
 // IMPLEMENTATION OF THE CLASS...
 
+// AUTOSYNTHESIS ISSUE...
 @implementation ECTViewController
 
 // VIEW OBJECT IS LOADED...
@@ -82,6 +85,12 @@
 {
     
     [super viewDidLoad];
+    
+    /*UIBackgroundTaskIdentifier bgTask;
+    UIApplication  *app = [UIApplication sharedApplication];
+    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+        [app endBackgroundTask:bgTask];
+    }];*/
     
     // VIEW OBJECT FORMATTING...
     
@@ -94,6 +103,7 @@
     [[_resetButton layer] setBorderWidth:0.5f];
     [[_resetButton layer] setBorderColor:[UIColor grayColor].CGColor];
     
+    // OS FUNC...
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
     self.resetButton.enabled = NO;
@@ -160,7 +170,16 @@
     
     self.startTime = [NSDate date];
     
+    // THE LABEL WILL ALTER...
     self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
+    
+    // ANIMATION...
+    // THE OBJECT THAT THE PROP. REFERS TO NEEDS TO BE STRONG...
+    // self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 30.0f, 40.0f, 40.0f)];
+    // THE progressView PROP. MUST HAVE THE ATTRS/PROPS: roundedCorners and trackTintColor...
+    /*self.progressView.roundedCorners = YES;
+    self.progressView.trackTintColor = [UIColor clearColor];*/
+    // [self.view addSubview:self.progressView];
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:48];
     
@@ -223,6 +242,8 @@
     if (pauseBool != true) {
     
         bgConSum = afterRemainder;
+        
+        // minimumVal = afterRemainder;
         
     }
     
@@ -342,11 +363,11 @@
     
     [self updateCountDown2];
     
-    // NSLog(@"%d", afterRemainder);
+    NSLog(@"%d", afterRemainder);
     
     pauseTracker++;
     
-    // NSLog(@"%d", pauseTracker);
+    NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
     
@@ -468,11 +489,11 @@
     
     [self updateCountDown2];
     
-    // NSLog(@"%d", afterRemainder);
+    NSLog(@"%d", afterRemainder);
     
     pauseTracker++;
     
-    // NSLog(@"%d", pauseTracker);
+    NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
     
@@ -554,8 +575,8 @@
         
         AudioServicesPlaySystemSound(1304);
         
-        NSNotification* notification = [NSNotification notificationWithName:@"ExcepApps: ExcepTimer has finished its countdown..." object:self];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
+        /*NSNotification* notification = [NSNotification notificationWithName:@"ExcepApps: ExcepTimer has finished its countdown..." object:self];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];*/
         
     }
     
@@ -655,9 +676,7 @@
         
         bgColorOption = true;
         
-    }
-    
-    else {
+    } else {
     
         bgColorOption = false;
     
@@ -666,6 +685,8 @@
 }
 
 // ANIMATION OPTIONS UISEGMENT...
+
+
 
 // END THE CLASS...
 

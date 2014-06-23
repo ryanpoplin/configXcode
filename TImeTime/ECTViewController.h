@@ -13,6 +13,8 @@
 
 @interface ECTViewController : UIViewController
 
+// WHAT KIND OF PROP. DO I NEED FOR THE ANIMATION???
+
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;

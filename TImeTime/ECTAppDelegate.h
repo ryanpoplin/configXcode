@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+// int minimumVal = 3600;
+
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
