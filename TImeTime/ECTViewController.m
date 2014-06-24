@@ -72,8 +72,6 @@
 
 @end
 
-// ISSUE!!!
-
 // IMPLEMENTATION OF THE CLASS...
 
 // AUTOSYNTHESIS ISSUE...
@@ -81,11 +79,36 @@
 
 // VIEW OBJECT IS LOADED...
 
+-(int)multitaskingAvailable
+
+{
+    
+    UIDevice *device = [UIDevice currentDevice];
+    bool backgroundIsSupported = NO;
+    if ([device respondsToSelector:@selector(isMultitaskingSupported)]) backgroundIsSupported = device.multitaskingSupported;
+    // WHY WAS THIS NOT RETURNED???
+    NSLog(@"%d", backgroundIsSupported);
+    return backgroundIsSupported;
+    
+}
+
 - (void)viewDidLoad
 
 {
     
     [super viewDidLoad];
+    
+    [self multitaskingAvailable];
+    
+    // BACKGROUND CAPABILITIES: BACKGROUND FETCH IS ENABLED...(CAN IT DO WHAT I NEED IT TO DO?).
+    
+    // EXTRA BACKGROUND EXECUTION TIME NEEDS TO BE REQUESTED...
+    
+    // HOW TO EVADE SUSPENSION WHEN ENTERING THE BACKGROUND?...
+    
+    // WILL THIS ALLOW ME TO NOT SAVE TIMER STATE IF MEMORY FREE UP IS REQED. BY THE OS?
+    
+    //
     
     /*UIBackgroundTaskIdentifier bgTask;
     UIApplication  *app = [UIApplication sharedApplication];
@@ -112,6 +135,9 @@
     self.pauseButton.enabled = NO;
     
     self.displayLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
+    
+    // PLAY WITH OTHER COLORS IF NEEDED...
+    // self.displayLabel.textColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1];
 
     self.hourLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
 
@@ -175,11 +201,17 @@
     self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
     
     // ANIMATION...
+    
     // THE OBJECT THAT THE PROP. REFERS TO NEEDS TO BE STRONG...
+    
     // self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 30.0f, 40.0f, 40.0f)];
+    
     // THE progressView PROP. MUST HAVE THE ATTRS/PROPS: roundedCorners and trackTintColor...
+    
     /*self.progressView.roundedCorners = YES;
-    self.progressView.trackTintColor = [UIColor clearColor];*/
+    
+     self.progressView.trackTintColor = [UIColor clearColor];*/
+    
     // [self.view addSubview:self.progressView];
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:48];
