@@ -113,13 +113,6 @@
 			name = Delegate;
 			sourceTree = "<group>";
 		};
-		5A9F98E71958749000A77EC6 /* DACircularProgress */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = DACircularProgress;
-			sourceTree = "<group>";
-		};
 		5AD95250194584B900A70F3C = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +151,6 @@
 				5AD952991946347700A70F3C /* Main_iPhone.storyboard */,
 				5AD95271194584B900A70F3C /* Main_iPad.storyboard */,
 				5A9F98E51958740500A77EC6 /* Delegate */,
-				5A9F98E71958749000A77EC6 /* DACircularProgress */,
 				5A065C0519477B63001ABAC7 /* ViewControllers */,
 				5AD95277194584B900A70F3C /* Images.xcassets */,
 				5AD95263194584B900A70F3C /* Supporting Files */,

@@ -10,6 +10,7 @@
 // IMPORTED DEPENDENCIES...
 
 #import "ECTViewController.h"
+// FOR THE ANIMATION...
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 

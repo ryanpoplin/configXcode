@@ -20,10 +20,7 @@
     // Override point for customization after application launch.
 
     // IS THIS HOW LONG I HAVE TO RUN THE APP IN THE BACKGROUND???
-    
-    
-    
-    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval: 20];
+    // [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval: 20];
     
     return YES;
 
