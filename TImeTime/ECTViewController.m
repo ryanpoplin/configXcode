@@ -19,7 +19,7 @@
 
 // ECTViewController Class...
 
-// BE SURE TO TO EVADE THE DELEGATION FILE/FOR SWIFT AS MUCH AS POSSIBLE...
+// BE SURE TO EVADE THE DELEGATION FILE/FOR SWIFT AS MUCH AS POSSIBLE...
 
 //...
 
@@ -109,7 +109,14 @@
     
     [super viewDidLoad];
     
-    // [self multitaskingAvailable];
+    // if (afterRemainder == 0) {
+    
+        /*[[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(scheduleBackgroundNotificationIfNeeded)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];*/
+    
+    // }
     
     // BACKGROUND CAPABILITIES: BACKGROUND FETCH IS ENABLED...(CAN IT DO WHAT I NEED IT TO DO?).
     
@@ -138,9 +145,6 @@
     self.pauseButton.enabled = NO;
     
     self.displayLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
-    
-    // PLAY WITH OTHER COLORS IF NEEDED...
-    // self.displayLabel.textColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:1];
 
     self.hourLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
 
@@ -175,7 +179,7 @@
 - (IBAction)startButton:(id)sender {
     
     backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        
+        NSLog(@"What's up?");
     }];
     
     // START BUTTON METHOD FORMATTING...
@@ -491,10 +495,12 @@
         
         AudioServicesPlaySystemSound(1304);
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
+        /*[[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(scheduleBackgroundNotificationIfNeeded)
                                                      name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];
+                                                   object:nil];*/
+        
+        NSLog(@"FUCK!");
         
     }
     
@@ -618,10 +624,10 @@
         
         AudioServicesPlaySystemSound(1304);
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
+        /*[[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(scheduleBackgroundNotificationIfNeeded)
                                                      name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];
+                                                   object:nil];*/
         
     }
     
