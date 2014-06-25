@@ -24,21 +24,7 @@
     
     NSLog(@"APP HAS LAUNCHED...");
     
-    
-    
     // Override point for customization after application launch.
-
-    
-    
-    // IS THIS HOW LONG I HAVE TO RUN THE APP IN THE BACKGROUND???
-    // [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval: UIApplicationBackgroundFetchIntervalMinimum];
-    
-    
-    /*UILocalNotification *notification = [[UILocalNotification alloc] init];
-     notification.alertBody = @"ExcepApps: ExcepTimer has finished its countdown!";
-     [[UIApplication sharedApplication] scheduleLocalNotification:notification];*/
-    
-    // ADD THE UPDATECOUNTDOWN FUNC HERE?
     
     return YES;
 

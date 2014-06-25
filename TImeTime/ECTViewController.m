@@ -19,6 +19,8 @@
 
 // ECTViewController Class...
 
+// BE SURE TO TO EVADE THE DELEGATION FILE/FOR SWIFT AS MUCH AS POSSIBLE...
+
 @interface ECTViewController ()
 
 {
@@ -80,19 +82,6 @@
 
 // VIEW OBJECT IS LOADED...
 
--(int)multitaskingAvailable
-
-{
-    
-    UIDevice *device = [UIDevice currentDevice];
-    bool backgroundIsSupported = NO;
-    if ([device respondsToSelector:@selector(isMultitaskingSupported)]) backgroundIsSupported = device.multitaskingSupported;
-    // WHY WAS THIS NOT RETURNED???
-    NSLog(@"%d", backgroundIsSupported);
-    return backgroundIsSupported;
-    
-}
-
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
@@ -105,7 +94,7 @@
     
     UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     [localNotification setFireDate:endingTime];
-    [localNotification setAlertBody:@"Behavioral Timer Ended"];
+    [localNotification setAlertBody:@"Color Countdown Finished!"];
 //    [localNotification setSoundName:<#(NSString *)#>]
     
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
@@ -122,7 +111,7 @@
                                                  name:UIApplicationDidEnterBackgroundNotification
                                                object:nil];
     
-    [self multitaskingAvailable];
+    // [self multitaskingAvailable];
     
     // BACKGROUND CAPABILITIES: BACKGROUND FETCH IS ENABLED...(CAN IT DO WHAT I NEED IT TO DO?).
     
@@ -477,7 +466,9 @@
         [UIView commitAnimations];
         
     } else if (afterRemainder == 0) {
+        
         [[UIApplication sharedApplication] endBackgroundTask:backgroundIdentifier];
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:2.0];
@@ -623,9 +614,6 @@
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
-        
-        /*NSNotification* notification = [NSNotification notificationWithName:@"ExcepApps: ExcepTimer has finished its countdown..." object:self];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];*/
         
     }
     
