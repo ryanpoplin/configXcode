@@ -53,6 +53,7 @@
     
     NSTimeInterval countDownInterval;
     
+    // UIBackgroundTaskIdentifier...
     UIBackgroundTaskIdentifier backgroundIdentifier;
     
 }
@@ -144,7 +145,9 @@
 - (IBAction)startButton:(id)sender {
     
     backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        NSLog(@"What's up?");
+        
+        // WHAT THE FUCK SHOULD I DO IN HERE...
+        
     }];
     
     self.colorSegment.hidden = YES;
