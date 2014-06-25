@@ -10,24 +10,12 @@
 // IMPORTED DEPENDENCIES...
 
 #import "ECTViewController.h"
-// FOR THE ANIMATION...
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
-
-// ADDED IMPORT FILES FOR THE ANIMATION...
-// #import "DACircularProgressView.h"
-
-// ECTViewController Class...
-
-// BE SURE TO EVADE THE DELEGATION FILE/FOR SWIFT AS MUCH AS POSSIBLE...
-
-//...
 
 @interface ECTViewController ()
 
 {
-    
-    // Class Vars...
     
     int userHours;
     
@@ -69,8 +57,6 @@
     
 }
 
-// .m Class Props...
-
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic) NSTimeInterval totalTime;
 @property (nonatomic) BOOL isRunning;
@@ -78,29 +64,24 @@
 
 @end
 
-// IMPLEMENTATION OF THE CLASS...
-
-// AUTOSYNTHESIS ISSUE...
 @implementation ECTViewController
-
-// VIEW OBJECT IS LOADED...
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+    // [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
 }
 
 - (void)scheduleBackgroundNotificationIfNeeded
 {
-    NSTimeInterval remainingTime = bgConSum - afterRemainder;
-    NSDate *endingTime = [[NSDate date] dateByAddingTimeInterval:remainingTime];
+    /*NSTimeInterval remainingTime = bgConSum - afterRemainder;
+    NSDate *endingTime = [[NSDate date] dateByAddingTimeInterval:remainingTime];*/
     
-    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    /*UILocalNotification *localNotification = [[UILocalNotification alloc] init];
     [localNotification setFireDate:endingTime];
-    [localNotification setAlertBody:@"Color Countdown Finished!"];
+    [localNotification setAlertBody:@"Color Countdown Finished!"];*/
 //    [localNotification setSoundName:<#(NSString *)#>]
     
-    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+    // [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
 }
 
 - (void)viewDidLoad
@@ -117,16 +98,6 @@
                                                    object:nil];*/
     
     // }
-    
-    // BACKGROUND CAPABILITIES: BACKGROUND FETCH IS ENABLED...(CAN IT DO WHAT I NEED IT TO DO?).
-    
-    // EXTRA BACKGROUND EXECUTION TIME NEEDS TO BE REQUESTED...
-    
-    // HOW TO EVADE SUSPENSION WHEN ENTERING THE BACKGROUND?...
-    
-    // WILL THIS ALLOW ME TO NOT SAVE TIMER STATE IF MEMORY FREE UP IS REQED. BY THE OS?
-    
-    // VIEW OBJECT FORMATTING...
     
     [[_startButton layer] setBorderWidth:0.5f];
     [[_startButton layer] setBorderColor:[UIColor grayColor].CGColor];
@@ -152,8 +123,6 @@
 
     self.secondLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
     
-    // viewDidLoad BOOLS...
-    
     pausePress = true;
 
     self.isRunning = false;
@@ -164,8 +133,6 @@
     
 }
 
-// MEMORY ISSUES...
-
 - (void)didReceiveMemoryWarning
 
 {
@@ -174,15 +141,11 @@
     
 }
 
-// START BUTTON...
-
 - (IBAction)startButton:(id)sender {
     
     backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         NSLog(@"What's up?");
     }];
-    
-    // START BUTTON METHOD FORMATTING...
     
     self.colorSegment.hidden = YES;
     
@@ -208,28 +171,9 @@
     
     self.startTime = [NSDate date];
     
-    // THE LABEL WILL ALTER...
     self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
-    
-    // ANIMATION...
-    
-    // THE OBJECT THAT THE PROP. REFERS TO NEEDS TO BE STRONG...
-    
-    // self.progressView = [[DACircularProgressView alloc] initWithFrame:CGRectMake(140.0f, 30.0f, 40.0f, 40.0f)];
-    
-    // THE progressView PROP. MUST HAVE THE ATTRS/PROPS: roundedCorners and trackTintColor...
-    
-    /*self.progressView.roundedCorners = YES;
-    
-     self.progressView.trackTintColor = [UIColor clearColor];*/
-    
-    // [self.view addSubview:self.progressView];
-    
+
     self.displayLabel.font = [self.displayLabel.font fontWithSize:48];
-    
-    // SET THE HOURS, MINUTES, AND SECONDS...
-    
-    // REDUNDANT IF {} ELSE {} FOR CLARITY...
     
     if (userHours == 0) {
         
@@ -261,8 +205,6 @@
         
     }
     
-    // SET THE TIME AND ADD PAUSE IMPLEMENTATION...
-    
     if (pauseBool) {
         
         countDownInterval = 1 + convertedHours + convertedMinutes;
@@ -291,8 +233,6 @@
         
     }
     
-    // CONFIG. IT...
-    
     if (bgColorOption) {
         
         autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
@@ -302,8 +242,6 @@
         autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
         
     }
-    
-    // INIT BACKGROUND COLORS DURING COUNTDOWN...
     
     self.isRunning = !self.isRunning;
     
@@ -323,23 +261,15 @@
     
 }
 
-// PAUSE BUTTON...
-
 - (IBAction)pauseMeth:(id)sender {
-    
-    // FORMATTING...
     
     [_startButton setEnabled: YES];
     
     [_pauseButton setEnabled: NO];
     
-    // STOP IT...
-    
     [autoTimer invalidate];
     
     autoTimer = nil;
-    
-    // SET IT...
     
     pauseBool = true;
     
@@ -347,11 +277,7 @@
     
 }
 
-// RESET BUTTON...
-
 - (IBAction)resetButton:(id)sender {
-    
-    // SET THE VARS...
     
     pauseBool = false;
     
@@ -366,8 +292,6 @@
     autoTimer = nil;
     
     [UIView beginAnimations:nil context:nil];
-    
-    // FORMATTING...
     
     self.colorSegment.hidden = NO;
     
@@ -400,8 +324,6 @@
     self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
     
 }
-
-// GREEN TO RED...
 
 - (void)updateCountDown {
     
@@ -532,8 +454,6 @@
 
 }
 
-// RED TO GREEN...
-
 - (void)updateCountDownReverse {
     
     [self updateCountDown2];
@@ -545,8 +465,6 @@
     NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
-    
-    // NEED MORE CONDITIONS FOR THE PAUSE...
     
     if (afterRemainder > bgConSum * 0.80) {
         
@@ -659,8 +577,6 @@
     
 }
 
-// LOG THE NUMBERS...
-
 - (void)updateCountDown2
 
 {
@@ -672,8 +588,6 @@
     NSLog(@"Elapsed Percent: %f", elapsedPercent);*/
 
 }
-
-// HOURS UISLIDER...
 
 - (IBAction)hoursMoved:(id)sender {
     
@@ -687,8 +601,6 @@
     
 }
 
-// MINUTES UISLIDER...
-
 - (IBAction)minutesMoved:(id)sender {
 
     UISlider *minuteSlider = (UISlider *)sender;
@@ -701,8 +613,6 @@
 
 }
 
-// SECONDS UISLIDER...
-
 - (IBAction)secondsMoved:(id)sender {
 
     UISlider *secondSlider = (UISlider *)sender;
@@ -714,8 +624,6 @@
     userSeconds = (int)[secondSlider value];
     
 }
-
-// COLOR OPTIONS UISEGMENT...
 
 - (IBAction)segmentSwitch:(id)sender {
     
@@ -734,12 +642,6 @@
     }
 
 }
-
-// ANIMATION OPTIONS UISEGMENT...
-
-
-
-// END THE CLASS...
 
 @end
 
