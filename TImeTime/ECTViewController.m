@@ -21,6 +21,8 @@
 
 // BE SURE TO TO EVADE THE DELEGATION FILE/FOR SWIFT AS MUCH AS POSSIBLE...
 
+//...
+
 @interface ECTViewController ()
 
 {
@@ -64,6 +66,7 @@
     NSTimeInterval countDownInterval;
     
     UIBackgroundTaskIdentifier backgroundIdentifier;
+    
 }
 
 // .m Class Props...
