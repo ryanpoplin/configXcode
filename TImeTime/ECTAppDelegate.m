@@ -12,13 +12,6 @@
 
 @implementation ECTAppDelegate
 
--(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
-{
-    
-    // completionHandler(UIBackgroundFetchResultNewData);
-    
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     

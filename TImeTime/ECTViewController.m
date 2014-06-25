@@ -109,11 +109,6 @@
     
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(scheduleBackgroundNotificationIfNeeded)
-                                                 name:UIApplicationDidEnterBackgroundNotification
-                                               object:nil];
-    
     // [self multitaskingAvailable];
     
     // BACKGROUND CAPABILITIES: BACKGROUND FETCH IS ENABLED...(CAN IT DO WHAT I NEED IT TO DO?).
@@ -496,6 +491,11 @@
         
         AudioServicesPlaySystemSound(1304);
         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(scheduleBackgroundNotificationIfNeeded)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
+        
     }
     
     int hours = (int)(afterRemainder / ( 60 * 60 ));
@@ -617,6 +617,11 @@
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(scheduleBackgroundNotificationIfNeeded)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
         
     }
     
