@@ -68,21 +68,36 @@
 @implementation ECTViewController
 
 - (void)dealloc
+
 {
-    // [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+
 }
 
 - (void)scheduleBackgroundNotificationIfNeeded
+
 {
-    /*NSTimeInterval remainingTime = bgConSum - afterRemainder;
-    NSDate *endingTime = [[NSDate date] dateByAddingTimeInterval:remainingTime];*/
+
+    if (!afterRemainder) {
     
-    /*UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-    [localNotification setFireDate:endingTime];
-    [localNotification setAlertBody:@"Color Countdown Finished!"];*/
-//    [localNotification setSoundName:<#(NSString *)#>]
+        NSTimeInterval remainingTime = afterRemainder;
+        NSDate *endingTime = [[NSDate date] dateByAddingTimeInterval:remainingTime];
     
-    // [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        [localNotification setFireDate:endingTime];
+        [localNotification setAlertBody:@"Color Countdown Finished!"];
+        // [localNotification setSoundName:<#(NSString *)#>]
+    
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(scheduleBackgroundNotificationIfNeeded)
+                                                     name:UIApplicationDidEnterBackgroundNotification
+                                                   object:nil];
+        
+    }
+        
 }
 
 - (void)viewDidLoad
@@ -92,11 +107,6 @@
     [super viewDidLoad];
     
     // if (afterRemainder == 0) {
-    
-        /*[[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(scheduleBackgroundNotificationIfNeeded)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];*/
     
     // }
     
@@ -147,7 +157,7 @@
     backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
         
         // WHAT THE FUCK SHOULD I DO IN HERE...
-        
+    
     }];
     
     self.colorSegment.hidden = YES;
@@ -424,8 +434,6 @@
                                                  selector:@selector(scheduleBackgroundNotificationIfNeeded)
                                                      name:UIApplicationDidEnterBackgroundNotification
                                                    object:nil];*/
-        
-        NSLog(@"FUCK!");
         
     }
     
