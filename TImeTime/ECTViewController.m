@@ -61,6 +61,7 @@
     
     NSTimeInterval countDownInterval;
     
+    UIBackgroundTaskIdentifier backgroundIdentifier;
 }
 
 // .m Class Props...
@@ -92,11 +93,34 @@
     
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+}
+
+- (void)scheduleBackgroundNotificationIfNeeded
+{
+    NSTimeInterval remainingTime = bgConSum - afterRemainder;
+    NSDate *endingTime = [[NSDate date] dateByAddingTimeInterval:remainingTime];
+    
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    [localNotification setFireDate:endingTime];
+    [localNotification setAlertBody:@"Behavioral Timer Ended"];
+//    [localNotification setSoundName:<#(NSString *)#>]
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+
 - (void)viewDidLoad
 
 {
     
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(scheduleBackgroundNotificationIfNeeded)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
     
     [self multitaskingAvailable];
     
@@ -107,14 +131,6 @@
     // HOW TO EVADE SUSPENSION WHEN ENTERING THE BACKGROUND?...
     
     // WILL THIS ALLOW ME TO NOT SAVE TIMER STATE IF MEMORY FREE UP IS REQED. BY THE OS?
-    
-    //
-    
-    /*UIBackgroundTaskIdentifier bgTask;
-    UIApplication  *app = [UIApplication sharedApplication];
-    bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
-        [app endBackgroundTask:bgTask];
-    }];*/
     
     // VIEW OBJECT FORMATTING...
     
@@ -170,6 +186,10 @@
 // START BUTTON...
 
 - (IBAction)startButton:(id)sender {
+    
+    backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        
+    }];
     
     // START BUTTON METHOD FORMATTING...
     
@@ -457,7 +477,7 @@
         [UIView commitAnimations];
         
     } else if (afterRemainder == 0) {
-        
+        [[UIApplication sharedApplication] endBackgroundTask:backgroundIdentifier];
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:2.0];
@@ -481,10 +501,6 @@
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
-        
-        /*UILocalNotification *notification = [[UILocalNotification alloc] init];
-        notification.alertBody = @"ExcepApps: ExcepTimer has finished its countdown!";
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];*/
         
     }
     
