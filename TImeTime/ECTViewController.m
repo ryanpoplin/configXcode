@@ -79,7 +79,7 @@
 
 {
 
-    if (!afterRemainder) {
+    // if (!afterRemainder) {
     
         NSTimeInterval remainingTime = afterRemainder;
         NSDate *endingTime = [[NSDate date] dateByAddingTimeInterval:remainingTime];
@@ -87,16 +87,10 @@
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
         [localNotification setFireDate:endingTime];
         [localNotification setAlertBody:@"Color Countdown Finished!"];
-        // [localNotification setSoundName:<#(NSString *)#>]
     
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(scheduleBackgroundNotificationIfNeeded)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];
-        
-    }
+    // }
         
 }
 
@@ -109,6 +103,11 @@
     // if (afterRemainder == 0) {
     
     // }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(scheduleBackgroundNotificationIfNeeded)
+                                                 name:UIApplicationDidEnterBackgroundNotification
+                                               object:nil];
     
     [[_startButton layer] setBorderWidth:0.5f];
     [[_startButton layer] setBorderColor:[UIColor grayColor].CGColor];
