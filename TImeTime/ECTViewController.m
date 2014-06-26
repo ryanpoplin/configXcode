@@ -53,7 +53,6 @@
     
     NSTimeInterval countDownInterval;
     
-    // UIBackgroundTaskIdentifier...
     UIBackgroundTaskIdentifier backgroundIdentifier;
     
 }
@@ -78,8 +77,6 @@
 - (void)scheduleBackgroundNotificationIfNeeded
 
 {
-
-    // if (!afterRemainder) {
     
         NSTimeInterval remainingTime = afterRemainder;
         NSDate *endingTime = [[NSDate date] dateByAddingTimeInterval:remainingTime];
@@ -89,9 +86,7 @@
         [localNotification setAlertBody:@"Color Countdown Finished!"];
     
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-        
-    // }
-        
+    
 }
 
 - (void)viewDidLoad
@@ -99,10 +94,6 @@
 {
     
     [super viewDidLoad];
-    
-    // if (afterRemainder == 0) {
-    
-    // }
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scheduleBackgroundNotificationIfNeeded)
@@ -153,11 +144,9 @@
 
 - (IBAction)startButton:(id)sender {
     
-    backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        
-        // WHAT THE FUCK SHOULD I DO IN HERE...
     
-    }];
+    
+    backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
     
     self.colorSegment.hidden = YES;
     
@@ -240,8 +229,6 @@
     if (pauseBool != true) {
     
         bgConSum = afterRemainder;
-        
-        // minimumVal = afterRemainder;
         
     }
     
@@ -429,11 +416,6 @@
         
         AudioServicesPlaySystemSound(1304);
         
-        /*[[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(scheduleBackgroundNotificationIfNeeded)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];*/
-        
     }
     
     int hours = (int)(afterRemainder / ( 60 * 60 ));
@@ -551,11 +533,6 @@
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
-        
-        /*[[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(scheduleBackgroundNotificationIfNeeded)
-                                                     name:UIApplicationDidEnterBackgroundNotification
-                                                   object:nil];*/
         
     }
     
