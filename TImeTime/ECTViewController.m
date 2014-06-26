@@ -60,7 +60,7 @@
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic) NSTimeInterval totalTime;
 @property (nonatomic) BOOL isRunning;
-@property (nonatomic, strong) void (^updateBlock)();
+// @property (nonatomic, strong) void (^updateBlock)();
 
 @end
 
@@ -69,6 +69,9 @@
 - (void)dealloc
 
 {
+    
+    // CONTINUE WITH READING THE OBJECTIVE C BOOK AND HEAD ON INTO THE IOS PROGRAMMING BOOK BC THAT'S WHAT YOU NEED MOTHER FUCKER!!!
+    // BE AWARE OF THIS DEALLOC METHOD HERE...
 
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
 
@@ -77,6 +80,8 @@
 - (void)scheduleBackgroundNotificationIfNeeded
 
 {
+    
+        // HERE IS THE LOCAL PUSH NOTIFICATION...
     
         NSTimeInterval remainingTime = afterRemainder;
         NSDate *endingTime = [[NSDate date] dateByAddingTimeInterval:remainingTime];
@@ -94,6 +99,8 @@
 {
     
     [super viewDidLoad];
+    
+    // EVENT LISTENERS FOR IOS PLATFORM...
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scheduleBackgroundNotificationIfNeeded)
@@ -142,9 +149,13 @@
     
 }
 
+// WHEN THE START BUTTON IS PRESSED START 'beginBackgroundTaskWithExpirationHandler...'...
+
+// A GOOD CHANCE TO CHECK OUT APPLE DEV. DOCS BEST PRACTICES...
+
 - (IBAction)startButton:(id)sender {
     
-    
+    // OUR backgroundIdentifier...
     
     backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
     
