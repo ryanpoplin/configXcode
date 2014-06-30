@@ -9,6 +9,7 @@
 // IMPORTED DEPENDENCIES...
 
 #import "ECTViewController.h"
+#import "ECTAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 
@@ -153,7 +154,7 @@
     
     // OUR backgroundIdentifier...
     
-    backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
+    // backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
     
     self.colorSegment.hidden = YES;
     

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-// int minimumVal = 3600;
+float backgroudSubtractionTime;
 
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 
