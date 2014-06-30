@@ -13,6 +13,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+/* MOVE THE DELEGATE CODE INTO HERE AND TRY OUT EVENT LISTENERS... */
+
 // ECTViewController Class...
 @interface ECTViewController ()
 
