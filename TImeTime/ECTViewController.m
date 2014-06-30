@@ -1,4 +1,3 @@
-
 //
 //  ECTViewController.m
 //  TImeTime
@@ -13,36 +12,44 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+// ECTViewController Class...
 @interface ECTViewController ()
 
 {
-    
+    // values for hours, minutes, and seconds...
     int userHours;
     
     int userMinutes;
     
     int userSeconds;
     
+    // converted values for hours, minutes, and seconds for the label object...
     int convertedHours;
     
     int convertedMinutes;
     
     int convertedSeconds;
     
+    // was the pause button pressed?
     BOOL pauseBool;
     
+    //
     int currentPauseBuild;
     
+    //
     BOOL pausePress;
     
+    // incremented value for subtracting from the original countdown value...
     int pauseTracker;
     
     int pauseTime;
     
+    // the decremented countdown value...
     int afterRemainder;
    
     int remainder;
     
+    // the original countdown value...
     int bgConSum;
     
     BOOL bgColorOption;
@@ -69,9 +76,6 @@
 - (void)dealloc
 
 {
-    
-    // CONTINUE WITH READING THE OBJECTIVE C BOOK AND HEAD ON INTO THE IOS PROGRAMMING BOOK BC THAT'S WHAT YOU NEED MOTHER FUCKER!!!
-    // BE AWARE OF THIS DEALLOC METHOD HERE...
 
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
 
@@ -80,8 +84,6 @@
 - (void)scheduleBackgroundNotificationIfNeeded
 
 {
-    
-        // HERE IS THE LOCAL PUSH NOTIFICATION...
     
         NSTimeInterval remainingTime = afterRemainder;
         NSDate *endingTime = [[NSDate date] dateByAddingTimeInterval:remainingTime];
@@ -99,8 +101,6 @@
 {
     
     [super viewDidLoad];
-    
-    // EVENT LISTENERS FOR IOS PLATFORM...
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scheduleBackgroundNotificationIfNeeded)
@@ -148,10 +148,6 @@
     [super didReceiveMemoryWarning];
     
 }
-
-// WHEN THE START BUTTON IS PRESSED START 'beginBackgroundTaskWithExpirationHandler...'...
-
-// A GOOD CHANCE TO CHECK OUT APPLE DEV. DOCS BEST PRACTICES...
 
 - (IBAction)startButton:(id)sender {
     
@@ -642,4 +638,3 @@
 }
 
 @end
-

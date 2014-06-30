@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5AD95258194584B900A70F3C"
-               BuildableName = "TImeTime.app"
-               BlueprintName = "TImeTime"
-               ReferencedContainer = "container:TImeTime.xcodeproj">
+               BuildableName = "Color Countdown.app"
+               BlueprintName = "Color Countdown"
+               ReferencedContainer = "container:Color Countdown.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5AD9527C194584B900A70F3C"
-               BuildableName = "TImeTimeTests.xctest"
-               BlueprintName = "TImeTimeTests"
-               ReferencedContainer = "container:TImeTime.xcodeproj">
+               BuildableName = "Color CountdownTests.xctest"
+               BlueprintName = "Color CountdownTests"
+               ReferencedContainer = "container:Color Countdown.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5AD95258194584B900A70F3C"
-            BuildableName = "TImeTime.app"
-            BlueprintName = "TImeTime"
-            ReferencedContainer = "container:TImeTime.xcodeproj">
+            BuildableName = "Color Countdown.app"
+            BlueprintName = "Color Countdown"
+            ReferencedContainer = "container:Color Countdown.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,9 +63,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5AD95258194584B900A70F3C"
-            BuildableName = "TImeTime.app"
-            BlueprintName = "TImeTime"
-            ReferencedContainer = "container:TImeTime.xcodeproj">
+            BuildableName = "Color Countdown.app"
+            BlueprintName = "Color Countdown"
+            ReferencedContainer = "container:Color Countdown.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,9 +81,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5AD95258194584B900A70F3C"
-            BuildableName = "TImeTime.app"
-            BlueprintName = "TImeTime"
-            ReferencedContainer = "container:TImeTime.xcodeproj">
+            BuildableName = "Color Countdown.app"
+            BlueprintName = "Color Countdown"
+            ReferencedContainer = "container:Color Countdown.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
