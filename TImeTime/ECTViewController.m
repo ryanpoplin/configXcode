@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 ExcepApps. All rights reserved.
 //
 
+/* THEY'RE JUST INSTRUCTIONS... */
+
 // IMPORTED DEPENDENCIES...
 
 #import "ECTViewController.h"
@@ -76,15 +78,15 @@
 
 @implementation ECTViewController
 
-- (void)dealloc
+/*- (void)dealloc
 
 {
 
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
 
-}
+}*/
 
-- (void)scheduleBackgroundNotificationIfNeeded
+/*- (void)scheduleBackgroundNotificationIfNeeded
 
 {
     
@@ -97,7 +99,9 @@
     
         [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
     
-}
+}*/
+
+UILocalNotification *futureAlert;
 
 - (void)viewDidLoad
 
@@ -105,10 +109,22 @@
     
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
+    futureAlert = [[UILocalNotification alloc] init];
+    
+    [futureAlert setAlertBody:@"Color Countdown: Countdown has finished!"];
+    
+    // [futureAlert setSoundName:<#(NSString *)#>];
+    
+    futureAlert.fireDate = [NSDate dateWithTimeIntervalSinceNow:1];
+    
+    futureAlert.timeZone = [NSTimeZone defaultTimeZone];
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification: futureAlert];
+    
+    /*[[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(scheduleBackgroundNotificationIfNeeded)
                                                  name:UIApplicationDidEnterBackgroundNotification
-                                               object:nil];
+                                               object:nil];*/
     
     [[_startButton layer] setBorderWidth:0.5f];
     [[_startButton layer] setBorderColor:[UIColor grayColor].CGColor];
@@ -119,7 +135,6 @@
     [[_resetButton layer] setBorderWidth:0.5f];
     [[_resetButton layer] setBorderColor:[UIColor grayColor].CGColor];
     
-    // OS FUNC...
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
     self.resetButton.enabled = NO;
@@ -156,7 +171,7 @@
     
     // OUR backgroundIdentifier...
     
-    // backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
+    backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
     
     self.colorSegment.hidden = YES;
     
@@ -420,11 +435,15 @@
         
         autoTimer = nil;
         
+        // ALERT MODAL...
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
+        
+        // ALERT BACKGROUND PUSH NOTIFICATION...
+        [[UIApplication sharedApplication] scheduleLocalNotification: futureAlert];
         
     }
     
@@ -538,11 +557,15 @@
         
         autoTimer = nil;
         
+        // ALERT MODAL...
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
+        
+        // ALERT BACKGROUND PUSH NOTIFICATION...
+        [[UIApplication sharedApplication] scheduleLocalNotification: futureAlert];
         
     }
     
