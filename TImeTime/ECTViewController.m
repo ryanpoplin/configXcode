@@ -168,15 +168,8 @@ UILocalNotification *futureAlert;
 
 - (IBAction)startButton:(id)sender {
     
-    /* Justin Hall...(Railside...) */
-    
-    /*[UIView animateWithDuration:1.0 animations:^{
-        <#code#>
-    }*/
-    //
-    
     // OUR backgroundIdentifier...
-    // backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
+    backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
     
     self.colorSegment.hidden = YES;
     
