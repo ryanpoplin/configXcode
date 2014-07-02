@@ -10,9 +10,9 @@
 
 #import "ECTAppDelegate.h"
 
-/*NSDate *thisMagicMoment;
+NSDate *thisMagicMoment;
 NSTimeInterval timeOfNoMagic;
-NSDate *lastMagicMoment;*/
+NSDate *lastMagicMoment;
 
 @implementation ECTAppDelegate
 
@@ -32,9 +32,7 @@ NSDate *lastMagicMoment;*/
     NSLog(@"APP HAS RESIGNED ACTIVE...");
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-    /*thisMagicMoment = [NSDate date];
-    [[NSUserDefaults standardUserDefaults] setObject:thisMagicMoment forKey:@"lastMagicMoment"];
-    [[NSUserDefaults standardUserDefaults] synchronize];*/
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -43,7 +41,10 @@ NSDate *lastMagicMoment;*/
 
     NSLog(@"APP HAS ENTERED BACKGROUND...");
     
-    
+    thisMagicMoment = [NSDate date];
+    [[NSUserDefaults standardUserDefaults] setObject:thisMagicMoment forKey:@"lastMagicMoment"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
     
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
@@ -64,7 +65,7 @@ NSDate *lastMagicMoment;*/
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
-    /*NSDate *thisMagicMoment = [NSDate date];
+    NSDate *thisMagicMoment = [NSDate date];
     lastMagicMoment =  (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"lastMagicMoment"];
     
     if (lastMagicMoment == nil) {
@@ -79,7 +80,7 @@ NSDate *lastMagicMoment;*/
         // backgroudSubtractionTime = timeOfNoMagic;
         // NSLog(@"%f\n", backgroudSubtractionTime);
         
-    }*/
+    }
     
 }
 
@@ -88,6 +89,7 @@ NSDate *lastMagicMoment;*/
     NSLog(@"APP WILL TERMINATE...");
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // thisMagicMoment = nil;
+    
 }
 
 @end

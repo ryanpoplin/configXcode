@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 ExcepApps. All rights reserved.
 //
 
-/* THEY'RE JUST INSTRUCTIONS... */
-
 // IMPORTED DEPENDENCIES...
 
 #import "ECTViewController.h"
@@ -77,6 +75,7 @@
 @end
 
 @implementation ECTViewController
+
 
 /*- (void)dealloc
 
@@ -169,9 +168,15 @@ UILocalNotification *futureAlert;
 
 - (IBAction)startButton:(id)sender {
     
-    // OUR backgroundIdentifier...
+    /* Justin Hall...(Railside...) */
     
-    backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
+    /*[UIView animateWithDuration:1.0 animations:^{
+        <#code#>
+    }*/
+    //
+    
+    // OUR backgroundIdentifier...
+    // backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
     
     self.colorSegment.hidden = YES;
     
