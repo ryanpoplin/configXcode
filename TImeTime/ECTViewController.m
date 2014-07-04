@@ -108,6 +108,14 @@ UILocalNotification *futureAlert;
     
     [super viewDidLoad];
     
+    if (self.view.bounds.size.height == 568) {
+        //... other setting for iPhone 4 inch
+    } else {
+        [self.displayLabel setFrame:CGRectMake(20, 360, 280, 23)];
+        [self.colorSegment setFrame:CGRectMake(20, 410, 260, 30)];
+        //... other setting for iPhone 3.5 inch
+    }
+    
     futureAlert = [[UILocalNotification alloc] init];
     
     [futureAlert setAlertBody:@"Color Countdown: Countdown has finished!"];
@@ -195,7 +203,13 @@ UILocalNotification *futureAlert;
     
     self.startTime = [NSDate date];
     
-    self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
+    if (self.view.bounds.size.height == 568) {
+        self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
+        //... other setting for iPhone 4 inch
+    } else {
+        self.displayLabel.frame = CGRectMake(20, 280, 280, 35);
+        //... other setting for iPhone 3.5 inch
+    }
 
     self.displayLabel.font = [self.displayLabel.font fontWithSize:48];
     
@@ -341,7 +355,13 @@ UILocalNotification *futureAlert;
     
     [_pauseButton setEnabled: NO];
     
-    self.displayLabel.frame = CGRectMake(20, 371, 280, 35);
+    if (self.view.bounds.size.height == 568) {
+        self.displayLabel.frame = CGRectMake(20, 371, 280, 35);
+        //... other setting for iPhone 4 inch
+    } else {
+        self.displayLabel.frame = CGRectMake(20, 350, 280, 35);
+        //... other setting for iPhone 3.5 inch
+    }
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
     

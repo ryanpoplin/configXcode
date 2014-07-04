@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" id="HQt-FU-BCc">
-                                <rect key="frame" x="18" y="179" width="284" height="31"/>
+                                <rect key="frame" x="15" y="179" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="hoursMoved:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Jf0-zL-mjO"/>
