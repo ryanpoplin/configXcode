@@ -635,9 +635,15 @@ UILocalNotification *futureAlert;
 
     UISlider *secondSlider = (UISlider *)sender;
     
+    NSString *sliderValueAsStringSecond = [NSString stringWithFormat:@"%d Second", (int)[secondSlider value]];
+
     NSString *sliderValueAsStringSeconds = [NSString stringWithFormat:@"%d Seconds", (int)[secondSlider value]];
     
-    self.secondLabel.text = sliderValueAsStringSeconds;
+    if ((int)[secondSlider value] == 1) {
+        self.secondLabel.text = sliderValueAsStringSecond;
+    } else {
+        self.secondLabel.text = sliderValueAsStringSeconds;
+    }
     
     userSeconds = (int)[secondSlider value];
     
