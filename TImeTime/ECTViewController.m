@@ -611,9 +611,15 @@ UILocalNotification *futureAlert;
     
     UISlider *hourSlider = (UISlider *)sender;
     
+    NSString *sliderValueAsStringHour = [NSString stringWithFormat:@"%d Hour", (int)[hourSlider value]];
+    
     NSString *sliderValueAsStringHours = [NSString stringWithFormat:@"%d Hours", (int)[hourSlider value]];
     
-    self.hourLabel.text = sliderValueAsStringHours;
+    if ((int)[hourSlider value] == 1) {
+        self.hourLabel.text = sliderValueAsStringHour;
+    } else {
+        self.hourLabel.text = sliderValueAsStringHours;
+    }
     
     userHours = (int)[hourSlider value];
     
@@ -623,9 +629,15 @@ UILocalNotification *futureAlert;
 
     UISlider *minuteSlider = (UISlider *)sender;
     
+    NSString *sliderValueAsStringMinute = [NSString stringWithFormat:@"%d Minute", (int)[minuteSlider value]];
+    
     NSString *sliderValueAsStringMinutes = [NSString stringWithFormat:@"%d Minutes", (int)[minuteSlider value]];
     
-    self.minuteLabel.text = sliderValueAsStringMinutes;
+    if ((int)[minuteSlider value] == 1) {
+        self.minuteLabel.text = sliderValueAsStringMinute;
+    } else {
+        self.minuteLabel.text = sliderValueAsStringMinutes;
+    }
     
     userMinutes = (int)[minuteSlider value];
 
