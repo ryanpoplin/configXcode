@@ -49,4 +49,8 @@
 
 - (IBAction)pauseMeth:(id)sender;
 
+@property (nonatomic, unsafe_unretained) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
+
+@property (nonatomic, strong) NSTimer *autoTimer;
+
 @end

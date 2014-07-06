@@ -14,4 +14,8 @@ float backgroudSubtractionTime;
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic, unsafe_unretained) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
+
+@property (nonatomic, strong) NSTimer *autoTimer;
+
 @end

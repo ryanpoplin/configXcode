@@ -1,3 +1,5 @@
+
+
 //
 //  ECTViewController.m
 //  TImeTime
@@ -59,12 +61,10 @@
     
     IBOutlet UIButton *startButton;
     
-    NSTimer *autoTimer;
+    // NSTimer *autoTimer;
     
     NSTimeInterval countDownInterval;
-    
-    UIBackgroundTaskIdentifier backgroundIdentifier;
-    
+        
 }
 
 @property (nonatomic, strong) NSDate *startTime;
@@ -102,11 +102,39 @@
 
 UILocalNotification *futureAlert;
 
+-(BOOL) isMultitaskingSupported {
+    
+    BOOL result = NO;
+   
+    if ([[UIDevice currentDevice] respondsToSelector: @selector(isMultitaskingSupported)]) {
+        result = [[UIDevice currentDevice] isMultitaskingSupported];
+    }
+    
+    NSLog(@"%hhd", result);
+ 
+    return result;
+    
+}
+
+-(void) timerMethod:(NSTimer *)paramSender {
+    
+    NSTimeInterval backgroundTimeRemaining = [[UIApplication sharedApplication] backgroundTimeRemaining];
+    
+    if (backgroundTimeRemaining == DBL_MAX) {
+        NSLog(@"Background Time Remaining = Undetermined");
+    } else {
+        NSLog(@"Background Time Remaining = %.02f Seconds", backgroundTimeRemaining);
+    }
+    
+}
+
 - (void)viewDidLoad
 
 {
     
     [super viewDidLoad];
+    
+    [self isMultitaskingSupported];
     
     if (self.view.bounds.size.height == 568) {
         //... other setting for iPhone 4 inch
@@ -175,9 +203,6 @@ UILocalNotification *futureAlert;
 }
 
 - (IBAction)startButton:(id)sender {
-    
-    // OUR backgroundIdentifier...
-    backgroundIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{  }];
     
     self.colorSegment.hidden = YES;
     
@@ -271,11 +296,11 @@ UILocalNotification *futureAlert;
     
     if (bgColorOption) {
         
-        autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
         
     } else {
         
-        autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
         
     }
     
@@ -303,9 +328,9 @@ UILocalNotification *futureAlert;
     
     [_pauseButton setEnabled: NO];
     
-    [autoTimer invalidate];
+    [_autoTimer invalidate];
     
-    autoTimer = nil;
+    _autoTimer = nil;
     
     pauseBool = true;
     
@@ -323,9 +348,9 @@ UILocalNotification *futureAlert;
     
     self.isRunning = false;
     
-    [autoTimer invalidate];
+    [_autoTimer invalidate];
     
-    autoTimer = nil;
+    _autoTimer = nil;
     
     [UIView beginAnimations:nil context:nil];
     
@@ -433,7 +458,7 @@ UILocalNotification *futureAlert;
         
     } else if (afterRemainder == 0) {
         
-        [[UIApplication sharedApplication] endBackgroundTask:backgroundIdentifier];
+        // [[UIApplication sharedApplication] endBackgroundTask:_backgroundTaskIdentifier];
         
         [UIView beginAnimations:nil context:nil];
         
@@ -449,9 +474,9 @@ UILocalNotification *futureAlert;
         
         [_pauseButton setEnabled: NO];
         
-        [autoTimer invalidate];
+        [_autoTimer invalidate];
         
-        autoTimer = nil;
+        _autoTimer = nil;
         
         // ALERT MODAL...
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
@@ -571,9 +596,9 @@ UILocalNotification *futureAlert;
         
         [_pauseButton setEnabled: NO];
         
-        [autoTimer invalidate];
+        [_autoTimer invalidate];
         
-        autoTimer = nil;
+        _autoTimer = nil;
         
         // ALERT MODAL...
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
@@ -700,3 +725,4 @@ UILocalNotification *futureAlert;
 }
 
 @end
+
