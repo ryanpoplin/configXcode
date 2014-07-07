@@ -133,7 +133,7 @@ UILocalNotification *futureAlert;
 {
     
     [super viewDidLoad];
-    
+        
     [self isMultitaskingSupported];
     
     if (self.view.bounds.size.height == 568) {

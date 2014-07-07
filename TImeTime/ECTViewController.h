@@ -33,6 +33,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *displayLabel;
 
+// FIX THIS...
+@property (weak, nonatomic) IBOutlet UISegmentedControl *testerSegment;
+
 @property (weak, nonatomic) IBOutlet UILabel *hourLabel;
 
 - (IBAction)hoursMoved:(id)sender;

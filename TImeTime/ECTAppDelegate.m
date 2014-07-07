@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 ExcepApps. All rights reserved.
 //
 
+// does all background processing code go into the delegation files?
+
 #import "ECTAppDelegate.h"
 // #import "ECTViewController.h"
 
