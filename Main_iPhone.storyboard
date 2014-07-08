@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wql-Na-faL">
-                                <rect key="frame" x="20" y="456" width="280" height="29"/>
+                                <rect key="frame" x="20" y="435" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Green To Red"/>
@@ -107,7 +107,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="EkB-FY-eip" kind="push" id="ySW-Nf-d9D"/>
+                                    <segue destination="dfU-Uf-eBh" kind="push" id="wXq-22-BeW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the sliders to select your countdown time." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xme-xZ-qbq">
@@ -154,34 +154,28 @@
             </objects>
             <point key="canvasLocation" x="-432" y="474"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="QHA-qE-aN2">
+        <!--View Controller-->
+        <scene sceneID="sCw-bX-qmJ">
             <objects>
-                <tableViewController id="EkB-FY-eip" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="NtI-SF-yco">
+                <viewController id="dfU-Uf-eBh" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TO3-Qv-vfE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qAs-Rf-juD">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qAs-Rf-juD" id="UBq-am-BPP">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="EkB-FY-eip" id="P6z-Yf-9vF"/>
-                            <outlet property="delegate" destination="EkB-FY-eip" id="4Hy-Ue-NI8"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="OHo-hN-gXC"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="U2u-uy-tqX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j7r-OS-ew7">
+                                <rect key="frame" x="20" y="89" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ckU-9p-UjD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dp4-8Q-75P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56" y="726"/>
+            <point key="canvasLocation" x="56" y="711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="734-wc-ouI">

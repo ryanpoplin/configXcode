@@ -235,14 +235,14 @@ UILocalNotification *futureAlert;
     self.startTime = [NSDate date];
     
     if (self.view.bounds.size.height == 568) {
-        self.displayLabel.frame = CGRectMake(20, 305, 280, 80);
+        self.displayLabel.frame = CGRectMake(15, 305, 280, 80);
         //... other setting for iPhone 4 inch
     } else {
-        self.displayLabel.frame = CGRectMake(20, 280, 280, 80);
+        self.displayLabel.frame = CGRectMake(15, 280, 280, 80);
         //... other setting for iPhone 3.5 inch
     }
 
-    self.displayLabel.font = [self.displayLabel.font fontWithSize:80];
+    self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
     
     if (userHours == 0) {
         

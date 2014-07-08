@@ -8,13 +8,30 @@
 
 // does all background processing code go into the delegation files?
 
+/*
+ 
+ // rested resources...
+ 
+ MENTOR NOTES...
+ 
+ - data network for med records..
+ - hardware and data for workouts, etc...
+ - clinical data intry and analysis...
+ - virtual rehab for xbox...
+ - chat room...
+ - chats and records...
+ - med interaction checks, pills updates...
+ - non invasive med. algorithms and analysis...
+ - mobile apps for special needs...
+ 
+*/
+
 #import "ECTAppDelegate.h"
 // #import "ECTViewController.h"
 
 NSDate *thisMagicMoment;
 NSTimeInterval timeOfNoMagic;
 NSDate *lastMagicMoment;
-int backgroundCheck = 1;
 
 @implementation ECTAppDelegate
 
@@ -141,6 +158,8 @@ int backgroundCheck = 1;
         NSLog (@"First launch!");
     
     } else {
+        
+        // int magicalTime = (int) timeOfNoMagic;
         
         timeOfNoMagic = [thisMagicMoment timeIntervalSinceDate:lastMagicMoment];
         NSLog (@"Application was in background for %f...\n", timeOfNoMagic);
