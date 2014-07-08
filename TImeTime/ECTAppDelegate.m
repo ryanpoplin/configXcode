@@ -11,13 +11,14 @@
 #import "ECTAppDelegate.h"
 // #import "ECTViewController.h"
 
-/*NSDate *thisMagicMoment;
+NSDate *thisMagicMoment;
 NSTimeInterval timeOfNoMagic;
-NSDate *lastMagicMoment;*/
+NSDate *lastMagicMoment;
+int backgroundCheck = 1;
 
 @implementation ECTAppDelegate
 
--(BOOL) isMultitaskingSupported {
+/*-(BOOL) isMultitaskingSupported {
     
     BOOL result = NO;
     
@@ -35,9 +36,9 @@ NSDate *lastMagicMoment;*/
     
     NSTimeInterval backgroundTimeRemaining = [[UIApplication sharedApplication] backgroundTimeRemaining];
     if (backgroundTimeRemaining == DBL_MAX) {
-        NSLog(@"Background Time Remaining = Undetermined");
+        // NSLog(@"Background Time Remaining = Undetermined");
     } else {
-        NSLog(@"Background Time Remaining = %.02f Seconds", backgroundTimeRemaining);
+        // NSLog(@"Background Time Remaining = %.02f Seconds", backgroundTimeRemaining);
     }
     
 }
@@ -55,7 +56,7 @@ NSDate *lastMagicMoment;*/
         }
     });
     
-}
+}*/
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -82,14 +83,22 @@ NSDate *lastMagicMoment;*/
 
     NSLog(@"APP HAS ENTERED BACKGROUND...");
     
-    /*thisMagicMoment = [NSDate date];
-    [[NSUserDefaults standardUserDefaults] setObject:thisMagicMoment forKey:@"lastMagicMoment"];
-    [[NSUserDefaults standardUserDefaults] synchronize];*/
+    timeOfNoMagic = 0;
+    lastMagicMoment = nil;
+    thisMagicMoment = nil;
     
+    // if (backgroundCheck >= 2) {
+        
+    thisMagicMoment = [NSDate date];
+    [[NSUserDefaults standardUserDefaults] setObject:thisMagicMoment forKey:@"lastMagicMoment"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    // }
+        
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 
-    if ([self isMultitaskingSupported] == NO) {
+    /*if ([self isMultitaskingSupported] == NO) {
         return;
     }
     
@@ -99,7 +108,7 @@ NSDate *lastMagicMoment;*/
         
         [self endBackgroundTask];
         
-    }];
+    }];*/
     
 }
 
@@ -108,9 +117,9 @@ NSDate *lastMagicMoment;*/
     NSLog(@"APP WILL ENTER FOREGROUND...");
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 
-    if (self.backgroundTaskIdentifier != UIBackgroundTaskInvalid) {
+    /*if (self.backgroundTaskIdentifier != UIBackgroundTaskInvalid) {
         [self endBackgroundTask];
-    }
+    }*/
     
 }
 
@@ -120,7 +129,9 @@ NSDate *lastMagicMoment;*/
     NSLog(@"APP DID BECOME ACTIVE...");
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    /*[[UIApplication sharedApplication] cancelAllLocalNotifications];
+    // if (backgroundCheck >= 2) {
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     NSDate *thisMagicMoment = [NSDate date];
     lastMagicMoment =  (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"lastMagicMoment"];
@@ -132,12 +143,12 @@ NSDate *lastMagicMoment;*/
     } else {
         
         timeOfNoMagic = [thisMagicMoment timeIntervalSinceDate:lastMagicMoment];
-        NSLog (@"Application was in background for %f...\n", timeOfNoMagic);*/
+        NSLog (@"Application was in background for %f...\n", timeOfNoMagic);
         
-        // backgroudSubtractionTime = timeOfNoMagic;
-        // NSLog(@"%f\n", backgroudSubtractionTime);
+        backgroudSubtractionTime = timeOfNoMagic;
+        NSLog(@"%f\n", backgroudSubtractionTime);
         
-    // }
+    }
     
 }
 
@@ -145,7 +156,7 @@ NSDate *lastMagicMoment;*/
 {
     NSLog(@"APP WILL TERMINATE...");
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    // thisMagicMoment = nil;
+    // timeOfNoMagic = 0.0;
     
 }
 

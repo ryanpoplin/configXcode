@@ -27,6 +27,8 @@
 
 @property (weak, nonatomic) IBOutlet UISlider *hourSlider;
 
+@property (weak, nonatomic) IBOutlet UILabel *backgroundTime;
+
 @property (weak, nonatomic) IBOutlet UISlider *minuteSlider;
 
 @property (weak, nonatomic) IBOutlet UISlider *secondsSlider;

@@ -133,7 +133,11 @@ UILocalNotification *futureAlert;
 {
     
     [super viewDidLoad];
-        
+    
+    self.displayLabel.hidden = YES;
+    
+    self.colorSegment.hidden = YES;
+    
     [self isMultitaskingSupported];
     
     if (self.view.bounds.size.height == 568) {
@@ -204,6 +208,8 @@ UILocalNotification *futureAlert;
 
 - (IBAction)startButton:(id)sender {
     
+    self.displayLabel.hidden = NO;
+    
     self.colorSegment.hidden = YES;
     
     self.resetButton.enabled = YES;
@@ -229,14 +235,14 @@ UILocalNotification *futureAlert;
     self.startTime = [NSDate date];
     
     if (self.view.bounds.size.height == 568) {
-        self.displayLabel.frame = CGRectMake(20, 305, 280, 35);
+        self.displayLabel.frame = CGRectMake(20, 305, 280, 80);
         //... other setting for iPhone 4 inch
     } else {
-        self.displayLabel.frame = CGRectMake(20, 280, 280, 35);
+        self.displayLabel.frame = CGRectMake(20, 280, 280, 80);
         //... other setting for iPhone 3.5 inch
     }
 
-    self.displayLabel.font = [self.displayLabel.font fontWithSize:48];
+    self.displayLabel.font = [self.displayLabel.font fontWithSize:80];
     
     if (userHours == 0) {
         
@@ -342,6 +348,8 @@ UILocalNotification *futureAlert;
     
     pauseBool = false;
     
+    // self.colorSegment.hidden = NO;
+    
     pauseTracker = 0;
     
     pausePress = true;
@@ -354,7 +362,7 @@ UILocalNotification *futureAlert;
     
     [UIView beginAnimations:nil context:nil];
     
-    self.colorSegment.hidden = NO;
+    self.colorSegment.hidden = YES;
     
     self.resetButton.enabled = NO;
 
@@ -362,7 +370,9 @@ UILocalNotification *futureAlert;
     
     [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
     
-    self.displayLabel.text = @"00 : 00 : 00";
+    self.displayLabel.hidden = YES;
+    
+    self.displayLabel.text = @"";
     
     self.hourLabel.hidden = NO;
     
