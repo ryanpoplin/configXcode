@@ -32,12 +32,24 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSString *myString = @"Objective-C";
-    self.testLabel.text = [myString stringByAppendingString:@" and Swift..."];
+    // command + /
     
-    NSUInteger stringLength = [myString length];
-    // the view controller must be segued to...
-    NSLog(@"%d", stringLength);
+    NSString *myString = @"Objective-C and Swift...";
+    // self.testLabel.text = [myString stringByAppendingString:@" and Swift..."];
+    
+    self.testLabel.text = [myString stringByReplacingOccurrencesOfString:@"and" withString:@"n"];
+    
+//    NSUInteger stringLength = [myString length];
+//    // the view controller must be segued to...
+//    NSLog(@"%d", stringLength);
+//    
+//    BOOL isStringEqual = [myString isEqualToString:@"Nothing..."];
+//    NSLog(@"%hhd", isStringEqual);
+//    
+//    NSURL *testURL = [NSURL URLWithString:@"http://www.oakleafsd.com"];
+//    NSLog(@"%@", testURL);
+    
+    
     
 }
 
