@@ -12,6 +12,8 @@
  
  // rested resources...
  
+ // UIKit Dynamics Catalog...
+ 
  MENTOR NOTES...
  
  - data network for med records..
@@ -28,6 +30,11 @@
 
 #import "ECTAppDelegate.h"
 // #import "ECTViewController.h"
+
+// SAVE THIS TO THE FILE SYSTEM...
+
+
+// subtract from afterRemainder var && add to pauseTracker var...
 
 NSDate *thisMagicMoment;
 NSTimeInterval timeOfNoMagic;

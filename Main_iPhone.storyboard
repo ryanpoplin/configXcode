@@ -154,15 +154,15 @@
             </objects>
             <point key="canvasLocation" x="-432" y="474"/>
         </scene>
-        <!--View Controller-->
+        <!--Test View Controller-->
         <scene sceneID="sCw-bX-qmJ">
             <objects>
-                <viewController id="dfU-Uf-eBh" sceneMemberID="viewController">
+                <viewController id="dfU-Uf-eBh" customClass="ECTTestViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TO3-Qv-vfE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j7r-OS-ew7">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j7r-OS-ew7">
                                 <rect key="frame" x="20" y="89" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -172,6 +172,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ckU-9p-UjD"/>
+                    <connections>
+                        <outlet property="testLabel" destination="j7r-OS-ew7" id="8cu-u5-fKI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dp4-8Q-75P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

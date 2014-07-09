@@ -10,11 +10,14 @@
 
 @interface ECTTestViewController ()
 
+
+
 @end
 
 @implementation ECTTestViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -24,12 +27,22 @@
 }
 
 - (void)viewDidLoad
+
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSString *myString = @"Objective-C";
+    self.testLabel.text = [myString stringByAppendingString:@" and Swift..."];
+    
+    NSUInteger stringLength = [myString length];
+    // the view controller must be segued to...
+    NSLog(@"%d", stringLength);
+    
 }
 
 - (void)didReceiveMemoryWarning
+
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

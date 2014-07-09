@@ -10,4 +10,6 @@
 
 @interface ECTTestViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *testLabel;
+
 @end
