@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A6ED99C196C5C4D00EC4C8B /* ECTTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6ED99B196C5C4D00EC4C8B /* ECTTestViewController.m */; };
 		5A9F98E219537D7900A77EC6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9F98E119537D7900A77EC6 /* QuartzCore.framework */; };
 		5A9F98E41953F41600A77EC6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9F98E31953F41600A77EC6 /* AudioToolbox.framework */; };
 		5AD9525D194584B900A70F3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AD9525C194584B900A70F3C /* Foundation.framework */; };
@@ -38,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A6ED99A196C5C4D00EC4C8B /* ECTTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTTestViewController.h; sourceTree = "<group>"; };
-		5A6ED99B196C5C4D00EC4C8B /* ECTTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTTestViewController.m; sourceTree = "<group>"; };
 		5A9F98E119537D7900A77EC6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5A9F98E31953F41600A77EC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5AD95259194584B900A70F3C /* Color Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,8 +92,6 @@
 			children = (
 				5AD95274194584B900A70F3C /* ECTViewController.h */,
 				5AD95275194584B900A70F3C /* ECTViewController.m */,
-				5A6ED99A196C5C4D00EC4C8B /* ECTTestViewController.h */,
-				5A6ED99B196C5C4D00EC4C8B /* ECTTestViewController.m */,
 				5A365B9019497F1100AF1958 /* testone */,
 			);
 			name = ViewControllers;
@@ -300,7 +295,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD95276194584B900A70F3C /* ECTViewController.m in Sources */,
-				5A6ED99C196C5C4D00EC4C8B /* ECTTestViewController.m in Sources */,
 				5AD95269194584B900A70F3C /* main.m in Sources */,
 				5AD9526D194584B900A70F3C /* ECTAppDelegate.m in Sources */,
 			);

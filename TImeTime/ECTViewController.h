@@ -30,5 +30,11 @@
 - (IBAction)pauseMeth:(id)sender;
 @property (nonatomic, unsafe_unretained) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
 @property (nonatomic, strong) NSTimer *autoTimer;
+- (IBAction)segment2:(id)sender;
+- (IBAction)segment3:(id)sender;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segment2;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segment3;
+@property (weak, nonatomic) IBOutlet UILabel *instructIndex;
+
 
 @end

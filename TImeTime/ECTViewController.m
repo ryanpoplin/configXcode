@@ -14,7 +14,7 @@
 @interface ECTViewController ()
 
 {
-
+    
     int userHours;
     int userMinutes;
     int userSeconds;
@@ -41,6 +41,8 @@
 
 @end
 
+BOOL timerLabelOption = true;
+
 @implementation ECTViewController
 
 - (void)viewDidLoad
@@ -66,8 +68,8 @@
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
-    self.displayLabel.hidden = YES;
-    self.colorSegment.hidden = YES;
+    self.displayLabel.hidden = NO;
+    self.colorSegment.hidden = NO;
     self.resetButton.enabled = NO;
     self.pauseButton.enabled = NO;
     self.displayLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
@@ -91,10 +93,24 @@
     
 }
 
+/*- (void)updatePacManView
+
+{    
+    
+    CGFloat angle = pacManView.angle - 0.1;
+    
+    [pacManView setAngle:angle];
+    
+}*/
+
+
 - (IBAction)startButton:(id)sender {
     
+    self.displayLabel.text = @"00 : 00 : 00";
     self.displayLabel.hidden = NO;
     self.colorSegment.hidden = YES;
+    self.segment2.hidden = YES;
+    self.segment3.hidden = YES;
     self.resetButton.enabled = YES;
     self.hourLabel.hidden = YES;
     self.minuteLabel.hidden = YES;
@@ -176,6 +192,9 @@
 
 - (IBAction)resetButton:(id)sender {
     
+    self.colorSegment.hidden = NO;
+    self.segment2.hidden = NO;
+    self.segment3.hidden = NO;
     pauseBool = false;
     pauseTracker = 0;
     pausePress = true;
@@ -183,12 +202,10 @@
     [_autoTimer invalidate];
     _autoTimer = nil;
     [UIView beginAnimations:nil context:nil];
-    self.colorSegment.hidden = YES;
     self.resetButton.enabled = NO;
     self.view.backgroundColor = [UIColor whiteColor];
     [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
     self.displayLabel.hidden = YES;
-    self.displayLabel.text = @"";
     self.hourLabel.hidden = NO;
     self.minuteLabel.hidden = NO;
     self.secondLabel.hidden = NO;
@@ -256,6 +273,8 @@
         
     }
     
+    if (timerLabelOption == true) {
+    
     int hours = (int)(afterRemainder / ( 60 * 60 ));
     int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
     int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60 )));
@@ -268,6 +287,8 @@
     } else if (hours == 0 && mins == 0 && secs >= 0) {
         NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
         self.displayLabel.text = displayText;
+    }
+        
     }
 
 }
@@ -317,6 +338,9 @@
         [alert show];
         AudioServicesPlaySystemSound(1304);
     }
+    
+    if (timerLabelOption == true) {
+    
     int hours = (int)(afterRemainder / ( 60 * 60 ));
     int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
     int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60)));
@@ -329,6 +353,8 @@
     } else if (hours == 0 && mins == 0 && secs >= 0) {
         NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
         self.displayLabel.text = displayText;
+    }
+        
     }
     
 }
@@ -387,5 +413,28 @@
 
 }
 
-@end
+- (IBAction)segment2:(id)sender {
 
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    if (selectedSegment == 0) {
+        timerLabelOption = true;
+    } else {
+        timerLabelOption = false;
+    }
+
+}
+
+- (IBAction)segment3:(id)sender {
+
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    if (selectedSegment == 0) {
+        NSLog(@"Yo...");
+    } else {
+        NSLog(@"No...");
+    }
+    
+}
+
+@end

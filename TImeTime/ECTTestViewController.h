@@ -12,4 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;
 
+@property (nonatomic, readwrite) CGFloat angle;
+
 @end

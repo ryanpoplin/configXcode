@@ -38,40 +38,40 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" id="HQt-FU-BCc">
-                                <rect key="frame" x="15" y="225" width="284" height="31"/>
+                                <rect key="frame" x="15" y="212" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="hoursMoved:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Jf0-zL-mjO"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="59" id="W9Y-mO-7O7">
-                                <rect key="frame" x="17" y="292" width="284" height="31"/>
+                                <rect key="frame" x="15" y="279" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="minutesMoved:" destination="vXZ-lx-hvc" eventType="valueChanged" id="fiE-IS-1NS"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="59" id="G1J-mf-2Fv">
-                                <rect key="frame" x="18" y="359" width="284" height="31"/>
+                                <rect key="frame" x="18" y="346" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="secondsMoved:" destination="vXZ-lx-hvc" eventType="valueChanged" id="hBV-yx-YbU"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Yxn-gx-a4I">
-                                <rect key="frame" x="17" y="196" width="280" height="21"/>
+                                <rect key="frame" x="17" y="183" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="udI-46-5QZ">
-                                <rect key="frame" x="17" y="263" width="280" height="21"/>
+                                <rect key="frame" x="17" y="250" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sdv-fC-NoO">
-                                <rect key="frame" x="20" y="330" width="280" height="21"/>
+                                <rect key="frame" x="20" y="317" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="highlightedColor"/>
@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="wql-Na-faL">
-                                <rect key="frame" x="20" y="435" width="280" height="29"/>
+                                <rect key="frame" x="16" y="406" width="283" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Green To Red"/>
@@ -99,53 +99,59 @@
                                     <action selector="segmentSwitch:" destination="vXZ-lx-hvc" eventType="valueChanged" id="TW3-ff-5wb"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kjx-8y-GSR">
-                                <rect key="frame" x="107" y="505" width="106" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.84447592439999997" green="0.84216646299999998" blue="0.86111582880000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Settings">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="dfU-Uf-eBh" kind="push" id="wXq-22-BeW"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the sliders to select your countdown time." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xme-xZ-qbq">
-                                <rect key="frame" x="11" y="152" width="296" height="21"/>
+                                <rect key="frame" x="12" y="142" width="296" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mC2-i4-55e">
-                                <rect key="frame" x="20" y="413" width="277" height="21"/>
+                                <rect key="frame" x="21" y="449" width="277" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Background Time..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9a4-aX-B3R">
-                                <rect key="frame" x="20" y="127" width="277" height="21"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="oi8-hr-78P">
+                                <rect key="frame" x="16" y="457" width="283" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <segments>
+                                    <segment title="Timer Label"/>
+                                    <segment title="No Timer Label"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segment2:" destination="vXZ-lx-hvc" eventType="valueChanged" id="IjW-Us-Fhg"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Jum-aC-Mib">
+                                <rect key="frame" x="16" y="510" width="283" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Animation"/>
+                                    <segment title="No Animation"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segment3:" destination="vXZ-lx-hvc" eventType="valueChanged" id="8qd-ZQ-SmB"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="fRr-hF-rCy"/>
                     <connections>
-                        <outlet property="backgroundTime" destination="9a4-aX-B3R" id="Geq-K7-XkQ"/>
                         <outlet property="colorSegment" destination="wql-Na-faL" id="6S8-S2-veo"/>
                         <outlet property="displayLabel" destination="mC2-i4-55e" id="h1C-xo-YcF"/>
                         <outlet property="hourLabel" destination="Yxn-gx-a4I" id="xN1-wn-XO7"/>
                         <outlet property="hourSlider" destination="HQt-FU-BCc" id="kbT-Qm-zK0"/>
+                        <outlet property="instructIndex" destination="Xme-xZ-qbq" id="ABW-VU-1B1"/>
                         <outlet property="minuteLabel" destination="udI-46-5QZ" id="15i-de-ssw"/>
                         <outlet property="minuteSlider" destination="W9Y-mO-7O7" id="U97-86-We5"/>
                         <outlet property="pauseButton" destination="B4f-z1-Lvj" id="Se4-jI-cqr"/>
                         <outlet property="resetButton" destination="R9z-OJ-72n" id="ERU-pP-55V"/>
                         <outlet property="secondLabel" destination="sdv-fC-NoO" id="lSm-Q6-9mT"/>
                         <outlet property="secondsSlider" destination="G1J-mf-2Fv" id="k2N-07-eRa"/>
+                        <outlet property="segment2" destination="oi8-hr-78P" id="qW5-bQ-K4b"/>
+                        <outlet property="segment3" destination="Jum-aC-Mib" id="ZSK-7z-I4q"/>
                         <outlet property="startButton" destination="OVf-MO-eWU" id="bfP-my-uYz"/>
                         <outlet property="testerSegment" destination="wql-Na-faL" id="UCj-pt-GVA"/>
                     </connections>
@@ -153,32 +159,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-432" y="474"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="sCw-bX-qmJ">
-            <objects>
-                <viewController id="dfU-Uf-eBh" customClass="ECTTestViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="TO3-Qv-vfE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j7r-OS-ew7">
-                                <rect key="frame" x="20" y="89" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="ckU-9p-UjD"/>
-                    <connections>
-                        <outlet property="testLabel" destination="j7r-OS-ew7" id="8cu-u5-fKI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dp4-8Q-75P" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="56" y="711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="734-wc-ouI">
