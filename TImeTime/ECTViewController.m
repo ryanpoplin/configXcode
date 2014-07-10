@@ -24,9 +24,7 @@
     BOOL pauseBool;
     int currentPauseBuild;
     BOOL pausePress;
-    // int pauseTracker;
-    // int pauseTime;
-    // int afterRemainder;
+
     int remainder;
     int bgConSum;
     BOOL bgColorOption;
@@ -397,6 +395,8 @@ BOOL timerLabelOption = true;
     userSeconds = (int)[secondSlider value];
     
 }
+
+// SWITCH THESE OVER TO THE SETTINGS VIEW...
 
 - (IBAction)segmentSwitch:(id)sender {
     
