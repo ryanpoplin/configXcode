@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-float backgroudSubtractionTime;
+float backgroudTime;
+
+int pauseTracker;
+int pauseTime;
+int afterRemainder;
 
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 

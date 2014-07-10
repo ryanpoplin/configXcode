@@ -24,9 +24,9 @@
     BOOL pauseBool;
     int currentPauseBuild;
     BOOL pausePress;
-    int pauseTracker;
-    int pauseTime;
-    int afterRemainder;
+    // int pauseTracker;
+    // int pauseTime;
+    // int afterRemainder;
     int remainder;
     int bgConSum;
     BOOL bgColorOption;
@@ -50,6 +50,8 @@ BOOL timerLabelOption = true;
 {
     
     [super viewDidLoad];
+    
+    NSLog(@"%f\n", backgroudTime);
     
     if (self.view.bounds.size.height == 568) {
         //... other setting for iPhone 4 inch
@@ -94,6 +96,9 @@ BOOL timerLabelOption = true;
 }
 
 - (IBAction)startButton:(id)sender {
+
+    backgroudTime = 0.0;
+    NSLog(@"%f\n", backgroudTime);
     
     self.instructIndex.hidden = YES;
     self.displayLabel.hidden = NO;
@@ -170,6 +175,7 @@ BOOL timerLabelOption = true;
 
 - (IBAction)pauseMeth:(id)sender {
     
+    NSLog(@"%f\n", backgroudTime);
     [_startButton setEnabled: YES];
     [_pauseButton setEnabled: NO];
     [_autoTimer invalidate];

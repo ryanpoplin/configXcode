@@ -73,11 +73,12 @@ NSDate *lastMagicMoment;
     
     } else {
         
-        // int magicalTime = (int) timeOfNoMagic;
-        
         timeOfNoMagic = [thisMagicMoment timeIntervalSinceDate:lastMagicMoment];
         NSLog (@"Application was in background for %f...\n", timeOfNoMagic);
-        backgroudSubtractionTime = timeOfNoMagic;
+        backgroudTime = timeOfNoMagic;
+        
+        afterRemainder -= backgroudTime;
+        pauseTracker += backgroudTime;
         
     }
     
