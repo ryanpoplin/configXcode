@@ -416,7 +416,7 @@ BOOL timerLabelOption = true;
 
 }
 
-- (IBAction)segment3:(id)sender {
+/*- (IBAction)segment3:(id)sender {
 
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
@@ -426,6 +426,6 @@ BOOL timerLabelOption = true;
         NSLog(@"No...");
     }
     
-}
+}*/
 
 @end
