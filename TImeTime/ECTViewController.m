@@ -93,20 +93,9 @@ BOOL timerLabelOption = true;
     
 }
 
-/*- (void)updatePacManView
-
-{    
-    
-    CGFloat angle = pacManView.angle - 0.1;
-    
-    [pacManView setAngle:angle];
-    
-}*/
-
-
 - (IBAction)startButton:(id)sender {
     
-    self.displayLabel.text = @"00 : 00 : 00";
+    self.instructIndex.hidden = YES;
     self.displayLabel.hidden = NO;
     self.colorSegment.hidden = YES;
     self.segment2.hidden = YES;
@@ -191,7 +180,9 @@ BOOL timerLabelOption = true;
 }
 
 - (IBAction)resetButton:(id)sender {
-    
+
+    self.displayLabel.text = @"";
+    self.instructIndex.hidden = NO;
     self.colorSegment.hidden = NO;
     self.segment2.hidden = NO;
     self.segment3.hidden = NO;
