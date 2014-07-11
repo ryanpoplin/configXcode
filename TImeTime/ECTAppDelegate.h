@@ -1,3 +1,5 @@
+
+
 //
 //  ECTAppDelegate.h
 //  TImeTime
@@ -9,7 +11,8 @@
 #import <UIKit/UIKit.h>
 
 float backgroudTime;
-
+BOOL bgColorOption;
+BOOL timerLabelOption;
 int pauseTracker;
 int pauseTime;
 int afterRemainder;
@@ -18,8 +21,7 @@ int afterRemainder;
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (nonatomic, unsafe_unretained) UIBackgroundTaskIdentifier backgroundTaskIdentifier;
-
 @property (nonatomic, strong) NSTimer *autoTimer;
 
 @end
+

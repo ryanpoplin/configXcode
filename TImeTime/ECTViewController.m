@@ -1,3 +1,5 @@
+
+
 //
 //  ECTViewController.m
 //  TImeTime
@@ -24,13 +26,11 @@
     BOOL pauseBool;
     int currentPauseBuild;
     BOOL pausePress;
-
     int remainder;
     int bgConSum;
-    BOOL bgColorOption;
     IBOutlet UIButton *startButton;
     NSTimeInterval countDownInterval;
-
+    
 }
 
 @property (nonatomic, strong) NSDate *startTime;
@@ -80,7 +80,7 @@ BOOL timerLabelOption = true;
     pausePress = true;
     self.isRunning = false;
     bgColorOption = true;
-
+    
     pauseTracker = 0;
     
 }
@@ -94,7 +94,7 @@ BOOL timerLabelOption = true;
 }
 
 - (IBAction)startButton:(id)sender {
-
+    
     backgroudTime = 0.0;
     NSLog(@"%f\n", backgroudTime);
     
@@ -110,7 +110,7 @@ BOOL timerLabelOption = true;
     self.hourSlider.hidden = YES;
     self.minuteSlider.hidden = YES;
     self.secondsSlider.hidden = YES;
-
+    
     [_startButton setEnabled: NO];
     [_pauseButton setEnabled: YES];
     
@@ -124,7 +124,7 @@ BOOL timerLabelOption = true;
         self.displayLabel.frame = CGRectMake(15, 280, 280, 80);
         //... other setting for iPhone 3.5 inch
     }
-
+    
     self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
     
     if (userHours == 0) {
@@ -184,7 +184,7 @@ BOOL timerLabelOption = true;
 }
 
 - (IBAction)resetButton:(id)sender {
-
+    
     self.displayLabel.text = @"";
     self.instructIndex.hidden = NO;
     self.colorSegment.hidden = NO;
@@ -269,23 +269,23 @@ BOOL timerLabelOption = true;
     }
     
     if (timerLabelOption == true) {
-    
-    int hours = (int)(afterRemainder / ( 60 * 60 ));
-    int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
-    int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60 )));
-    if (hours != 0) {
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u : %02u ", hours, mins, secs];
-        self.displayLabel.text = displayText;
-    } else if (hours == 0 && mins != 0) {
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u ", mins, secs];
-        self.displayLabel.text = displayText;
-    } else if (hours == 0 && mins == 0 && secs >= 0) {
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
-        self.displayLabel.text = displayText;
-    }
+        
+        int hours = (int)(afterRemainder / ( 60 * 60 ));
+        int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
+        int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60 )));
+        if (hours != 0) {
+            NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u : %02u ", hours, mins, secs];
+            self.displayLabel.text = displayText;
+        } else if (hours == 0 && mins != 0) {
+            NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u ", mins, secs];
+            self.displayLabel.text = displayText;
+        } else if (hours == 0 && mins == 0 && secs >= 0) {
+            NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
+            self.displayLabel.text = displayText;
+        }
         
     }
-
+    
 }
 
 - (void)updateCountDownReverse {
@@ -335,20 +335,20 @@ BOOL timerLabelOption = true;
     }
     
     if (timerLabelOption == true) {
-    
-    int hours = (int)(afterRemainder / ( 60 * 60 ));
-    int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
-    int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60)));
-    if (hours != 0) {
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u : %02u ", hours, mins, secs];
-        self.displayLabel.text = displayText;
-    } else if (hours == 0 && mins != 0) {
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u ", mins, secs];
-        self.displayLabel.text = displayText;
-    } else if (hours == 0 && mins == 0 && secs >= 0) {
-        NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
-        self.displayLabel.text = displayText;
-    }
+        
+        int hours = (int)(afterRemainder / ( 60 * 60 ));
+        int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
+        int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60)));
+        if (hours != 0) {
+            NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u : %02u ", hours, mins, secs];
+            self.displayLabel.text = displayText;
+        } else if (hours == 0 && mins != 0) {
+            NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u ", mins, secs];
+            self.displayLabel.text = displayText;
+        } else if (hours == 0 && mins == 0 && secs >= 0) {
+            NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
+            self.displayLabel.text = displayText;
+        }
         
     }
     
@@ -369,7 +369,7 @@ BOOL timerLabelOption = true;
 }
 
 - (IBAction)minutesMoved:(id)sender {
-
+    
     UISlider *minuteSlider = (UISlider *)sender;
     NSString *sliderValueAsStringMinute = [NSString stringWithFormat:@"%d Minute", (int)[minuteSlider value]];
     NSString *sliderValueAsStringMinutes = [NSString stringWithFormat:@"%d Minutes", (int)[minuteSlider value]];
@@ -379,11 +379,11 @@ BOOL timerLabelOption = true;
         self.minuteLabel.text = sliderValueAsStringMinutes;
     }
     userMinutes = (int)[minuteSlider value];
-
+    
 }
 
 - (IBAction)secondsMoved:(id)sender {
-
+    
     UISlider *secondSlider = (UISlider *)sender;
     NSString *sliderValueAsStringSecond = [NSString stringWithFormat:@"%d Second", (int)[secondSlider value]];
     NSString *sliderValueAsStringSeconds = [NSString stringWithFormat:@"%d Seconds", (int)[secondSlider value]];
@@ -396,9 +396,7 @@ BOOL timerLabelOption = true;
     
 }
 
-// SWITCH THESE OVER TO THE SETTINGS VIEW...
-
-- (IBAction)segmentSwitch:(id)sender {
+- (IBAction)segment2:(id)sender {
     
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
@@ -407,31 +405,19 @@ BOOL timerLabelOption = true;
     } else {
         bgColorOption = false;
     }
-
-}
-
-- (IBAction)segment2:(id)sender {
-
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    if (selectedSegment == 0) {
-        timerLabelOption = true;
-    } else {
-        timerLabelOption = false;
-    }
-
-}
-
-/*- (IBAction)segment3:(id)sender {
-
-    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
-    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
-    if (selectedSegment == 0) {
-        NSLog(@"Yo...");
-    } else {
-        NSLog(@"No...");
-    }
     
-}*/
+}
+
+- (IBAction)segment3:(id)sender {
+ 
+ UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+ NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+ if (selectedSegment == 0) {
+     timerLabelOption = true;
+ } else {
+     timerLabelOption = false;
+ }
+ 
+ }
 
 @end

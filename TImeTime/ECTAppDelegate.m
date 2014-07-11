@@ -1,3 +1,5 @@
+
+
 //
 //  ECTAppDelegate.m
 //  TImeTime
@@ -77,8 +79,12 @@ NSDate *lastMagicMoment;
         NSLog (@"Application was in background for %f...\n", timeOfNoMagic);
         backgroudTime = timeOfNoMagic;
         
-        afterRemainder -= backgroudTime - 2;
-        pauseTracker += backgroudTime;
+        /*if (afterRemainder < 0) {
+            afterRemainder = 0;
+        } else {*/
+            afterRemainder -= backgroudTime;
+            pauseTracker += backgroudTime;
+        // }
         
     }
     
@@ -92,3 +98,4 @@ NSDate *lastMagicMoment;
 }
 
 @end
+

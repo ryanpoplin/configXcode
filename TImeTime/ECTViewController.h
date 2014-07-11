@@ -1,3 +1,5 @@
+
+
 //
 //  ECTViewController.h
 //  TImeTime
@@ -36,5 +38,5 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment3;
 @property (weak, nonatomic) IBOutlet UILabel *instructIndex;
 
-
 @end
+
