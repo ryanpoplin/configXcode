@@ -118,10 +118,10 @@ BOOL timerLabelOption = true;
     self.startTime = [NSDate date];
     
     if (self.view.bounds.size.height == 568) {
-        self.displayLabel.frame = CGRectMake(15, 305, 280, 80);
+        self.displayLabel.frame = CGRectMake(20, 285, 280, 80);
         //... other setting for iPhone 4 inch
     } else {
-        self.displayLabel.frame = CGRectMake(15, 280, 280, 80);
+        self.displayLabel.frame = CGRectMake(20, 280, 250, 80);
         //... other setting for iPhone 3.5 inch
     }
     
@@ -395,6 +395,8 @@ BOOL timerLabelOption = true;
     userSeconds = (int)[secondSlider value];
     
 }
+
+// TEMP...
 
 - (IBAction)segment2:(id)sender {
     
