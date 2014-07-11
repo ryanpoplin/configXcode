@@ -396,7 +396,7 @@ BOOL timerLabelOption = true;
     
 }
 
-// TEMP...
+// TEMP. SEGS>>>
 
 - (IBAction)segment2:(id)sender {
     
@@ -423,3 +423,4 @@ BOOL timerLabelOption = true;
  }
 
 @end
+

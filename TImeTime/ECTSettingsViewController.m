@@ -49,6 +49,8 @@
 }
 */
 
+// OFF. SETT>>>
+
 - (IBAction)colorSegment:(id)sender {
 
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
