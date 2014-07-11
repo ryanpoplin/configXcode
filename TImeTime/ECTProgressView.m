@@ -1,3 +1,5 @@
+
+
 //
 //  ECTProgressView.m
 //  Color Countdown
@@ -7,8 +9,6 @@
 //
 
 #import "ECTProgressView.h"
-// needed here?...
-#import <QuartzCore/QuartzCore.h>
 
 @implementation ECTProgressView
 
@@ -16,18 +16,56 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        [self setClipsToBounds:NO];
+        
+        [self.layer setShouldRasterize:YES];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
+- (void)setBackgroundColor:(UIColor *)backgroundColor
+
 {
-    // Drawing code
+    [super setBackgroundColor:[UIColor clearColor]];
+    
+    CAShapeLayer *shapeLayer = (CAShapeLayer *)self.layer;
+    [shapeLayer setFillColor:backgroundColor.CGColor];
 }
-*/
+
++ (Class)layerClass
+
+{
+    return [CAShapeLayer class];
+}
+
+- (void)setAngle:(CGFloat)angle
+
+{
+    _angle = angle;
+    
+    [self setNeedsDisplay];
+}
+
+- (void)drawRect:(CGRect)rect
+
+{
+    
+    CGPoint centerPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+    
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:centerPoint];
+    [path addArcWithCenter:centerPoint
+                    radius:CGRectGetWidth(self.bounds)/5.0
+                startAngle:0.0
+                  endAngle:self.angle
+                 clockwise:YES];
+    
+    [path closePath];
+    
+    CAShapeLayer *shapeLayer = (CAShapeLayer *)self.layer;
+    [shapeLayer setPath:path.CGPath];
+    
+}
 
 @end
+

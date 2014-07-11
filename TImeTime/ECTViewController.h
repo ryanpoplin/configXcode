@@ -37,6 +37,8 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment2;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment3;
 @property (weak, nonatomic) IBOutlet UILabel *instructIndex;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *aniSegment;
+- (IBAction)aniSegment:(id)sender;
 
 @end
 

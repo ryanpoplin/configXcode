@@ -9,6 +9,7 @@
 //
 
 #import "ECTViewController.h"
+#import "ECTProgressView.h"
 #import "ECTAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
@@ -30,6 +31,7 @@
     int bgConSum;
     IBOutlet UIButton *startButton;
     NSTimeInterval countDownInterval;
+    ECTProgressView *pacManView;
     
 }
 
@@ -41,6 +43,10 @@
 
 BOOL timerLabelOption = true;
 
+BOOL animation = true;
+
+NSTimer *timer;
+
 @implementation ECTViewController
 
 - (void)viewDidLoad
@@ -50,6 +56,10 @@ BOOL timerLabelOption = true;
     [super viewDidLoad];
     
     NSLog(@"%f\n", backgroudTime);
+    
+    [super viewDidLoad];
+	// Do any additional setup after loading the view, typically from a nib.
+    // [self.view setBackgroundColor:[UIColor whiteColor]];
     
     if (self.view.bounds.size.height == 568) {
         //... other setting for iPhone 4 inch
@@ -85,6 +95,17 @@ BOOL timerLabelOption = true;
     
 }
 
+- (void)updatePacManView
+{
+    
+    
+    CGFloat angle = pacManView.angle - 0.1;
+    
+    [pacManView setAngle:angle];
+    
+}
+
+
 - (void)didReceiveMemoryWarning
 
 {
@@ -95,8 +116,34 @@ BOOL timerLabelOption = true;
 
 - (IBAction)startButton:(id)sender {
     
+    self.aniSegment.hidden = YES;
+    
+    [timer invalidate];
+    timer = nil;
+    
     backgroudTime = 0.0;
     NSLog(@"%f\n", backgroudTime);
+    
+    // ANIMATION...
+    
+    if (animation) {
+        
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    
+    CAShapeLayer *realCircle = [CAShapeLayer layer];
+    [realCircle setFrame:CGRectMake(50.0, 350.0, 100.0, 100.0)];
+    [realCircle setPath:path.CGPath];
+    [realCircle setFillColor:[UIColor blackColor].CGColor];
+    [self.view.layer addSublayer:realCircle];
+    
+    pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(20.0, 440.0, 150.0, 100.0)];
+    [pacManView setBackgroundColor:[UIColor blackColor]];
+    [pacManView setAngle:M_PI * 2.0];
+    [self.view addSubview:pacManView];
+    
+    // ANIMATION...
+        
+    }
     
     self.instructIndex.hidden = YES;
     self.displayLabel.hidden = NO;
@@ -157,8 +204,12 @@ BOOL timerLabelOption = true;
     }
     if (bgColorOption) {
         _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+        float vOut = (float)afterRemainder;
+        timer = [NSTimer scheduledTimerWithTimeInterval:(vOut/60.0) target:self selector:@selector(updatePacManView) userInfo:nil repeats:YES];
     } else {
         _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+        float vOut = (float)afterRemainder;
+        timer = [NSTimer scheduledTimerWithTimeInterval:(vOut/60.0) target:self selector:@selector(updatePacManView) userInfo:nil repeats:YES];
     }
     self.isRunning = !self.isRunning;
     if (self.isRunning == false) {
@@ -178,6 +229,8 @@ BOOL timerLabelOption = true;
     [_pauseButton setEnabled: NO];
     [_autoTimer invalidate];
     _autoTimer = nil;
+    [timer invalidate];
+    timer = nil;
     pauseBool = true;
     pauseTime = pauseTracker;
     
@@ -185,6 +238,7 @@ BOOL timerLabelOption = true;
 
 - (IBAction)resetButton:(id)sender {
     
+    self.aniSegment.hidden = NO;
     self.displayLabel.text = @"";
     self.instructIndex.hidden = NO;
     self.colorSegment.hidden = NO;
@@ -209,6 +263,7 @@ BOOL timerLabelOption = true;
     self.secondsSlider.hidden = NO;
     [_startButton setEnabled: YES];
     [_pauseButton setEnabled: NO];
+    pacManView.hidden = YES;
     if (self.view.bounds.size.height == 568) {
         self.displayLabel.frame = CGRectMake(20, 371, 280, 35);
         //... other setting for iPhone 4 inch
@@ -262,6 +317,9 @@ BOOL timerLabelOption = true;
         [_pauseButton setEnabled: NO];
         [_autoTimer invalidate];
         _autoTimer = nil;
+        [timer invalidate];
+        timer = nil;
+        pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [alert show];
         AudioServicesPlaySystemSound(1304);
@@ -329,6 +387,9 @@ BOOL timerLabelOption = true;
         [_pauseButton setEnabled: NO];
         [_autoTimer invalidate];
         _autoTimer = nil;
+        [timer invalidate];
+        timer = nil;
+        pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [alert show];
         AudioServicesPlaySystemSound(1304);
@@ -422,5 +483,16 @@ BOOL timerLabelOption = true;
  
  }
 
+- (IBAction)aniSegment:(id)sender {
+
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    if (selectedSegment == 0) {
+        animation = true;
+    } else {
+        animation = false;
+    }
+
+}
 @end
 

@@ -102,7 +102,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="2Pq-uj-ExJ">
-                                <rect key="frame" x="17" y="504" width="280" height="29"/>
+                                <rect key="frame" x="17" y="473" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Timer Numbers"/>
@@ -113,7 +113,7 @@
                                 </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="t12-UY-CbJ">
-                                <rect key="frame" x="17" y="442" width="280" height="29"/>
+                                <rect key="frame" x="17" y="432" width="280" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Green To Red"/>
@@ -123,11 +123,23 @@
                                     <action selector="segment2:" destination="vXZ-lx-hvc" eventType="valueChanged" id="n3f-zb-wir"/>
                                 </connections>
                             </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="77a-tJ-D2U">
+                                <rect key="frame" x="17" y="514" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Animation"/>
+                                    <segment title="No Animation"/>
+                                </segments>
+                                <connections>
+                                    <action selector="aniSegment:" destination="vXZ-lx-hvc" eventType="valueChanged" id="8rU-gW-IUc"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="fRr-hF-rCy"/>
                     <connections>
+                        <outlet property="aniSegment" destination="77a-tJ-D2U" id="Ql6-QD-MYw"/>
                         <outlet property="displayLabel" destination="mC2-i4-55e" id="h1C-xo-YcF"/>
                         <outlet property="hourLabel" destination="Yxn-gx-a4I" id="xN1-wn-XO7"/>
                         <outlet property="hourSlider" destination="HQt-FU-BCc" id="kbT-Qm-zK0"/>

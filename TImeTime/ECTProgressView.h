@@ -10,4 +10,6 @@
 
 @interface ECTProgressView : UIView
 
+@property (nonatomic, readwrite) CGFloat angle;
+
 @end
