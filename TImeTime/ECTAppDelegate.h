@@ -16,6 +16,8 @@ BOOL timerLabelOption;
 int pauseTracker;
 int pauseTime;
 int afterRemainder;
+NSTimer *timer;
+int bgConSum;
 
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 

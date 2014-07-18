@@ -61,6 +61,8 @@ NSDate *lastMagicMoment;
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
 
+    NSLog(@"%f", backgroudTime);
+    
     NSLog(@"APP DID BECOME ACTIVE...");
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
@@ -76,16 +78,20 @@ NSDate *lastMagicMoment;
     } else {
         
         timeOfNoMagic = [thisMagicMoment timeIntervalSinceDate:lastMagicMoment];
-        NSLog (@"Application was in background for %f...\n", timeOfNoMagic);
+        NSLog(@"Application was in background for %f...\n", timeOfNoMagic);
         backgroudTime = timeOfNoMagic;
         
-        /*if (afterRemainder < 0) {
+        /*if (backgroudTime > 0) {
             afterRemainder = 0;
+            [_autoTimer invalidate];
+            _autoTimer = nil;
+            [timer invalidate];
+            timer = nil;
         } else {*/
             afterRemainder -= backgroudTime;
             pauseTracker += backgroudTime;
         // }
-        
+    
     }
     
 }

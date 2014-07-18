@@ -28,7 +28,6 @@
     int currentPauseBuild;
     BOOL pausePress;
     int remainder;
-    int bgConSum;
     IBOutlet UIButton *startButton;
     NSTimeInterval countDownInterval;
     ECTProgressView *pacManView;
@@ -45,7 +44,7 @@ BOOL timerLabelOption = true;
 
 BOOL animation = true;
 
-NSTimer *timer;
+// NSTimer *timer;
 
 @implementation ECTViewController
 
@@ -414,6 +413,8 @@ NSTimer *timer;
     }
     
 }
+
+// replace with modal view with a calculator like input for the numbers...
 
 - (IBAction)hoursMoved:(id)sender {
     
