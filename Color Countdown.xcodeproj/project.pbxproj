@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A6ED9DD196F7BBF00EC4C8B /* ECTSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6ED9DC196F7BBF00EC4C8B /* ECTSettingsViewController.m */; };
 		5A6ED9E019701D0400EC4C8B /* ECTProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A6ED9DF19701D0400EC4C8B /* ECTProgressView.m */; };
 		5A9F98E219537D7900A77EC6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9F98E119537D7900A77EC6 /* QuartzCore.framework */; };
 		5A9F98E41953F41600A77EC6 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A9F98E31953F41600A77EC6 /* AudioToolbox.framework */; };
@@ -39,8 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A6ED9DB196F7BBF00EC4C8B /* ECTSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTSettingsViewController.h; sourceTree = "<group>"; };
-		5A6ED9DC196F7BBF00EC4C8B /* ECTSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTSettingsViewController.m; sourceTree = "<group>"; };
 		5A6ED9DE19701D0400EC4C8B /* ECTProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTProgressView.h; sourceTree = "<group>"; };
 		5A6ED9DF19701D0400EC4C8B /* ECTProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTProgressView.m; sourceTree = "<group>"; };
 		5A9F98E119537D7900A77EC6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -100,8 +97,6 @@
 				5AD95275194584B900A70F3C /* ECTViewController.m */,
 				5A6ED9DE19701D0400EC4C8B /* ECTProgressView.h */,
 				5A6ED9DF19701D0400EC4C8B /* ECTProgressView.m */,
-				5A6ED9DB196F7BBF00EC4C8B /* ECTSettingsViewController.h */,
-				5A6ED9DC196F7BBF00EC4C8B /* ECTSettingsViewController.m */,
 				5A365B9019497F1100AF1958 /* testone */,
 			);
 			name = ViewControllers;
@@ -307,7 +302,6 @@
 				5AD95276194584B900A70F3C /* ECTViewController.m in Sources */,
 				5AD95269194584B900A70F3C /* main.m in Sources */,
 				5A6ED9E019701D0400EC4C8B /* ECTProgressView.m in Sources */,
-				5A6ED9DD196F7BBF00EC4C8B /* ECTSettingsViewController.m in Sources */,
 				5AD9526D194584B900A70F3C /* ECTAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
