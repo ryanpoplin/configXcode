@@ -31,6 +31,7 @@
     IBOutlet UIButton *startButton;
     NSTimeInterval countDownInterval;
     ECTProgressView *pacManView;
+    UILocalNotification *notification;
     
 }
 
@@ -57,8 +58,6 @@ BOOL animation = true;
     NSLog(@"%f\n", backgroudTime);
     
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    // [self.view setBackgroundColor:[UIColor whiteColor]];
     
     if (self.view.bounds.size.height == 568) {
         //... other setting for iPhone 4 inch
@@ -219,6 +218,13 @@ BOOL animation = true;
         [self.view setBackgroundColor:[UIColor redColor]];
     }
     
+    notification = [[UILocalNotification alloc] init];
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:(float)afterRemainder];
+    notification.timeZone = [[NSCalendar currentCalendar] timeZone];
+    notification.alertBody = NSLocalizedString(@"ColorCountdown: Your countdown has finished!", nil);
+    // add sound...
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    
 }
 
 - (IBAction)pauseMeth:(id)sender {
@@ -237,6 +243,7 @@ BOOL animation = true;
 
 - (IBAction)resetButton:(id)sender {
     
+    notification = nil;
     self.aniSegment.hidden = NO;
     self.displayLabel.text = @"";
     self.instructIndex.hidden = NO;
@@ -275,10 +282,6 @@ BOOL animation = true;
 }
 
 - (void)updateCountDown {
-    
-    /*if () {
-        <#statements#>
-    }*/
     
     NSLog(@"%d", afterRemainder);
     pauseTracker++;
@@ -325,6 +328,7 @@ BOOL animation = true;
         pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [alert show];
+        //
         AudioServicesPlaySystemSound(1304);
         
     }
@@ -398,6 +402,7 @@ BOOL animation = true;
         pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [alert show];
+        //
         AudioServicesPlaySystemSound(1304);
         
     }

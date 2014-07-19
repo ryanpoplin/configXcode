@@ -83,6 +83,7 @@ NSDate *lastMagicMoment;
         
         afterRemainder -= backgroudTime;
         pauseTracker += backgroudTime;
+        // config the push noti...
         if (afterRemainder < 1) {
             afterRemainder = 1;
         }
