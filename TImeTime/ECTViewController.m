@@ -55,6 +55,8 @@ BOOL animation = true;
     
     [super viewDidLoad];
     
+    [UIApplication sharedApplication].statusBarHidden = YES;
+    
     NSLog(@"%f\n", backgroudTime);
     
     [super viewDidLoad];
