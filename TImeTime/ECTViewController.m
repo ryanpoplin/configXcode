@@ -221,8 +221,8 @@ BOOL animation = true;
     notification = [[UILocalNotification alloc] init];
     notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:(float)afterRemainder];
     notification.timeZone = [[NSCalendar currentCalendar] timeZone];
-    notification.alertBody = NSLocalizedString(@"ColorCountdown: Your countdown has finished!", nil);
-    // add sound...
+    notification.alertBody = NSLocalizedString(@"Your countdown has finished!", nil);
+    [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     
 }
