@@ -276,6 +276,10 @@ BOOL animation = true;
 
 - (void)updateCountDown {
     
+    /*if () {
+        <#statements#>
+    }*/
+    
     NSLog(@"%d", afterRemainder);
     pauseTracker++;
     NSLog(@"%d", pauseTracker);
@@ -347,10 +351,13 @@ BOOL animation = true;
 
 - (void)updateCountDownReverse {
     
+    if (afterRemainder >= 0) {
+    
     NSLog(@"%d", afterRemainder);
     pauseTracker++;
     NSLog(@"%d", pauseTracker);
     afterRemainder--;
+    
     if (afterRemainder > bgConSum * 0.80) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:bgConSum / 5];
@@ -392,6 +399,9 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [alert show];
         AudioServicesPlaySystemSound(1304);
+        
+    }
+        
     }
     
     if (timerLabelOption == true) {
@@ -406,8 +416,10 @@ BOOL animation = true;
             NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u ", mins, secs];
             self.displayLabel.text = displayText;
         } else if (hours == 0 && mins == 0 && secs >= 0) {
+            
             NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
             self.displayLabel.text = displayText;
+            
         }
         
     }
