@@ -18,6 +18,7 @@ int pauseTime;
 int afterRemainder;
 NSTimer *timer;
 int bgConSum;
+BOOL pauseBool;
 
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 

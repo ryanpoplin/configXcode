@@ -81,11 +81,12 @@ NSDate *lastMagicMoment;
         NSLog(@"Application was in background for %f...\n", timeOfNoMagic);
         backgroudTime = timeOfNoMagic;
         
-        afterRemainder -= backgroudTime;
-        pauseTracker += backgroudTime;
-        // config the push noti...
-        if (afterRemainder < 1) {
-            afterRemainder = 1;
+        if (!pauseBool) {
+            afterRemainder -= backgroudTime;
+            pauseTracker += backgroudTime;
+            if (afterRemainder < 1) {
+                afterRemainder = 1;
+            }
         }
         
     }

@@ -24,7 +24,6 @@
     int convertedHours;
     int convertedMinutes;
     int convertedSeconds;
-    BOOL pauseBool;
     int currentPauseBuild;
     BOOL pausePress;
     int remainder;
@@ -219,7 +218,7 @@ BOOL animation = true;
     } else if (pausePress && bgColorOption == false && pauseBool != true) {
         [self.view setBackgroundColor:[UIColor redColor]];
     }
-    
+    notification = nil;
     notification = [[UILocalNotification alloc] init];
     notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:(float)afterRemainder];
     notification.timeZone = [[NSCalendar currentCalendar] timeZone];
@@ -231,6 +230,7 @@ BOOL animation = true;
 
 - (IBAction)pauseMeth:(id)sender {
     
+    [[UIApplication sharedApplication] cancelLocalNotification:notification];
     NSLog(@"%f\n", backgroudTime);
     [_startButton setEnabled: YES];
     [_pauseButton setEnabled: NO];
@@ -331,7 +331,7 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [alert show];
         //
-        AudioServicesPlaySystemSound(1304);
+        // AudioServicesPlaySystemSound(1304);
         
     }
     
