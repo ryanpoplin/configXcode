@@ -329,6 +329,7 @@ BOOL animation = true;
         timer = nil;
         pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+        [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
         //
         // AudioServicesPlaySystemSound(1304);
@@ -356,14 +357,11 @@ BOOL animation = true;
 }
 
 - (void)updateCountDownReverse {
-    
     if (afterRemainder >= 0) {
-    
     NSLog(@"%d", afterRemainder);
     pauseTracker++;
     NSLog(@"%d", pauseTracker);
     afterRemainder--;
-    
     if (afterRemainder > bgConSum * 0.80) {
         [UIView beginAnimations:nil context:nil];
         [UIView setAnimationDuration:bgConSum / 5];
@@ -403,10 +401,10 @@ BOOL animation = true;
         timer = nil;
         pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+        [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
         //
         AudioServicesPlaySystemSound(1304);
-        
     }
         
     }
