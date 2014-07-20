@@ -81,14 +81,12 @@ NSDate *lastMagicMoment;
         NSLog(@"Application was in background for %f...\n", timeOfNoMagic);
         backgroudTime = timeOfNoMagic;
         
-        if (pauseBool == false || nil) {
+        if (!pauseBool) {
             afterRemainder -= backgroudTime;
             pauseTracker += backgroudTime;
             if (afterRemainder < 1) {
                 afterRemainder = 1;
             }
-        } else {
-            pauseBool = true;
         }
         
     }
