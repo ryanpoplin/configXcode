@@ -331,9 +331,7 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
-        //
-        // AudioServicesPlaySystemSound(1304);
-        
+        AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {
@@ -403,7 +401,6 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
-        //
         AudioServicesPlaySystemSound(1304);
     }
         
