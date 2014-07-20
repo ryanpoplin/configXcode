@@ -218,7 +218,7 @@ BOOL animation = true;
     } else if (pausePress && bgColorOption == false && pauseBool != true) {
         [self.view setBackgroundColor:[UIColor redColor]];
     }
-    notification = nil;
+    // if (notification == nil) {
     notification = [[UILocalNotification alloc] init];
     notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:(float)afterRemainder];
     notification.timeZone = [[NSCalendar currentCalendar] timeZone];
@@ -226,6 +226,7 @@ BOOL animation = true;
     [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     pauseBool = false;
+    // }
 }
 
 - (IBAction)pauseMeth:(id)sender {
@@ -246,7 +247,6 @@ BOOL animation = true;
 
 - (IBAction)resetButton:(id)sender {
     
-    notification = nil;
     self.aniSegment.hidden = NO;
     self.displayLabel.text = @"";
     self.instructIndex.hidden = NO;
