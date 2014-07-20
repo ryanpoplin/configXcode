@@ -87,6 +87,8 @@ NSDate *lastMagicMoment;
             if (afterRemainder < 1) {
                 afterRemainder = 1;
             }
+        } else {
+            afterRemainder -= 1;
         }
         
     }
