@@ -225,12 +225,13 @@ BOOL animation = true;
     notification.alertBody = NSLocalizedString(@"Your countdown has finished!", nil);
     [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    
+    pauseBool = false;
 }
 
 - (IBAction)pauseMeth:(id)sender {
     
     [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    notification = nil;
     NSLog(@"%f\n", backgroudTime);
     [_startButton setEnabled: YES];
     [_pauseButton setEnabled: NO];
