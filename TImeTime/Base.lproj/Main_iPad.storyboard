@@ -82,21 +82,21 @@
                                     <action selector="segment2:" destination="BYZ-38-t0r" eventType="valueChanged" id="xvP-nL-9ji"/>
                                 </connections>
                             </segmentedControl>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9tE-Cb-7rS">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="59" translatesAutoresizingMaskIntoConstraints="NO" id="9tE-Cb-7rS">
                                 <rect key="frame" x="131" y="589" width="506" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="secondsMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="kqz-ii-juT"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3hh-b1-464">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="59" translatesAutoresizingMaskIntoConstraints="NO" id="3hh-b1-464">
                                 <rect key="frame" x="131" y="474" width="506" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="minutesMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="QOi-PM-VaG"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nlh-DN-jCl">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="Nlh-DN-jCl">
                                 <rect key="frame" x="131" y="360" width="506" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -128,11 +128,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wt-34-nNq">
+                                <rect key="frame" x="133" y="398" width="502" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="aniSegment" destination="9jM-7C-ryK" id="82q-FU-kGg"/>
+                        <outlet property="displayLabel" destination="1Wt-34-nNq" id="29R-q5-0Fg"/>
                         <outlet property="hourLabel" destination="Zzn-oe-D6h" id="rq0-Fn-goU"/>
                         <outlet property="hourSlider" destination="Nlh-DN-jCl" id="uYS-kt-fuM"/>
                         <outlet property="minuteLabel" destination="Cde-Xb-iFQ" id="NWV-E4-KwT"/>
