@@ -1,5 +1,3 @@
-
-
 //
 //  ECTViewController.m
 //  TImeTime
@@ -8,12 +6,14 @@
 //  Copyright (c) 2014 ExcepApps. All rights reserved.
 //
 
+// IMPORT THE REQUIRED FILES...
 #import "ECTViewController.h"
 #import "ECTProgressView.h"
 #import "ECTAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 
+// PUBLIC VARIABLES...
 @interface ECTViewController ()
 
 {
@@ -24,7 +24,7 @@
     int convertedHours;
     int convertedMinutes;
     int convertedSeconds;
-    int currentPauseBuild;
+    // int currentPauseBuild;
     BOOL pausePress;
     int remainder;
     IBOutlet UIButton *startButton;
@@ -44,7 +44,7 @@ BOOL timerLabelOption = true;
 
 BOOL animation = true;
 
-// NSTimer *timer;
+// FIX THIS ISSUE...
 
 @implementation ECTViewController
 
@@ -60,6 +60,7 @@ BOOL animation = true;
     
     [super viewDidLoad];
     
+    // ADD IPAD SHIT...
     if (self.view.bounds.size.height == 568) {
         //... other setting for iPhone 4 inch
     } else {
@@ -233,7 +234,7 @@ BOOL animation = true;
     
     [[UIApplication sharedApplication] cancelLocalNotification:notification];
     notification = nil;
-    NSLog(@"%f\n", backgroudTime);
+    // NSLog(@"%f\n", backgroudTime);
     [_startButton setEnabled: YES];
     [_pauseButton setEnabled: NO];
     [_autoTimer invalidate];
@@ -247,6 +248,7 @@ BOOL animation = true;
 
 - (IBAction)resetButton:(id)sender {
     
+    [[UIApplication sharedApplication] cancelLocalNotification:notification];
     self.aniSegment.hidden = NO;
     self.displayLabel.text = @"";
     self.instructIndex.hidden = NO;
@@ -286,9 +288,9 @@ BOOL animation = true;
 
 - (void)updateCountDown {
     
-    NSLog(@"%d", afterRemainder);
+    // NSLog(@"%d", afterRemainder);
     pauseTracker++;
-    NSLog(@"%d", pauseTracker);
+    // NSLog(@"%d", pauseTracker);
     afterRemainder--;
     if (afterRemainder > bgConSum * 0.80) {
         [UIView beginAnimations:nil context:nil];
@@ -330,9 +332,9 @@ BOOL animation = true;
         timer = nil;
         pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
-        [[UIApplication sharedApplication] cancelLocalNotification:notification];
+        // [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
-        // AudioServicesPlaySystemSound(1304);
+        AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {
@@ -357,9 +359,9 @@ BOOL animation = true;
 
 - (void)updateCountDownReverse {
     if (afterRemainder >= 0) {
-    NSLog(@"%d", afterRemainder);
+    // NSLog(@"%d", afterRemainder);
     pauseTracker++;
-    NSLog(@"%d", pauseTracker);
+    // NSLog(@"%d", pauseTracker);
     afterRemainder--;
     if (afterRemainder > bgConSum * 0.80) {
         [UIView beginAnimations:nil context:nil];
@@ -429,8 +431,6 @@ BOOL animation = true;
     
 }
 
-// replace with modal view with a calculator like input for the numbers...
-
 - (IBAction)hoursMoved:(id)sender {
     
     UISlider *hourSlider = (UISlider *)sender;
@@ -472,8 +472,6 @@ BOOL animation = true;
     userSeconds = (int)[secondSlider value];
     
 }
-
-// TEMP. SEGS>>>
 
 - (IBAction)segment2:(id)sender {
     
