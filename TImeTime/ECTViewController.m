@@ -220,7 +220,7 @@ BOOL animation = true;
     }
     // if (notification == nil) {
     notification = [[UILocalNotification alloc] init];
-    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:(float)afterRemainder];
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:afterRemainder];
     notification.timeZone = [[NSCalendar currentCalendar] timeZone];
     notification.alertBody = NSLocalizedString(@"Your countdown has finished!", nil);
     [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
@@ -332,7 +332,7 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
-        AudioServicesPlaySystemSound(1304);
+        // AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {

@@ -23,6 +23,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3tg-fw-eIK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fii-ji-zxK">
                                 <rect key="frame" x="257" y="0.0" width="257" height="70"/>
@@ -31,6 +34,9 @@
                                 <state key="normal" title="Pause">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pauseMeth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wTr-qd-tlP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWw-LW-eNf">
                                 <rect key="frame" x="513" y="0.0" width="255" height="70"/>
@@ -39,6 +45,9 @@
                                 <state key="normal" title="Reset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="resetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="07M-EP-m5S"/>
+                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0f6-75-yHg">
                                 <rect key="frame" x="133" y="793" width="502" height="29"/>
@@ -47,6 +56,9 @@
                                     <segment title="Timer Numbers"/>
                                     <segment title="No Timer Numbers"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segment3:" destination="BYZ-38-t0r" eventType="valueChanged" id="eel-qm-pmx"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9jM-7C-ryK">
                                 <rect key="frame" x="133" y="897" width="502" height="29"/>
@@ -55,6 +67,9 @@
                                     <segment title="Animation"/>
                                     <segment title="No Animation"/>
                                 </segments>
+                                <connections>
+                                    <action selector="aniSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="4xx-Vb-oB3"/>
+                                </connections>
                             </segmentedControl>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QSc-bx-8Wk">
                                 <rect key="frame" x="133" y="690" width="502" height="29"/>
@@ -63,33 +78,45 @@
                                     <segment title="Green To Red"/>
                                     <segment title="Red To Green"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segment2:" destination="BYZ-38-t0r" eventType="valueChanged" id="xvP-nL-9ji"/>
+                                </connections>
                             </segmentedControl>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="9tE-Cb-7rS">
                                 <rect key="frame" x="131" y="589" width="506" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="secondsMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="kqz-ii-juT"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="3hh-b1-464">
                                 <rect key="frame" x="131" y="474" width="506" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="minutesMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="QOi-PM-VaG"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Nlh-DN-jCl">
                                 <rect key="frame" x="131" y="360" width="506" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="hoursMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="KEY-eg-wFC"/>
+                                </connections>
                             </slider>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzn-oe-D6h">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzn-oe-D6h">
                                 <rect key="frame" x="328" y="331" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cde-Xb-iFQ">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cde-Xb-iFQ">
                                 <rect key="frame" x="328" y="445" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvq-xL-WTo">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0 Seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zvq-xL-WTo">
                                 <rect key="frame" x="328" y="560" width="114" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -105,8 +132,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="aniSegment" destination="9jM-7C-ryK" id="82q-FU-kGg"/>
+                        <outlet property="hourLabel" destination="Zzn-oe-D6h" id="rq0-Fn-goU"/>
+                        <outlet property="hourSlider" destination="Nlh-DN-jCl" id="uYS-kt-fuM"/>
+                        <outlet property="minuteLabel" destination="Cde-Xb-iFQ" id="NWV-E4-KwT"/>
+                        <outlet property="minuteSlider" destination="3hh-b1-464" id="Day-HD-icI"/>
                         <outlet property="pauseButton" destination="Fii-ji-zxK" id="ODL-1M-3Ik"/>
                         <outlet property="resetButton" destination="rWw-LW-eNf" id="XUO-OP-Mit"/>
+                        <outlet property="secondLabel" destination="Zvq-xL-WTo" id="DK8-bO-idu"/>
+                        <outlet property="secondsSlider" destination="9tE-Cb-7rS" id="8DS-yM-PI3"/>
+                        <outlet property="segment2" destination="QSc-bx-8Wk" id="lrb-8x-fVO"/>
+                        <outlet property="segment3" destination="0f6-75-yHg" id="yXl-es-E2q"/>
                         <outlet property="startButton" destination="44Y-z0-9rP" id="Pff-It-sVL"/>
                     </connections>
                 </viewController>
