@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0f6-75-yHg">
-                                <rect key="frame" x="133" y="793" width="502" height="29"/>
+                                <rect key="frame" x="133" y="794" width="502" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="Timer Numbers"/>
@@ -143,6 +143,7 @@
                         <outlet property="displayLabel" destination="1Wt-34-nNq" id="29R-q5-0Fg"/>
                         <outlet property="hourLabel" destination="Zzn-oe-D6h" id="rq0-Fn-goU"/>
                         <outlet property="hourSlider" destination="Nlh-DN-jCl" id="uYS-kt-fuM"/>
+                        <outlet property="instructIndex" destination="IJs-WW-6Hf" id="Acw-ss-HQY"/>
                         <outlet property="minuteLabel" destination="Cde-Xb-iFQ" id="NWV-E4-KwT"/>
                         <outlet property="minuteSlider" destination="3hh-b1-464" id="Day-HD-icI"/>
                         <outlet property="pauseButton" destination="Fii-ji-zxK" id="ODL-1M-3Ik"/>

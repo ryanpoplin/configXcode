@@ -19,6 +19,7 @@ int afterRemainder;
 NSTimer *timer;
 int bgConSum;
 BOOL pauseBool;
+UILocalNotification *notification;
 
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 

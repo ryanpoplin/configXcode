@@ -6,14 +6,12 @@
 //  Copyright (c) 2014 ExcepApps. All rights reserved.
 //
 
-// IMPORT THE REQUIRED FILES...
 #import "ECTViewController.h"
 #import "ECTProgressView.h"
 #import "ECTAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-// PUBLIC VARIABLES...
 @interface ECTViewController ()
 
 {
@@ -24,13 +22,11 @@
     int convertedHours;
     int convertedMinutes;
     int convertedSeconds;
-    // int currentPauseBuild;
     BOOL pausePress;
     int remainder;
     IBOutlet UIButton *startButton;
     NSTimeInterval countDownInterval;
     ECTProgressView *pacManView;
-    UILocalNotification *notification;
     
 }
 
@@ -44,8 +40,6 @@ BOOL timerLabelOption = true;
 
 BOOL animation = true;
 
-// FIX THIS ISSUE...
-
 @implementation ECTViewController
 
 - (void)viewDidLoad
@@ -54,20 +48,9 @@ BOOL animation = true;
     
     [super viewDidLoad];
     
-    [UIApplication sharedApplication].statusBarHidden = YES;
-    
-    NSLog(@"%f\n", backgroudTime);
+    // NSLog(@"%f\n", backgroudTime);
     
     [super viewDidLoad];
-    
-    // ADD IPAD SHIT...
-    if (self.view.bounds.size.height == 568) {
-        //... other setting for iPhone 4 inch
-    } else {
-        [self.displayLabel setFrame:CGRectMake(20, 360, 280, 23)];
-        [self.colorSegment setFrame:CGRectMake(20, 410, 260, 30)];
-        //... other setting for iPhone 3.5 inch
-    }
     
     [[_startButton layer] setBorderWidth:0.5f];
     [[_startButton layer] setBorderColor:[UIColor grayColor].CGColor];
@@ -77,6 +60,8 @@ BOOL animation = true;
     [[_resetButton layer] setBorderColor:[UIColor grayColor].CGColor];
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
+    
+    // [UIApplication sharedApplication].statusBarHidden = YES;
     
     self.displayLabel.hidden = NO;
     self.colorSegment.hidden = NO;
@@ -124,24 +109,29 @@ BOOL animation = true;
     backgroudTime = 0.0;
     NSLog(@"%f\n", backgroudTime);
     
-    // ANIMATION...
-    
     if (animation) {
         
     UIBezierPath *path = [UIBezierPath bezierPath];
     
     CAShapeLayer *realCircle = [CAShapeLayer layer];
-    [realCircle setFrame:CGRectMake(50.0, 350.0, 100.0, 100.0)];
+    
+    if (self.view.bounds.size.height > 568) {
+        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(240.0, 640.0, 300.0, 200.0)];
+    } else if (self.view.bounds.size.height == 568) {
+        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(20.0, 440.0, 150.0, 100.0)];
+    } else {
+        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(20.0, 440.0, 150.0, 100.0)];
+    }
+
+    [realCircle setFrame:CGRectMake(50.0, 250.0, 100.0, 100.0)];
+        
     [realCircle setPath:path.CGPath];
     [realCircle setFillColor:[UIColor blackColor].CGColor];
     [self.view.layer addSublayer:realCircle];
     
-    pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(20.0, 440.0, 150.0, 100.0)];
     [pacManView setBackgroundColor:[UIColor blackColor]];
     [pacManView setAngle:M_PI * 2.0];
     [self.view addSubview:pacManView];
-    
-    // ANIMATION...
         
     }
     
@@ -164,12 +154,12 @@ BOOL animation = true;
     self.startTime = [[NSDate alloc] init];
     self.startTime = [NSDate date];
     
-    if (self.view.bounds.size.height == 568) {
+    if (self.view.bounds.size.height > 568) {
+        self.displayLabel.frame = CGRectMake(40, 685, 690, 80);
+    } else if (self.view.bounds.size.height == 568) {
         self.displayLabel.frame = CGRectMake(20, 285, 280, 80);
-        //... other setting for iPhone 4 inch
     } else {
         self.displayLabel.frame = CGRectMake(20, 280, 250, 80);
-        //... other setting for iPhone 3.5 inch
     }
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
@@ -219,7 +209,6 @@ BOOL animation = true;
     } else if (pausePress && bgColorOption == false && pauseBool != true) {
         [self.view setBackgroundColor:[UIColor redColor]];
     }
-    // if (notification == nil) {
     notification = [[UILocalNotification alloc] init];
     notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:afterRemainder];
     notification.timeZone = [[NSCalendar currentCalendar] timeZone];
@@ -227,7 +216,7 @@ BOOL animation = true;
     [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     pauseBool = false;
-    // }
+
 }
 
 - (IBAction)pauseMeth:(id)sender {
@@ -277,10 +266,8 @@ BOOL animation = true;
     pacManView.hidden = YES;
     if (self.view.bounds.size.height == 568) {
         self.displayLabel.frame = CGRectMake(20, 371, 280, 35);
-        //... other setting for iPhone 4 inch
     } else {
         self.displayLabel.frame = CGRectMake(20, 350, 280, 35);
-        //... other setting for iPhone 3.5 inch
     }
     self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
     

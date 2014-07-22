@@ -66,8 +66,6 @@ NSDate *lastMagicMoment;
     NSLog(@"APP DID BECOME ACTIVE...");
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    // [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    
     NSDate *thisMagicMoment = [NSDate date];
     lastMagicMoment = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"lastMagicMoment"];
     
@@ -98,6 +96,8 @@ NSDate *lastMagicMoment;
     NSLog(@"APP WILL TERMINATE...");
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     lastMagicMoment = nil;
+    [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    
 }
 
 @end
