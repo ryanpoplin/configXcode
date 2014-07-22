@@ -44,6 +44,7 @@
     _angle = angle;
     
     [self setNeedsDisplay];
+    
 }
 
 - (void)drawRect:(CGRect)rect

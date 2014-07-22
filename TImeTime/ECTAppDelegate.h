@@ -1,5 +1,3 @@
-
-
 //
 //  ECTAppDelegate.h
 //  TImeTime

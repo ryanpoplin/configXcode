@@ -43,7 +43,6 @@ BOOL animation = true;
 @implementation ECTViewController
 
 - (void)viewDidLoad
-
 {
     
     [super viewDidLoad];
@@ -51,6 +50,12 @@ BOOL animation = true;
     // NSLog(@"%f\n", backgroudTime);
     
     [super viewDidLoad];
+   
+    if (self.view.bounds.size.height < 568) {
+        self.segment2.frame = CGRectMake(20, 360, 280, 25);
+        self.segment3.frame = CGRectMake(20, 400, 280, 25);
+        self.aniSegment.frame = CGRectMake(20, 440, 280, 25);
+    }
     
     [[_startButton layer] setBorderWidth:0.5f];
     [[_startButton layer] setBorderColor:[UIColor grayColor].CGColor];
@@ -60,8 +65,6 @@ BOOL animation = true;
     [[_resetButton layer] setBorderColor:[UIColor grayColor].CGColor];
     
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
-    
-    // [UIApplication sharedApplication].statusBarHidden = YES;
     
     self.displayLabel.hidden = NO;
     self.colorSegment.hidden = NO;
@@ -116,14 +119,14 @@ BOOL animation = true;
     CAShapeLayer *realCircle = [CAShapeLayer layer];
     
     if (self.view.bounds.size.height > 568) {
-        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(240.0, 640.0, 300.0, 200.0)];
+        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(180.0, 580.0, 420.0, 80.0)];
     } else if (self.view.bounds.size.height == 568) {
-        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(20.0, 440.0, 150.0, 100.0)];
+        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(35.0, 400.0, 250.0, 100.0)];
     } else {
-        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(20.0, 440.0, 150.0, 100.0)];
+        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(40.0, 360.0, 250.0, 100.0)];
     }
 
-    [realCircle setFrame:CGRectMake(50.0, 250.0, 100.0, 100.0)];
+    [realCircle setFrame:CGRectMake(50.0, 50.0, 50.0, 50.0)];
         
     [realCircle setPath:path.CGPath];
     [realCircle setFillColor:[UIColor blackColor].CGColor];
@@ -154,12 +157,9 @@ BOOL animation = true;
     self.startTime = [[NSDate alloc] init];
     self.startTime = [NSDate date];
     
+    // iPad 2...
     if (self.view.bounds.size.height > 568) {
-        self.displayLabel.frame = CGRectMake(40, 685, 690, 80);
-    } else if (self.view.bounds.size.height == 568) {
-        self.displayLabel.frame = CGRectMake(20, 285, 280, 80);
-    } else {
-        self.displayLabel.frame = CGRectMake(20, 280, 250, 80);
+        self.displayLabel.frame = CGRectMake(240, 325, 300, 380);
     }
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
@@ -264,16 +264,30 @@ BOOL animation = true;
     [_startButton setEnabled: YES];
     [_pauseButton setEnabled: NO];
     pacManView.hidden = YES;
-    if (self.view.bounds.size.height == 568) {
+    /*if (self.view.bounds.size.height == 568) {
         self.displayLabel.frame = CGRectMake(20, 371, 280, 35);
     } else {
         self.displayLabel.frame = CGRectMake(20, 350, 280, 35);
-    }
+    }*/
     self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
     
 }
 
 - (void)updateCountDown {
+    
+    if (self.view.bounds.size.height == 568) {
+        if (afterRemainder > 3599) {
+            self.displayLabel.frame = CGRectMake(13, 255, 280, 80);
+        } else {
+            self.displayLabel.frame = CGRectMake(20, 255, 280, 80);
+        }
+    } else {
+        if (afterRemainder > 3599) {
+            self.displayLabel.frame = CGRectMake(13, 230, 280, 80);
+        } else {
+            self.displayLabel.frame = CGRectMake(20, 230, 280, 80);
+        }
+    }
     
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
@@ -345,7 +359,21 @@ BOOL animation = true;
 }
 
 - (void)updateCountDownReverse {
-    if (afterRemainder >= 0) {
+
+    if (self.view.bounds.size.height == 568) {
+        if (afterRemainder > 3599) {
+            self.displayLabel.frame = CGRectMake(13, 255, 280, 80);
+        } else {
+            self.displayLabel.frame = CGRectMake(20, 255, 280, 80);
+        }
+    } else {
+        if (afterRemainder > 3599) {
+            self.displayLabel.frame = CGRectMake(13, 230, 280, 80);
+        } else {
+            self.displayLabel.frame = CGRectMake(20, 230, 280, 80);
+        }
+    }
+    
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
     // NSLog(@"%d", pauseTracker);
@@ -392,8 +420,6 @@ BOOL animation = true;
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
         AudioServicesPlaySystemSound(1304);
-    }
-        
     }
     
     if (timerLabelOption == true) {
