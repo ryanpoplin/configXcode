@@ -9,6 +9,7 @@
 //
 
 #import "ECTProgressView.h"
+#import "ECTPacManLayer.h"
 
 @implementation ECTProgressView
 
@@ -35,36 +36,28 @@
 + (Class)layerClass
 
 {
-    return [CAShapeLayer class];
+    
+    
+    return [ECTPacManLayer class];
+    
+    
+}
+
+- (CGFloat)angle {
+    
+    ECTPacManLayer *shapeLayer = (ECTPacManLayer *)self.layer;
+    return shapeLayer.angle;
+
 }
 
 - (void)setAngle:(CGFloat)angle
 
 {
-    _angle = angle;
+    
+    ECTPacManLayer *shapeLayer = (ECTPacManLayer *)self.layer;
+    shapeLayer.angle = angle;
     
     [self setNeedsDisplay];
-    
-}
-
-- (void)drawRect:(CGRect)rect
-
-{
-    
-    CGPoint centerPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
-    
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    [path moveToPoint:centerPoint];
-    [path addArcWithCenter:centerPoint
-                    radius:CGRectGetWidth(self.bounds)/5.0
-                startAngle:0.0
-                  endAngle:self.angle
-                 clockwise:YES];
-    
-    [path closePath];
-    
-    CAShapeLayer *shapeLayer = (CAShapeLayer *)self.layer;
-    [shapeLayer setPath:path.CGPath];
     
 }
 

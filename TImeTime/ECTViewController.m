@@ -83,15 +83,15 @@ BOOL animation = true;
     
 }
 
-- (void)updatePacManView
-{
-    
-    
-    CGFloat angle = pacManView.angle - 0.1;
-    
-    [pacManView setAngle:angle];
-    
-}
+//- (void)updatePacManView
+//{
+//    
+//    
+//    CGFloat angle = pacManView.angle - 0.1;
+//    
+//    [pacManView setAngle:angle];
+//    
+//}
 
 
 - (void)didReceiveMemoryWarning
@@ -157,7 +157,6 @@ BOOL animation = true;
     self.startTime = [[NSDate alloc] init];
     self.startTime = [NSDate date];
     
-    // iPad 2...
     if (self.view.bounds.size.height > 568) {
         self.displayLabel.frame = CGRectMake(240, 325, 300, 380);
     }
@@ -194,12 +193,8 @@ BOOL animation = true;
     }
     if (bgColorOption) {
         _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
-        float vOut = (float)afterRemainder;
-        timer = [NSTimer scheduledTimerWithTimeInterval:(vOut/60.0) target:self selector:@selector(updatePacManView) userInfo:nil repeats:YES];
     } else {
         _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
-        float vOut = (float)afterRemainder;
-        timer = [NSTimer scheduledTimerWithTimeInterval:(vOut/60.0) target:self selector:@selector(updatePacManView) userInfo:nil repeats:YES];
     }
     self.isRunning = !self.isRunning;
     if (self.isRunning == false) {
@@ -289,6 +284,13 @@ BOOL animation = true;
         }
     }
     
+    float percentageDone = (float)afterRemainder / (float)bgConSum;
+    float angle = percentageDone * (M_PI * 2);
+    
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        [pacManView setAngle:angle];
+    } completion:nil];
+    
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
     // NSLog(@"%d", pauseTracker);
@@ -335,7 +337,7 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         // [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
-        AudioServicesPlaySystemSound(1304);
+        // AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {

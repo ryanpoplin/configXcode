@@ -10,4 +10,6 @@
 
 @interface ECTPacManLayer : CAShapeLayer
 
+@property (nonatomic, readwrite) CGFloat angle;
+
 @end
