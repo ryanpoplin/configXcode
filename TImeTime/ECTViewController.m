@@ -16,6 +16,9 @@
 
 {
     
+    float percentageDone;
+    float angleGR;
+    float angleRG;
     int userHours;
     int userMinutes;
     int userSeconds;
@@ -36,8 +39,11 @@
 
 @end
 
-BOOL timerLabelOption = true;
+float pausedAngleGR = 0.0;
+float pausedAngleRG = 0.0;
 
+BOOL timerLabelOption = true;
+BOOL aniPause = false;
 BOOL animation = true;
 
 @implementation ECTViewController
@@ -78,21 +84,10 @@ BOOL animation = true;
     pausePress = true;
     self.isRunning = false;
     bgColorOption = true;
-    
+
     pauseTracker = 0;
     
 }
-
-//- (void)updatePacManView
-//{
-//    
-//    
-//    CGFloat angle = pacManView.angle - 0.1;
-//    
-//    [pacManView setAngle:angle];
-//    
-//}
-
 
 - (void)didReceiveMemoryWarning
 
@@ -103,6 +98,8 @@ BOOL animation = true;
 }
 
 - (IBAction)startButton:(id)sender {
+    
+    NSLog(@"%f", percentageDone);
     
     self.aniSegment.hidden = YES;
     
@@ -133,8 +130,17 @@ BOOL animation = true;
     [self.view.layer addSublayer:realCircle];
     
     [pacManView setBackgroundColor:[UIColor blackColor]];
-    [pacManView setAngle:M_PI * 2.0];
+    
+    if (aniPause) {
+        
+    [pacManView setAngle:pausedAngleGR];
     [self.view addSubview:pacManView];
+        
+    } else {
+        [pacManView setAngle:(M_PI * 2.0)];
+        [self.view addSubview:pacManView];
+        aniPause = false;
+    }
         
     }
     
@@ -216,6 +222,11 @@ BOOL animation = true;
 
 - (IBAction)pauseMeth:(id)sender {
     
+    pausedAngleGR = 0.0;
+    pausedAngleGR = angleGR;
+    NSLog(@"%f", pausedAngleGR);
+    pausedAngleRG = angleRG;
+    aniPause = true;
     [[UIApplication sharedApplication] cancelLocalNotification:notification];
     notification = nil;
     // NSLog(@"%f\n", backgroudTime);
@@ -261,18 +272,19 @@ BOOL animation = true;
     [_startButton setEnabled: YES];
     [_pauseButton setEnabled: NO];
     pacManView.hidden = YES;
-    /*if (self.view.bounds.size.height == 568) {
-        self.displayLabel.frame = CGRectMake(20, 371, 280, 35);
-    } else {
-        self.displayLabel.frame = CGRectMake(20, 350, 280, 35);
-    }*/
     self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
     
 }
 
 - (void)updateCountDown {
     
-    if (self.view.bounds.size.height == 568) {
+    if (self.view.bounds.size.height > 568) {
+        if (afterRemainder > 3599) {
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+        } else {
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+        }
+    } else if (self.view.bounds.size.height == 568) {
         if (afterRemainder > 3599) {
             self.displayLabel.frame = CGRectMake(13, 255, 280, 80);
         } else {
@@ -286,13 +298,17 @@ BOOL animation = true;
         }
     }
     
-    
-    float percentageDone = (float)afterRemainder / (float)bgConSum;
-    float angle = percentageDone * (M_PI * 2);
+    NSLog(@"%f is here...", pausedAngleGR);
+ 
+    percentageDone = (float)afterRemainder / (float)bgConSum;
+  
+    angleGR = percentageDone * (M_PI * 2);
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        [pacManView setAngle:angle];
+        [pacManView setAngle:angleGR];
     } completion:nil];
+    
+    pausedAngleGR = 0.0;
     
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
@@ -339,7 +355,7 @@ BOOL animation = true;
         pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [alert show];
-        // AudioServicesPlaySystemSound(1304);
+        AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {
@@ -364,7 +380,13 @@ BOOL animation = true;
 
 - (void)updateCountDownReverse {
 
-    if (self.view.bounds.size.height == 568) {
+    if (self.view.bounds.size.height > 568) {
+        if (afterRemainder > 3599) {
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+        } else {
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+        }
+    } else if (self.view.bounds.size.height == 568) {
         if (afterRemainder > 3599) {
             self.displayLabel.frame = CGRectMake(13, 255, 280, 80);
         } else {
@@ -378,13 +400,12 @@ BOOL animation = true;
         }
     }
     
-    
-    float percentageDone = (float)afterRemainder / (float)bgConSum;
+    /*float percentageDone = (float)afterRemainder / (float)bgConSum;
     float angle = percentageDone * (M_PI * 2);
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         [pacManView setAngle:angle];
-    } completion:nil];
+    } completion:nil];*/
     
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
@@ -431,7 +452,7 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
-        // AudioServicesPlaySystemSound(1304);
+        AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {
@@ -535,4 +556,3 @@ BOOL animation = true;
 }
 
 @end
-
