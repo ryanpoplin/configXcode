@@ -286,28 +286,14 @@ BOOL animation = true;
         }
     }
     
-    // if pauseBool is true, what do I need to do with pauseTracker?
     
-    if (pauseBool) {
-    
-    float percentageDone = ((float)afterRemainder - (float)pauseTracker) / (float)bgConSum;
+    float percentageDone = (float)afterRemainder / (float)bgConSum;
     float angle = percentageDone * (M_PI * 2);
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         [pacManView setAngle:angle];
     } completion:nil];
     
-    } else {
-        
-        float percentageDone = (float)afterRemainder / (float)bgConSum;
-        float angle = percentageDone * (M_PI * 2);
-        
-        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-            [pacManView setAngle:angle];
-        } completion:nil];
-        
-    }
-        
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
     // NSLog(@"%d", pauseTracker);
@@ -392,6 +378,7 @@ BOOL animation = true;
         }
     }
     
+    
     float percentageDone = (float)afterRemainder / (float)bgConSum;
     float angle = percentageDone * (M_PI * 2);
     
@@ -444,7 +431,7 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
-        AudioServicesPlaySystemSound(1304);
+        // AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {

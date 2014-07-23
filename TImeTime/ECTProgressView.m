@@ -18,7 +18,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setClipsToBounds:NO];
-        
+
         [self.layer setShouldRasterize:YES];
     }
     return self;
