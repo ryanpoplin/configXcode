@@ -232,7 +232,9 @@ BOOL animation = true;
 
 - (IBAction)resetButton:(id)sender {
     
-    [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    if (notification) {
+        [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    }
     self.aniSegment.hidden = NO;
     self.displayLabel.text = @"";
     self.instructIndex.hidden = NO;
@@ -284,13 +286,28 @@ BOOL animation = true;
         }
     }
     
-    float percentageDone = (float)afterRemainder / (float)bgConSum;
+    // if pauseBool is true, what do I need to do with pauseTracker?
+    
+    if (pauseBool) {
+    
+    float percentageDone = ((float)afterRemainder - (float)pauseTracker) / (float)bgConSum;
     float angle = percentageDone * (M_PI * 2);
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         [pacManView setAngle:angle];
     } completion:nil];
     
+    } else {
+        
+        float percentageDone = (float)afterRemainder / (float)bgConSum;
+        float angle = percentageDone * (M_PI * 2);
+        
+        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+            [pacManView setAngle:angle];
+        } completion:nil];
+        
+    }
+        
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
     // NSLog(@"%d", pauseTracker);
@@ -335,7 +352,6 @@ BOOL animation = true;
         timer = nil;
         pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
-        // [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
         // AudioServicesPlaySystemSound(1304);
     }
@@ -375,6 +391,13 @@ BOOL animation = true;
             self.displayLabel.frame = CGRectMake(20, 230, 280, 80);
         }
     }
+    
+    float percentageDone = (float)afterRemainder / (float)bgConSum;
+    float angle = percentageDone * (M_PI * 2);
+    
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        [pacManView setAngle:angle];
+    } completion:nil];
     
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
