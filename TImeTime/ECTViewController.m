@@ -56,7 +56,7 @@ BOOL animation = true;
     // NSLog(@"%f\n", backgroudTime);
     
     [super viewDidLoad];
-   
+    
     if (self.view.bounds.size.height < 568) {
         self.segment2.frame = CGRectMake(20, 360, 280, 25);
         self.segment3.frame = CGRectMake(20, 400, 280, 25);
@@ -84,7 +84,7 @@ BOOL animation = true;
     pausePress = true;
     self.isRunning = false;
     bgColorOption = true;
-
+    
     pauseTracker = 0;
     
 }
@@ -111,36 +111,34 @@ BOOL animation = true;
     
     if (animation) {
         
-    UIBezierPath *path = [UIBezierPath bezierPath];
-    
-    CAShapeLayer *realCircle = [CAShapeLayer layer];
-    
-    if (self.view.bounds.size.height > 568) {
-        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(180.0, 580.0, 420.0, 80.0)];
-    } else if (self.view.bounds.size.height == 568) {
-        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(35.0, 400.0, 250.0, 100.0)];
-    } else {
-        pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(40.0, 360.0, 250.0, 100.0)];
-    }
-
-    [realCircle setFrame:CGRectMake(50.0, 50.0, 50.0, 50.0)];
+        if (self.view.bounds.size.height > 568) {
+            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(180.0, 580.0, 420.0, 80.0)];
+        } else if (self.view.bounds.size.height == 568) {
+            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(35.0, 400.0, 250.0, 100.0)];
+        } else {
+            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(40.0, 360.0, 250.0, 100.0)];
+        }
         
-    [realCircle setPath:path.CGPath];
-    [realCircle setFillColor:[UIColor blackColor].CGColor];
-    [self.view.layer addSublayer:realCircle];
-    
-    [pacManView setBackgroundColor:[UIColor blackColor]];
-    
-    if (aniPause) {
+        /*UIBezierPath *path = [UIBezierPath bezierPath];
+        CAShapeLayer *realCircle = [CAShapeLayer layer];*/
+        /*[realCircle setPath:path.CGPath];
+        [realCircle setFillColor:[UIColor blackColor].CGColor];
+        [self.view.layer addSublayer:realCircle];*/
         
-    [pacManView setAngle:pausedAngleGR];
-    [self.view addSubview:pacManView];
+        [pacManView setBackgroundColor:[UIColor blackColor]];
         
-    } else {
-        [pacManView setAngle:(M_PI * 2.0)];
-        [self.view addSubview:pacManView];
-        aniPause = false;
-    }
+        if (aniPause) {
+            
+            [pacManView setAngle:pausedAngleGR];
+            [self.view addSubview:pacManView];
+            
+        } else {
+            
+            [pacManView setAngle:pausedAngleGR - (M_PI * 2.0)];
+            [self.view addSubview:pacManView];
+            aniPause = false;
+        
+        }
         
     }
     
@@ -217,7 +215,7 @@ BOOL animation = true;
     [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     pauseBool = false;
-
+    
 }
 
 - (IBAction)pauseMeth:(id)sender {
@@ -243,6 +241,7 @@ BOOL animation = true;
 
 - (IBAction)resetButton:(id)sender {
     
+    aniPause = false;
     if (notification) {
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
     }
@@ -298,17 +297,17 @@ BOOL animation = true;
         }
     }
     
-    NSLog(@"%f is here...", pausedAngleGR);
- 
+    // NSLog(@"%f is here...", pausedAngleGR);
+    
     percentageDone = (float)afterRemainder / (float)bgConSum;
-  
+    
     angleGR = percentageDone * (M_PI * 2);
+    
+    NSLog(@"%f awesome...", angleGR);
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         [pacManView setAngle:angleGR];
     } completion:nil];
-    
-    pausedAngleGR = 0.0;
     
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
@@ -379,7 +378,7 @@ BOOL animation = true;
 }
 
 - (void)updateCountDownReverse {
-
+    
     if (self.view.bounds.size.height > 568) {
         if (afterRemainder > 3599) {
             self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
@@ -401,11 +400,11 @@ BOOL animation = true;
     }
     
     /*float percentageDone = (float)afterRemainder / (float)bgConSum;
-    float angle = percentageDone * (M_PI * 2);
-    
-    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-        [pacManView setAngle:angle];
-    } completion:nil];*/
+     float angle = percentageDone * (M_PI * 2);
+     
+     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+     [pacManView setAngle:angle];
+     } completion:nil];*/
     
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
@@ -532,19 +531,19 @@ BOOL animation = true;
 }
 
 - (IBAction)segment3:(id)sender {
- 
- UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
- NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
- if (selectedSegment == 0) {
-     timerLabelOption = true;
- } else {
-     timerLabelOption = false;
- }
- 
- }
+    
+    UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
+    NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
+    if (selectedSegment == 0) {
+        timerLabelOption = true;
+    } else {
+        timerLabelOption = false;
+    }
+    
+}
 
 - (IBAction)aniSegment:(id)sender {
-
+    
     UISegmentedControl *segmentedControl = (UISegmentedControl *) sender;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     if (selectedSegment == 0) {
@@ -552,7 +551,7 @@ BOOL animation = true;
     } else {
         animation = false;
     }
-
+    
 }
 
 @end
