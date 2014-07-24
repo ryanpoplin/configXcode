@@ -98,6 +98,8 @@ BOOL animation = true;
 
 - (IBAction)startButton:(id)sender {
     
+    pacManView.hidden = YES;
+    
     angleGR = (percentageDone * (M_PI * 2));
     
     NSLog(@"%f", percentageDone);
@@ -126,7 +128,6 @@ BOOL animation = true;
             
             [pacManView setAngle:pausedAngleGR];
             [self.view addSubview:pacManView];
-            aniPause = false;
             
         } else {
             
@@ -267,6 +268,7 @@ BOOL animation = true;
     [_pauseButton setEnabled: NO];
     pacManView.hidden = YES;
     self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
+    // pausedAngleGR = 0.0;
     
 }
 
@@ -296,9 +298,12 @@ BOOL animation = true;
     
     percentageDone = (float)afterRemainder / (float)bgConSum;
     
-    angleGR = (percentageDone * (M_PI * 2));
-    
-    NSLog(@"%f awesome...", +(angleGR));
+    if (aniPause) {
+        angleGR = percentageDone * (M_PI * 2);
+        aniPause = false;
+    } else {
+        angleGR = (percentageDone * (M_PI * 2));
+    }
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         [pacManView setAngle:angleGR];
@@ -349,7 +354,7 @@ BOOL animation = true;
         pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [alert show];
-        AudioServicesPlaySystemSound(1304);
+        // AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {
@@ -394,12 +399,18 @@ BOOL animation = true;
         }
     }
     
-    float percentageDone = (float)afterRemainder / (float)bgConSum;
-    float angle = percentageDone * (M_PI * 2);
-     
-     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-     [pacManView setAngle:angle];
-     } completion:nil];
+    percentageDone = (float)afterRemainder / (float)bgConSum;
+    
+    if (aniPause) {
+        angleGR = percentageDone * (M_PI * 2);
+        aniPause = false;
+    } else {
+        angleGR = (percentageDone * (M_PI * 2));
+    }
+    
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        [pacManView setAngle:angleGR];
+    } completion:nil];
     
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
@@ -446,7 +457,7 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
-        AudioServicesPlaySystemSound(1304);
+        // AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {

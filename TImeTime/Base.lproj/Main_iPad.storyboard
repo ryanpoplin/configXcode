@@ -64,8 +64,8 @@
                                 <rect key="frame" x="133" y="897" width="502" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Animation"/>
-                                    <segment title="No Animation"/>
+                                    <segment title="Pie Chart"/>
+                                    <segment title="No Pie Chart"/>
                                 </segments>
                                 <connections>
                                     <action selector="aniSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="4xx-Vb-oB3"/>

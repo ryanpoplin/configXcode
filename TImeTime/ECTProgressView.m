@@ -1,5 +1,3 @@
-
-
 //
 //  ECTProgressView.m
 //  Color Countdown
