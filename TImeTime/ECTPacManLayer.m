@@ -27,7 +27,6 @@
 
 - (void)drawInContext:(CGContextRef)ctx {
     
-    
     CGPoint centerPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
     
     UIBezierPath *path = [UIBezierPath bezierPath];
@@ -42,7 +41,6 @@
     
     [self setPath:path.CGPath];
 
-    
 }
 
 @end

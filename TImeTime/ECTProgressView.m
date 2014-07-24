@@ -15,13 +15,16 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
+    
     self = [super initWithFrame:frame];
     if (self) {
         [self setClipsToBounds:NO];
 
         [self.layer setShouldRasterize:YES];
     }
+    
     return self;
+
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor
@@ -37,9 +40,7 @@
 
 {
     
-    
     return [ECTPacManLayer class];
-    
     
 }
 

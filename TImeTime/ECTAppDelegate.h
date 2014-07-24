@@ -18,6 +18,7 @@ NSTimer *timer;
 int bgConSum;
 BOOL pauseBool;
 UILocalNotification *notification;
+float angleGR;
 
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 

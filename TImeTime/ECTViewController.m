@@ -17,7 +17,6 @@
 {
     
     float percentageDone;
-    float angleGR;
     float angleRG;
     int userHours;
     int userMinutes;
@@ -40,7 +39,7 @@
 @end
 
 float pausedAngleGR = 0.0;
-float pausedAngleRG = 0.0;
+// float pausedAngleRG = 0.0;
 
 BOOL timerLabelOption = true;
 BOOL aniPause = false;
@@ -99,6 +98,8 @@ BOOL animation = true;
 
 - (IBAction)startButton:(id)sender {
     
+    angleGR = (percentageDone * (M_PI * 2));
+    
     NSLog(@"%f", percentageDone);
     
     self.aniSegment.hidden = YES;
@@ -119,25 +120,19 @@ BOOL animation = true;
             pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(40.0, 360.0, 250.0, 100.0)];
         }
         
-        /*UIBezierPath *path = [UIBezierPath bezierPath];
-        CAShapeLayer *realCircle = [CAShapeLayer layer];*/
-        /*[realCircle setPath:path.CGPath];
-        [realCircle setFillColor:[UIColor blackColor].CGColor];
-        [self.view.layer addSublayer:realCircle];*/
-        
         [pacManView setBackgroundColor:[UIColor blackColor]];
         
         if (aniPause) {
             
             [pacManView setAngle:pausedAngleGR];
             [self.view addSubview:pacManView];
+            aniPause = false;
             
         } else {
             
-            [pacManView setAngle:pausedAngleGR - (M_PI * 2.0)];
+            [pacManView setAngle:M_PI * 2.0];
             [self.view addSubview:pacManView];
-            aniPause = false;
-        
+            
         }
         
     }
@@ -223,7 +218,7 @@ BOOL animation = true;
     pausedAngleGR = 0.0;
     pausedAngleGR = angleGR;
     NSLog(@"%f", pausedAngleGR);
-    pausedAngleRG = angleRG;
+    // pausedAngleGR = angleRG;
     aniPause = true;
     [[UIApplication sharedApplication] cancelLocalNotification:notification];
     notification = nil;
@@ -301,9 +296,9 @@ BOOL animation = true;
     
     percentageDone = (float)afterRemainder / (float)bgConSum;
     
-    angleGR = percentageDone * (M_PI * 2);
+    angleGR = (percentageDone * (M_PI * 2));
     
-    NSLog(@"%f awesome...", angleGR);
+    NSLog(@"%f awesome...", +(angleGR));
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
         [pacManView setAngle:angleGR];
@@ -399,12 +394,12 @@ BOOL animation = true;
         }
     }
     
-    /*float percentageDone = (float)afterRemainder / (float)bgConSum;
-     float angle = percentageDone * (M_PI * 2);
+    float percentageDone = (float)afterRemainder / (float)bgConSum;
+    float angle = percentageDone * (M_PI * 2);
      
      [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
      [pacManView setAngle:angle];
-     } completion:nil];*/
+     } completion:nil];
     
     // NSLog(@"%d", afterRemainder);
     pauseTracker++;
