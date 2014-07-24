@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 ExcepApps. All rights reserved.
 //
 
+// fix the fucking variable pause issue!...
+
 #import "ECTViewController.h"
 #import "ECTProgressView.h"
 #import "ECTAppDelegate.h"
