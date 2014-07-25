@@ -39,7 +39,6 @@
 @end
 
 float pausedAngleGR = 0.0;
-// float pausedAngleRG = 0.0;
 
 BOOL timerLabelOption = true;
 BOOL aniPause = false;
@@ -49,10 +48,6 @@ BOOL animation = true;
 
 - (void)viewDidLoad
 {
-    
-    [super viewDidLoad];
-    
-    // NSLog(@"%f\n", backgroudTime);
     
     [super viewDidLoad];
     
@@ -83,8 +78,6 @@ BOOL animation = true;
     pausePress = true;
     self.isRunning = false;
     bgColorOption = true;
-    
-    pauseTracker = 0;
     
 }
 
@@ -182,6 +175,7 @@ BOOL animation = true;
         countDownInterval = 1 + convertedHours + convertedMinutes;
         remainder = countDownInterval;
         afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
+        NSLog(@"%d", pauseTracker);
         afterRemainder -= pauseTracker;
     } else {
         countDownInterval = 1 + convertedHours + convertedMinutes;
@@ -231,7 +225,7 @@ BOOL animation = true;
     [timer invalidate];
     timer = nil;
     pauseBool = true;
-    pauseTime = pauseTracker;
+    // pauseTime = pauseTracker;
     
 }
 
@@ -294,8 +288,6 @@ BOOL animation = true;
         }
     }
     
-    // NSLog(@"%f is here...", pausedAngleGR);
-    
     percentageDone = (float)afterRemainder / (float)bgConSum;
     
     if (aniPause) {
@@ -309,9 +301,9 @@ BOOL animation = true;
         [pacManView setAngle:angleGR];
     } completion:nil];
     
-    // NSLog(@"%d", afterRemainder);
+    NSLog(@"%d", afterRemainder);
     pauseTracker++;
-    // NSLog(@"%d", pauseTracker);
+    NSLog(@"%d pauseTracker...", pauseTracker);
     afterRemainder--;
     if (afterRemainder > bgConSum * 0.80) {
         [UIView beginAnimations:nil context:nil];
@@ -354,7 +346,7 @@ BOOL animation = true;
         pacManView.hidden = YES;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [alert show];
-        // AudioServicesPlaySystemSound(1304);
+        AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {
@@ -457,7 +449,7 @@ BOOL animation = true;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         [alert show];
-        // AudioServicesPlaySystemSound(1304);
+        AudioServicesPlaySystemSound(1304);
     }
     
     if (timerLabelOption == true) {

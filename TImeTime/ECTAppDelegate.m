@@ -82,7 +82,7 @@ NSDate *lastMagicMoment;
         
         if (pauseBool == false) {
             afterRemainder -= backgroudTime - 1;
-            pauseTracker += backgroudTime;
+            // pauseTracker += backgroudTime;
             if (afterRemainder < 1) {
                 afterRemainder = 1;
             }
