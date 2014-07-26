@@ -11,16 +11,23 @@
 @implementation ECTPacManLayer
 
 + (BOOL)needsDisplayForKey:(NSString *)key {
+  
     if([key isEqualToString:@"angle"]) {
+    
         return YES;
+    
     } else {
+    
         return [super needsDisplayForKey:key];
+    
     }
+
 }
 
 - (void)setAngle:(CGFloat)angle {
     
     _angle = angle;
+
     [self setNeedsDisplay];
     
 }
@@ -30,7 +37,9 @@
     CGPoint centerPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
     
     UIBezierPath *path = [UIBezierPath bezierPath];
+    
     [path moveToPoint:centerPoint];
+    
     [path addArcWithCenter:centerPoint
                     radius:CGRectGetWidth(self.bounds)/5.0
                 startAngle:0.0

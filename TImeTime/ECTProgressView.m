@@ -7,18 +7,23 @@
 //
 
 #import "ECTProgressView.h"
+
 #import "ECTPacManLayer.h"
 
 @implementation ECTProgressView
 
 - (id)initWithFrame:(CGRect)frame
+
 {
     
     self = [super initWithFrame:frame];
+
     if (self) {
+    
         [self setClipsToBounds:NO];
 
         [self.layer setShouldRasterize:YES];
+    
     }
     
     return self;
@@ -28,10 +33,14 @@
 - (void)setBackgroundColor:(UIColor *)backgroundColor
 
 {
+    
     [super setBackgroundColor:[UIColor clearColor]];
     
+    
     CAShapeLayer *shapeLayer = (CAShapeLayer *)self.layer;
+    
     [shapeLayer setFillColor:backgroundColor.CGColor];
+
 }
 
 + (Class)layerClass
@@ -45,6 +54,7 @@
 - (CGFloat)angle {
     
     ECTPacManLayer *shapeLayer = (ECTPacManLayer *)self.layer;
+
     return shapeLayer.angle;
 
 }
@@ -54,6 +64,7 @@
 {
     
     ECTPacManLayer *shapeLayer = (ECTPacManLayer *)self.layer;
+    
     shapeLayer.angle = angle;
     
     [self setNeedsDisplay];
@@ -61,4 +72,3 @@
 }
 
 @end
-
