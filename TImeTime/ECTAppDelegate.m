@@ -81,8 +81,12 @@ NSDate *lastMagicMoment;
         backgroudTime = timeOfNoMagic;
         
         if (pauseBool == false) {
+            static dispatch_once_t pred;
+            dispatch_once(&pred, ^{
+                backgroudTime = 0;
+            });
             afterRemainder -= backgroudTime - 1;
-            // pauseTracker += backgroudTime;
+            pauseTracker += backgroudTime - 1;
             if (afterRemainder < 1) {
                 afterRemainder = 1;
             }

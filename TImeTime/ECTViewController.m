@@ -90,20 +90,17 @@ BOOL animation = true;
 }
 
 - (IBAction)startButton:(id)sender {
+        
+    backgroudTime = 0;
     
     pacManView.hidden = YES;
     
     angleGR = (percentageDone * (M_PI * 2));
     
-    NSLog(@"%f", percentageDone);
-    
     self.aniSegment.hidden = YES;
     
     [timer invalidate];
     timer = nil;
-    
-    backgroudTime = 0.0;
-    NSLog(@"%f\n", backgroudTime);
     
     if (animation) {
         
@@ -175,7 +172,6 @@ BOOL animation = true;
         countDownInterval = 1 + convertedHours + convertedMinutes;
         remainder = countDownInterval;
         afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
-        NSLog(@"%d", pauseTracker);
         afterRemainder -= pauseTracker;
     } else {
         countDownInterval = 1 + convertedHours + convertedMinutes;
@@ -210,6 +206,8 @@ BOOL animation = true;
 
 - (IBAction)pauseMeth:(id)sender {
     
+    NSLog(@"%d", pauseTracker);
+    
     pausedAngleGR = 0.0;
     pausedAngleGR = angleGR;
     NSLog(@"%f", pausedAngleGR);
@@ -217,7 +215,6 @@ BOOL animation = true;
     aniPause = true;
     [[UIApplication sharedApplication] cancelLocalNotification:notification];
     notification = nil;
-    // NSLog(@"%f\n", backgroudTime);
     [_startButton setEnabled: YES];
     [_pauseButton setEnabled: NO];
     [_autoTimer invalidate];
@@ -225,7 +222,7 @@ BOOL animation = true;
     [timer invalidate];
     timer = nil;
     pauseBool = true;
-    // pauseTime = pauseTracker;
+    pauseTime = pauseTracker;
     
 }
 
@@ -262,8 +259,7 @@ BOOL animation = true;
     [_pauseButton setEnabled: NO];
     pacManView.hidden = YES;
     self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
-    // pausedAngleGR = 0.0;
-    
+        
 }
 
 - (void)updateCountDown {
