@@ -32,11 +32,15 @@ NSDate *lastMagicMoment;
 
 {
     
-    thisMagicMoment = [NSDate date];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:thisMagicMoment forKey:@"lastMagicMoment"];
-    
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (afterRemainder && pauseTracker != 0) {
+        
+        thisMagicMoment = [NSDate date];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:thisMagicMoment forKey:@"lastMagicMoment"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
     
     NSLog(@"APP HAS RESIGNED ACTIVE...");
     
@@ -74,25 +78,19 @@ NSDate *lastMagicMoment;
 
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    NSDate *thisMagicMoment = [NSDate date];
-    
-    lastMagicMoment = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"lastMagicMoment"];
-    
     if (lastMagicMoment == nil) {
     
         NSLog (@"First launch!");
         
-        backgroudTime = 0;
-        
-        NSLog(@"%f", backgroudTime);
-    
     } else {
         
-        timeOfNoMagic = [thisMagicMoment timeIntervalSinceDate:lastMagicMoment];
+        NSDate *thisMagicMoment = [NSDate date];
+        
+        lastMagicMoment = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"lastMagicMoment"];
         
         if (afterRemainder && pauseTracker > 0) {
            
-            backgroudTime = timeOfNoMagic;
+            timeOfNoMagic = [thisMagicMoment timeIntervalSinceDate:lastMagicMoment];
             
             backgroudTime = (int)timeOfNoMagic;
             
