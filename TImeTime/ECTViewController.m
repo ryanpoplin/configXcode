@@ -22,8 +22,6 @@
     
     float percentageDone;
     
-    // float angleRG;
-    
     int userHours;
     
     int userMinutes;
@@ -97,8 +95,6 @@ BOOL animation = true;
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
     self.displayLabel.hidden = NO;
-    
-    // self.colorSegment.hidden = NO;
     
     self.resetButton.enabled = NO;
     
@@ -179,8 +175,6 @@ BOOL animation = true;
     self.instructIndex.hidden = YES;
     
     self.displayLabel.hidden = NO;
-    
-    // self.colorSegment.hidden = YES;
     
     self.segment2.hidden = YES;
     
@@ -323,8 +317,6 @@ BOOL animation = true;
     
     NSLog(@"%f", pausedAngleGR);
     
-    // pausedAngleGR = angleRG;
-    
     aniPause = true;
     
     [[UIApplication sharedApplication] cancelLocalNotification:notification];
@@ -364,8 +356,6 @@ BOOL animation = true;
     self.displayLabel.text = @"";
     
     self.instructIndex.hidden = NO;
-    
-    // self.colorSegment.hidden = NO;
     
     self.segment2.hidden = NO;
     
@@ -657,11 +647,11 @@ BOOL animation = true;
         [pacManView setAngle:angleGR];
     } completion:nil];
     
-    // NSLog(@"%d", afterRemainder);
+    NSLog(@"%d", afterRemainder);
     
     pauseTracker++;
     
-    // NSLog(@"%d", pauseTracker);
+    NSLog(@"%d", pauseTracker);
     
     afterRemainder--;
     
