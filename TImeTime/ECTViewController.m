@@ -62,6 +62,7 @@ BOOL aniPause = false;
 
 BOOL animation = true;
 
+// fix this issue...
 @implementation ECTViewController
 
 - (void)viewDidLoad
@@ -409,6 +410,10 @@ BOOL animation = true;
         
 }
 
+/***
+* Remove the D.R.Y.ness...
+*/
+
 - (void)updateCountDown {
     
     if (self.view.bounds.size.height > 568) {
@@ -593,6 +598,7 @@ BOOL animation = true;
     
 }
 
+
 - (void)updateCountDownReverse {
     
     if (self.view.bounds.size.height > 568) {
@@ -776,6 +782,10 @@ BOOL animation = true;
     }
     
 }
+
+/***
+* Remove the D.R.Y.ness ends...
+*/
 
 - (IBAction)hoursMoved:(id)sender {
     

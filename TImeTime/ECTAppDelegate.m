@@ -81,6 +81,10 @@ NSDate *lastMagicMoment;
     if (lastMagicMoment == nil) {
     
         NSLog (@"First launch!");
+        
+        backgroudTime = 0;
+        
+        NSLog(@"%f", backgroudTime);
     
     } else {
         
