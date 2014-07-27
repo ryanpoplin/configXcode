@@ -22,6 +22,8 @@ NSDate *lastMagicMoment;
     
     NSLog(@"APP HAS LAUNCHED...");
     
+    NSLog(@"%d and %d", afterRemainder, pauseTracker);
+    
     // Override point for customization after application launch.
     
     return YES;
