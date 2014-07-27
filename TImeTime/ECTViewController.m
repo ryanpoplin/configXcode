@@ -130,7 +130,7 @@ BOOL animation = true;
     
     pacManView.hidden = YES;
     
-    angleGR = (percentageDone * (M_PI * 2));
+    angleGR = (percentageDone * (M_PI * 2.0));
     
     self.aniSegment.hidden = YES;
     
@@ -315,7 +315,7 @@ BOOL animation = true;
     
     pausedAngleGR = angleGR;
     
-    NSLog(@"%f", pausedAngleGR);
+    // NSLog(@"%f", pausedAngleGR);
     
     aniPause = true;
     
@@ -363,7 +363,11 @@ BOOL animation = true;
     
     pauseBool = false;
     
+    afterRemainder = 0;
+    
     pauseTracker = 0;
+    
+    NSLog(@"%d and %d", afterRemainder, pauseTracker);
     
     pausePress = true;
     
@@ -633,13 +637,13 @@ BOOL animation = true;
     
     if (aniPause) {
     
-        angleGR = percentageDone * (M_PI * 2);
+        angleGR = percentageDone * (M_PI * 2.0);
         
         aniPause = false;
     
     } else {
     
-        angleGR = (percentageDone * (M_PI * 2));
+        angleGR = (percentageDone * (M_PI * 2.0));
     
     }
     
