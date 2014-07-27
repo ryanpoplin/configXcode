@@ -90,9 +90,19 @@ NSDate *lastMagicMoment;
         
         timeOfNoMagic = [thisMagicMoment timeIntervalSinceDate:lastMagicMoment];
         
-        backgroudTime = (int)timeOfNoMagic;
+        if (afterRemainder && pauseTracker > 0) {
+           
+            backgroudTime = timeOfNoMagic;
+            
+            backgroudTime = (int)timeOfNoMagic;
+            
+            NSLog(@"Application was in background for %f...\n", backgroudTime);
         
-        NSLog(@"Application was in background for %f...\n", backgroudTime);
+        } else {
+        
+            backgroudTime = 0;
+        
+        }
 
         if (pauseBool == false) {
 
