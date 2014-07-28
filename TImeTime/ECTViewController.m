@@ -62,7 +62,6 @@ BOOL aniPause = false;
 
 BOOL animation = true;
 
-// fix this issue...
 @implementation ECTViewController
 
 - (void)viewDidLoad
@@ -164,7 +163,17 @@ BOOL animation = true;
 }
 
 - (IBAction)startButton:(id)sender {
+    
+    int selectors = userHours + userMinutes + userSeconds;
+    
+    if (selectors == 0) {
         
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Please select a countdown time!" message:@"" delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        
+    } else {
+    
     backgroudTime = 0;
     
     pacManView.hidden = YES;
@@ -241,11 +250,11 @@ BOOL animation = true;
     
     self.startTime = [NSDate date];
     
-    if (self.view.bounds.size.height > 568) {
-    
-        self.displayLabel.frame = CGRectMake(240, 325, 300, 380);
-    
-    }
+//    if (self.view.bounds.size.height > 568) {
+//    
+//        self.displayLabel.frame = CGRectMake(240, 325, 300, 380);
+//    
+//    }
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
     
@@ -343,6 +352,8 @@ BOOL animation = true;
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     
     pauseBool = false;
+        
+    }
     
 }
 
