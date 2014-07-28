@@ -410,10 +410,6 @@ BOOL animation = true;
         
 }
 
-/***
-* Remove the D.R.Y.ness...
-*/
-
 - (void)updateCountDown {
     
     if (self.view.bounds.size.height > 568) {
@@ -782,10 +778,6 @@ BOOL animation = true;
     }
     
 }
-
-/***
-* Remove the D.R.Y.ness ends...
-*/
 
 - (IBAction)hoursMoved:(id)sender {
     

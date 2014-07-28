@@ -80,13 +80,17 @@ NSDate *lastMagicMoment;
 
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    NSDate *thisMagicMoment = [NSDate date];
-    
-    lastMagicMoment = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"lastMagicMoment"];
-    
-    timeOfNoMagic = [thisMagicMoment timeIntervalSinceDate:lastMagicMoment];
-    
-    NSLog(@"%f", backgroudTime);
+    if (afterRemainder && pauseTracker != 0) {
+        
+        NSDate *thisMagicMoment = [NSDate date];
+        
+        lastMagicMoment = (NSDate *)[[NSUserDefaults standardUserDefaults] objectForKey:@"lastMagicMoment"];
+        
+        timeOfNoMagic = [thisMagicMoment timeIntervalSinceDate:lastMagicMoment];
+        
+        NSLog(@"%f", backgroudTime);
+        
+    }
     
     if (lastMagicMoment == nil) {
     
