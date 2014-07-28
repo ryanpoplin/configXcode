@@ -86,11 +86,11 @@ BOOL animation = true;
         
         if (afterRemainder > 3599) {
             
-            self.displayLabel.frame = CGRectMake(13, 255, 280, 80);
+            self.displayLabel.frame = CGRectMake(13, 225, 280, 80);
             
         } else {
             
-            self.displayLabel.frame = CGRectMake(20, 255, 280, 80);
+            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
             
         }
         
@@ -98,11 +98,11 @@ BOOL animation = true;
         
         if (afterRemainder > 3599) {
             
-            self.displayLabel.frame = CGRectMake(13, 230, 280, 80);
+            self.displayLabel.frame = CGRectMake(13, 170, 280, 80);
             
         } else {
             
-            self.displayLabel.frame = CGRectMake(20, 230, 280, 80);
+            self.displayLabel.frame = CGRectMake(20, 170, 280, 80);
             
         }
         
@@ -190,15 +190,15 @@ BOOL animation = true;
         
         if (self.view.bounds.size.height > 568) {
            
-            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(180.0, 580.0, 420.0, 80.0)];
+            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(100.0, 620.0, 580.0, 80.0)];
         
         } else if (self.view.bounds.size.height == 568) {
         
-            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(35.0, 400.0, 250.0, 100.0)];
+            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-20.0, 430.0, 370.0, 100.0)];
         
         } else {
          
-            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(40.0, 340.0, 250.0, 100.0)];
+            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-16.0, 320.0, 370.0, 100.0)];
         
         }
         
