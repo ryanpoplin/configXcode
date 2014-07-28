@@ -70,44 +70,6 @@ BOOL animation = true;
     
     [super viewDidLoad];
     
-    if (self.view.bounds.size.height > 568) {
-        
-        if (afterRemainder > 3599) {
-            
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-            
-        } else {
-            
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-            
-        }
-        
-    } else if (self.view.bounds.size.height == 568) {
-        
-        if (afterRemainder > 3599) {
-            
-            self.displayLabel.frame = CGRectMake(13, 225, 280, 80);
-            
-        } else {
-            
-            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
-            
-        }
-        
-    } else {
-        
-        if (afterRemainder > 3599) {
-            
-            self.displayLabel.frame = CGRectMake(13, 170, 280, 80);
-            
-        } else {
-            
-            self.displayLabel.frame = CGRectMake(20, 170, 280, 80);
-            
-        }
-        
-    }
-    
     if (self.view.bounds.size.height < 568) {
     
         self.segment2.frame = CGRectMake(20, 360, 280, 25);
@@ -194,11 +156,11 @@ BOOL animation = true;
         
         } else if (self.view.bounds.size.height == 568) {
         
-            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-20.0, 430.0, 370.0, 100.0)];
+            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-25.0, 400.0, 370.0, 100.0)];
         
         } else {
          
-            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-16.0, 320.0, 370.0, 100.0)];
+            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-21.0, 320.0, 370.0, 100.0)];
         
         }
         
@@ -249,12 +211,6 @@ BOOL animation = true;
     self.startTime = [[NSDate alloc] init];
     
     self.startTime = [NSDate date];
-    
-//    if (self.view.bounds.size.height > 568) {
-//    
-//        self.displayLabel.frame = CGRectMake(240, 325, 300, 380);
-//    
-//    }
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
     
@@ -459,6 +415,52 @@ BOOL animation = true;
 
 - (void)updateCountDown {
     
+    if (self.view.bounds.size.height > 568) {
+        
+        if (afterRemainder > 3600) {
+            
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+            
+        } else {
+            
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+            
+        }
+        
+    } else if (self.view.bounds.size.height == 568) {
+        
+        if (afterRemainder > 3600) {
+            
+            self.displayLabel.frame = CGRectMake(10, 225, 280, 80);
+            
+        } else if (afterRemainder > 60) {
+            
+            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
+            
+        } else {
+            
+            self.displayLabel.frame = CGRectMake(21, 225, 280, 80);
+            
+        }
+        
+    } else {
+        
+        if (afterRemainder > 3600) {
+            
+            self.displayLabel.frame = CGRectMake(16, 170, 280, 80);
+            
+        } else if (afterRemainder > 60) {
+            
+            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
+            
+        } else {
+            
+            self.displayLabel.frame = CGRectMake(19, 225, 280, 80);
+            
+        }
+            
+    }
+
     percentageDone = (float)afterRemainder / (float)bgConSum;
     
     if (aniPause) {
@@ -605,6 +607,52 @@ BOOL animation = true;
 
 
 - (void)updateCountDownReverse {
+    
+    if (self.view.bounds.size.height > 568) {
+        
+        if (afterRemainder > 3600) {
+            
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+            
+        } else {
+            
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+            
+        }
+        
+    } else if (self.view.bounds.size.height == 568) {
+        
+        if (afterRemainder > 3600) {
+            
+            self.displayLabel.frame = CGRectMake(10, 225, 280, 80);
+            
+        } else if (afterRemainder > 60) {
+            
+            self.displayLabel.frame = CGRectMake(22, 225, 280, 80);
+            
+        } else {
+            
+            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
+            
+        }
+        
+    } else {
+        
+        if (afterRemainder > 3600) {
+            
+            self.displayLabel.frame = CGRectMake(10, 170, 280, 80);
+            
+        } else if (afterRemainder > 60) {
+            
+            self.displayLabel.frame = CGRectMake(22, 225, 280, 80);
+            
+        } else {
+            
+            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
+            
+        }
+        
+    }
     
     percentageDone = (float)afterRemainder / (float)bgConSum;
     
