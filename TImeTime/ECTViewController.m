@@ -71,6 +71,44 @@ BOOL animation = true;
     
     [super viewDidLoad];
     
+    if (self.view.bounds.size.height > 568) {
+        
+        if (afterRemainder > 3599) {
+            
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+            
+        } else {
+            
+            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
+            
+        }
+        
+    } else if (self.view.bounds.size.height == 568) {
+        
+        if (afterRemainder > 3599) {
+            
+            self.displayLabel.frame = CGRectMake(13, 255, 280, 80);
+            
+        } else {
+            
+            self.displayLabel.frame = CGRectMake(20, 255, 280, 80);
+            
+        }
+        
+    } else {
+        
+        if (afterRemainder > 3599) {
+            
+            self.displayLabel.frame = CGRectMake(13, 230, 280, 80);
+            
+        } else {
+            
+            self.displayLabel.frame = CGRectMake(20, 230, 280, 80);
+            
+        }
+        
+    }
+    
     if (self.view.bounds.size.height < 568) {
     
         self.segment2.frame = CGRectMake(20, 360, 280, 25);
@@ -151,7 +189,7 @@ BOOL animation = true;
         
         } else {
          
-            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(40.0, 360.0, 250.0, 100.0)];
+            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(40.0, 340.0, 250.0, 100.0)];
         
         }
         
@@ -316,8 +354,6 @@ BOOL animation = true;
     
     pausedAngleGR = angleGR;
     
-    // NSLog(@"%f", pausedAngleGR);
-    
     aniPause = true;
     
     [[UIApplication sharedApplication] cancelLocalNotification:notification];
@@ -411,44 +447,6 @@ BOOL animation = true;
 }
 
 - (void)updateCountDown {
-    
-    if (self.view.bounds.size.height > 568) {
-    
-        if (afterRemainder > 3599) {
-        
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-        
-        } else {
-        
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-        
-        }
-    
-    } else if (self.view.bounds.size.height == 568) {
-    
-        if (afterRemainder > 3599) {
-        
-            self.displayLabel.frame = CGRectMake(13, 255, 280, 80);
-        
-        } else {
-        
-            self.displayLabel.frame = CGRectMake(20, 255, 280, 80);
-    
-        }
-    
-    } else {
-    
-        if (afterRemainder > 3599) {
-        
-            self.displayLabel.frame = CGRectMake(13, 230, 280, 80);
-        
-        } else {
-        
-            self.displayLabel.frame = CGRectMake(20, 230, 280, 80);
-        
-        }
-    
-    }
     
     percentageDone = (float)afterRemainder / (float)bgConSum;
     
@@ -596,44 +594,6 @@ BOOL animation = true;
 
 
 - (void)updateCountDownReverse {
-    
-    if (self.view.bounds.size.height > 568) {
-      
-        if (afterRemainder > 3599) {
-        
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-        
-        } else {
-        
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-        
-        }
-    
-    } else if (self.view.bounds.size.height == 568) {
-    
-        if (afterRemainder > 3599) {
-        
-            self.displayLabel.frame = CGRectMake(13, 255, 280, 80);
-        
-        } else {
-        
-            self.displayLabel.frame = CGRectMake(20, 255, 280, 80);
-        
-        }
-    
-    } else {
-    
-        if (afterRemainder > 3599) {
-        
-            self.displayLabel.frame = CGRectMake(13, 230, 280, 80);
-        
-        } else {
-            
-            self.displayLabel.frame = CGRectMake(20, 230, 280, 80);
-        
-        }
-    
-    }
     
     percentageDone = (float)afterRemainder / (float)bgConSum;
     
