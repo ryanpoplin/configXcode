@@ -33,7 +33,7 @@ NSDate *lastMagicMoment;
 - (void)applicationWillResignActive:(UIApplication *)application
 
 {
-    
+        
     if (afterRemainder && pauseTracker != 0) {
         
         thisMagicMoment = [NSDate date];

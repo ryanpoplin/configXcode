@@ -71,13 +71,13 @@ BOOL animation = true;
     [super viewDidLoad];
     
     if (self.view.bounds.size.height < 568) {
-    
+        
         self.segment2.frame = CGRectMake(20, 360, 280, 25);
         
         self.segment3.frame = CGRectMake(20, 400, 280, 25);
         
         self.aniSegment.frame = CGRectMake(20, 440, 280, 25);
-    
+        
     }
     
     [[_startButton layer] setBorderWidth:0.5f];
@@ -135,179 +135,179 @@ BOOL animation = true;
         [alert show];
         
     } else {
-    
-    backgroudTime = 0;
-    
-    pacManView.hidden = YES;
-    
-    angleGR = (percentageDone * (M_PI * 2.0));
-    
-    self.aniSegment.hidden = YES;
-    
-    [timer invalidate];
-    
-    timer = nil;
-    
-    if (animation) {
         
-        if (self.view.bounds.size.height > 568) {
-           
-            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(100.0, 620.0, 580.0, 80.0)];
+        backgroudTime = 0;
         
-        } else if (self.view.bounds.size.height == 568) {
+        pacManView.hidden = YES;
         
-            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-25.0, 400.0, 370.0, 100.0)];
+        angleGR = (percentageDone * (M_PI * 2.0));
         
-        } else {
-         
-            pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-21.0, 320.0, 370.0, 100.0)];
+        self.aniSegment.hidden = YES;
         
+        [timer invalidate];
+        
+        timer = nil;
+        
+        if (animation) {
+            
+            if (self.view.bounds.size.height > 568) {
+                
+                pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(100.0, 620.0, 580.0, 80.0)];
+                
+            } else if (self.view.bounds.size.height == 568) {
+                
+                pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-25.0, 400.0, 370.0, 100.0)];
+                
+            } else {
+                
+                pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-21.0, 320.0, 370.0, 100.0)];
+                
+            }
+            
+            [pacManView setBackgroundColor:[UIColor blackColor]];
+            
+            if (aniPause) {
+                
+                [pacManView setAngle:pausedAngleGR];
+                
+                [self.view addSubview:pacManView];
+                
+            } else {
+                
+                [pacManView setAngle:M_PI * 2.0];
+                
+                [self.view addSubview:pacManView];
+                
+            }
+            
         }
         
-        [pacManView setBackgroundColor:[UIColor blackColor]];
+        self.instructIndex.hidden = YES;
         
-        if (aniPause) {
+        self.displayLabel.hidden = NO;
+        
+        self.segment2.hidden = YES;
+        
+        self.segment3.hidden = YES;
+        
+        self.resetButton.enabled = YES;
+        
+        self.hourLabel.hidden = YES;
+        
+        self.minuteLabel.hidden = YES;
+        
+        self.secondLabel.hidden = YES;
+        
+        self.hourSlider.hidden = YES;
+        
+        self.minuteSlider.hidden = YES;
+        
+        self.secondsSlider.hidden = YES;
+        
+        [_startButton setEnabled: NO];
+        
+        [_pauseButton setEnabled: YES];
+        
+        self.startTime = [[NSDate alloc] init];
+        
+        self.startTime = [NSDate date];
+        
+        self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
+        
+        if (userHours == 0) {
             
-            [pacManView setAngle:pausedAngleGR];
-           
-            [self.view addSubview:pacManView];
+            convertedHours = 0;
             
         } else {
             
-            [pacManView setAngle:M_PI * 2.0];
-            
-            [self.view addSubview:pacManView];
+            convertedHours = userHours * (60 * 60);
             
         }
         
-    }
-    
-    self.instructIndex.hidden = YES;
-    
-    self.displayLabel.hidden = NO;
-    
-    self.segment2.hidden = YES;
-    
-    self.segment3.hidden = YES;
-    
-    self.resetButton.enabled = YES;
-    
-    self.hourLabel.hidden = YES;
-    
-    self.minuteLabel.hidden = YES;
-    
-    self.secondLabel.hidden = YES;
-    
-    self.hourSlider.hidden = YES;
-    
-    self.minuteSlider.hidden = YES;
-    
-    self.secondsSlider.hidden = YES;
-    
-    [_startButton setEnabled: NO];
-    
-    [_pauseButton setEnabled: YES];
-    
-    self.startTime = [[NSDate alloc] init];
-    
-    self.startTime = [NSDate date];
-    
-    self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
-    
-    if (userHours == 0) {
-    
-        convertedHours = 0;
-    
-    } else {
-    
-        convertedHours = userHours * (60 * 60);
-    
-    }
-    
-    if (userMinutes == 0) {
-    
-        convertedMinutes = 0;
-    
-    } else {
-    
-        convertedMinutes = userMinutes * 60;
-    
-    }
-    
-    if (userSeconds == 0) {
-    
-        convertedSeconds = 0;
-    
-    } else {
-    
-        convertedSeconds = userSeconds;
-    
-    }
-    
-    if (pauseBool) {
-    
-        countDownInterval = 1 + convertedHours + convertedMinutes;
+        if (userMinutes == 0) {
+            
+            convertedMinutes = 0;
+            
+        } else {
+            
+            convertedMinutes = userMinutes * 60;
+            
+        }
         
-        remainder = countDownInterval;
+        if (userSeconds == 0) {
+            
+            convertedSeconds = 0;
+            
+        } else {
+            
+            convertedSeconds = userSeconds;
+            
+        }
         
-        afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
+        if (pauseBool) {
+            
+            countDownInterval = 1 + convertedHours + convertedMinutes;
+            
+            remainder = countDownInterval;
+            
+            afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
+            
+            afterRemainder -= pauseTracker;
+            
+        } else {
+            
+            countDownInterval = 1 + convertedHours + convertedMinutes;
+            
+            remainder = countDownInterval;
+            
+            afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
+            
+        }
         
-        afterRemainder -= pauseTracker;
-    
-    } else {
-    
-        countDownInterval = 1 + convertedHours + convertedMinutes;
+        if (pauseBool != true) {
+            
+            bgConSum = afterRemainder;
+            
+        }
         
-        remainder = countDownInterval;
+        if (bgColorOption) {
+            
+            _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+            
+        } else {
+            
+            _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+        }
         
-        afterRemainder = 1 + convertedSeconds + remainder - remainder % 60;
-    
-    }
-    
-    if (pauseBool != true) {
-    
-        bgConSum = afterRemainder;
-    
-    }
-    
-    if (bgColorOption) {
-    
-        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
-    
-    } else {
-    
-        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
-    }
-    
-    self.isRunning = !self.isRunning;
-    
-    if (self.isRunning == false) {
-    
-        [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
-    
-    } else if (pausePress && bgColorOption == true && pauseBool != true) {
-    
-        [self.view setBackgroundColor:[UIColor greenColor]];
-    
-    } else if (pausePress && bgColorOption == false && pauseBool != true) {
-    
-        [self.view setBackgroundColor:[UIColor redColor]];
-    
-    }
-    
-    notification = [[UILocalNotification alloc] init];
-    
-    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:afterRemainder];
-    
-    notification.timeZone = [[NSCalendar currentCalendar] timeZone];
-    
-    notification.alertBody = NSLocalizedString(@"Your countdown has finished!", nil);
-    
-    [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
-    
-    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-    
-    pauseBool = false;
+        self.isRunning = !self.isRunning;
+        
+        if (self.isRunning == false) {
+            
+            [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+            
+        } else if (pausePress && bgColorOption == true && pauseBool != true) {
+            
+            [self.view setBackgroundColor:[UIColor greenColor]];
+            
+        } else if (pausePress && bgColorOption == false && pauseBool != true) {
+            
+            [self.view setBackgroundColor:[UIColor redColor]];
+            
+        }
+        
+        notification = [[UILocalNotification alloc] init];
+        
+        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:afterRemainder];
+        
+        notification.timeZone = [[NSCalendar currentCalendar] timeZone];
+        
+        notification.alertBody = NSLocalizedString(@"Your countdown has finished!", nil);
+        
+        [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
+        
+        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+        
+        pauseBool = false;
         
     }
     
@@ -350,9 +350,9 @@ BOOL animation = true;
     aniPause = false;
     
     if (notification) {
-    
+        
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
-    
+        
     }
     
     self.aniSegment.hidden = NO;
@@ -410,69 +410,41 @@ BOOL animation = true;
     pacManView.hidden = YES;
     
     self.displayLabel.font = [self.displayLabel.font fontWithSize:24];
-        
+    
 }
 
 - (void)updateCountDown {
     
-    if (self.view.bounds.size.height > 568) {
-        
+    if (self.view.bounds.size.height == 568) {
         if (afterRemainder > 3600) {
-            
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-            
-        } else {
-            
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-            
-        }
-        
-    } else if (self.view.bounds.size.height == 568) {
-        
-        if (afterRemainder > 3600) {
-            
             self.displayLabel.frame = CGRectMake(10, 225, 280, 80);
-            
         } else if (afterRemainder > 60) {
-            
-            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
-            
-        } else {
-            
-            self.displayLabel.frame = CGRectMake(21, 225, 280, 80);
-            
-        }
-        
-    } else {
-        
-        if (afterRemainder > 3600) {
-            
-            self.displayLabel.frame = CGRectMake(16, 170, 280, 80);
-            
-        } else if (afterRemainder > 60) {
-            
-            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
-            
-        } else {
-            
             self.displayLabel.frame = CGRectMake(19, 225, 280, 80);
-            
+        } else {
+            self.displayLabel.frame = CGRectMake(23, 225, 280, 80);
         }
-            
+    } else if (self.view.bounds.size.height < 568) {
+        if (afterRemainder > 3600) {
+            self.displayLabel.frame = CGRectMake(10, 175, 280, 80);
+        } else if (afterRemainder > 60) {
+            self.displayLabel.frame = CGRectMake(19, 175, 280, 80);
+        } else {
+            self.displayLabel.frame = CGRectMake(23, 175, 280, 80);
+        }
     }
-
+    
     percentageDone = (float)afterRemainder / (float)bgConSum;
     
     if (aniPause) {
-    
+        
         angleGR = percentageDone * (M_PI * 2);
         
         aniPause = false;
-    
+        
     } else {
-    
+        
         angleGR = (percentageDone * (M_PI * 2));
-    
+        
     }
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
@@ -488,7 +460,7 @@ BOOL animation = true;
     afterRemainder--;
     
     if (afterRemainder > bgConSum * 0.80) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -498,9 +470,9 @@ BOOL animation = true;
         [UIView commitAnimations];
         
         NSLog(@"%d and %d", afterRemainder, bgConSum);
-    
+        
     } else if (afterRemainder < bgConSum * 0.80 && afterRemainder > bgConSum * 0.60) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -508,9 +480,9 @@ BOOL animation = true;
         self.view.backgroundColor = [UIColor yellowColor];
         
         [UIView commitAnimations];
-    
+        
     } else if (afterRemainder < bgConSum * 0.60 && afterRemainder > bgConSum * 0.40) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -518,9 +490,9 @@ BOOL animation = true;
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
         
         [UIView commitAnimations];
-    
+        
     } else if (afterRemainder < bgConSum * 0.40 && afterRemainder > bgConSum * 0.20) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -528,9 +500,9 @@ BOOL animation = true;
         self.view.backgroundColor = [UIColor orangeColor];
         
         [UIView commitAnimations];
-    
+        
     } else if (afterRemainder < bgConSum * 0.20 && afterRemainder > 0) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -538,9 +510,9 @@ BOOL animation = true;
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
         
         [UIView commitAnimations];
-    
+        
     } else if (afterRemainder == 0) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:2.0];
@@ -570,35 +542,35 @@ BOOL animation = true;
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
-    
+        
     }
     
     if (timerLabelOption == true) {
         
         int hours = (int)(afterRemainder / ( 60 * 60 ));
-    
+        
         int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
         
         int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60 )));
         
         if (hours != 0) {
-        
+            
             NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u : %02u ", hours, mins, secs];
             
             self.displayLabel.text = displayText;
-        
+            
         } else if (hours == 0 && mins != 0) {
-        
+            
             NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u ", mins, secs];
             
             self.displayLabel.text = displayText;
-        
+            
         } else if (hours == 0 && mins == 0 && secs >= 0) {
-        
+            
             NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
             
             self.displayLabel.text = displayText;
-        
+            
         }
         
     }
@@ -608,64 +580,36 @@ BOOL animation = true;
 
 - (void)updateCountDownReverse {
     
-    if (self.view.bounds.size.height > 568) {
-        
+    if (self.view.bounds.size.height == 568) {
         if (afterRemainder > 3600) {
-            
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-            
-        } else {
-            
-            self.displayLabel.frame = CGRectMake(200, 355, 380, 80);
-            
-        }
-        
-    } else if (self.view.bounds.size.height == 568) {
-        
-        if (afterRemainder > 3600) {
-            
             self.displayLabel.frame = CGRectMake(10, 225, 280, 80);
-            
         } else if (afterRemainder > 60) {
-            
-            self.displayLabel.frame = CGRectMake(22, 225, 280, 80);
-            
+            self.displayLabel.frame = CGRectMake(19, 225, 280, 80);
         } else {
-            
-            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
-            
+            self.displayLabel.frame = CGRectMake(23, 225, 280, 80);
         }
-        
-    } else {
-        
+    } else if (self.view.bounds.size.height < 568) {
         if (afterRemainder > 3600) {
-            
-            self.displayLabel.frame = CGRectMake(10, 170, 280, 80);
-            
+            self.displayLabel.frame = CGRectMake(10, 175, 280, 80);
         } else if (afterRemainder > 60) {
-            
-            self.displayLabel.frame = CGRectMake(22, 225, 280, 80);
-            
+            self.displayLabel.frame = CGRectMake(19, 175, 280, 80);
         } else {
-            
-            self.displayLabel.frame = CGRectMake(20, 225, 280, 80);
-            
+            self.displayLabel.frame = CGRectMake(23, 175, 280, 80);
         }
-        
     }
     
     percentageDone = (float)afterRemainder / (float)bgConSum;
     
     if (aniPause) {
-    
+        
         angleGR = percentageDone * (M_PI * 2.0);
         
         aniPause = false;
-    
+        
     } else {
-    
+        
         angleGR = (percentageDone * (M_PI * 2.0));
-    
+        
     }
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
@@ -681,7 +625,7 @@ BOOL animation = true;
     afterRemainder--;
     
     if (afterRemainder > bgConSum * 0.80) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -689,9 +633,9 @@ BOOL animation = true;
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
         
         [UIView commitAnimations];
-    
+        
     } else if (afterRemainder < bgConSum * 0.80 && afterRemainder > bgConSum * 0.60) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -699,9 +643,9 @@ BOOL animation = true;
         self.view.backgroundColor = [UIColor orangeColor];
         
         [UIView commitAnimations];
-    
+        
     } else if (afterRemainder < bgConSum * 0.60 && afterRemainder > bgConSum * 0.40) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -709,9 +653,9 @@ BOOL animation = true;
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
         
         [UIView commitAnimations];
-    
+        
     } else if (afterRemainder < bgConSum * 0.40 && afterRemainder > bgConSum * 0.20) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -719,9 +663,9 @@ BOOL animation = true;
         self.view.backgroundColor = [UIColor yellowColor];
         
         [UIView commitAnimations];
-    
+        
     } else if (afterRemainder < bgConSum * 0.20 && afterRemainder > 0) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -729,9 +673,9 @@ BOOL animation = true;
         self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
         
         [UIView commitAnimations];
-    
+        
     } else if (afterRemainder == 0) {
-    
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:2.0];
@@ -763,11 +707,11 @@ BOOL animation = true;
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
-    
+        
     }
     
     if (timerLabelOption == true) {
-    
+        
         int hours = (int)(afterRemainder / ( 60 * 60 ));
         
         int mins = (int)(((int)afterRemainder / 60 ) - ( hours * 60 ));
@@ -775,21 +719,21 @@ BOOL animation = true;
         int secs = (int)(((int)afterRemainder - ( 60 * mins ) - ( 60 * hours * 60)));
         
         if (hours != 0) {
-        
+            
             NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u : %02u ", hours, mins, secs];
             
             self.displayLabel.text = displayText;
-        
+            
         } else if (hours == 0 && mins != 0) {
-        
+            
             NSString *displayText = [[NSString alloc] initWithFormat:@"%2u : %02u ", mins, secs];
             
             self.displayLabel.text = displayText;
-        
+            
         } else if (hours == 0 && mins == 0 && secs >= 0) {
             
             NSString *displayText = [[NSString alloc] initWithFormat:@"%2u ", secs];
-        
+            
             self.displayLabel.text = displayText;
             
         }
@@ -807,13 +751,13 @@ BOOL animation = true;
     NSString *sliderValueAsStringHours = [NSString stringWithFormat:@"%d Hours", (int)[hourSlider value]];
     
     if ((int)[hourSlider value] == 1) {
-    
+        
         self.hourLabel.text = sliderValueAsStringHour;
-    
+        
     } else {
-    
+        
         self.hourLabel.text = sliderValueAsStringHours;
-    
+        
     }
     
     userHours = (int)[hourSlider value];
@@ -829,13 +773,13 @@ BOOL animation = true;
     NSString *sliderValueAsStringMinutes = [NSString stringWithFormat:@"%d Minutes", (int)[minuteSlider value]];
     
     if ((int)[minuteSlider value] == 1) {
-    
+        
         self.minuteLabel.text = sliderValueAsStringMinute;
-    
+        
     } else {
-    
+        
         self.minuteLabel.text = sliderValueAsStringMinutes;
-    
+        
     }
     
     userMinutes = (int)[minuteSlider value];
@@ -851,13 +795,13 @@ BOOL animation = true;
     NSString *sliderValueAsStringSeconds = [NSString stringWithFormat:@"%d Seconds", (int)[secondSlider value]];
     
     if ((int)[secondSlider value] == 1) {
-    
+        
         self.secondLabel.text = sliderValueAsStringSecond;
-    
+        
     } else {
-    
+        
         self.secondLabel.text = sliderValueAsStringSeconds;
-    
+        
     }
     
     userSeconds = (int)[secondSlider value];
@@ -871,13 +815,13 @@ BOOL animation = true;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
     if (selectedSegment == 0) {
-    
+        
         bgColorOption = true;
-    
+        
     } else {
-    
+        
         bgColorOption = false;
-    
+        
     }
     
 }
@@ -889,13 +833,13 @@ BOOL animation = true;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
     if (selectedSegment == 0) {
-    
+        
         timerLabelOption = true;
-    
+        
     } else {
-    
+        
         timerLabelOption = false;
-    
+        
     }
     
 }
@@ -907,13 +851,13 @@ BOOL animation = true;
     NSInteger selectedSegment = segmentedControl.selectedSegmentIndex;
     
     if (selectedSegment == 0) {
-    
+        
         animation = true;
-    
+        
     } else {
-    
+        
         animation = false;
-    
+        
     }
     
 }

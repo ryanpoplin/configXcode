@@ -10,6 +10,10 @@
 
 @interface ECTViewController : UIViewController
 
+- (void)updateCountDown;
+
+- (void)updateCountDownReverse;
+
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
