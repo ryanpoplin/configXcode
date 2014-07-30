@@ -68,13 +68,11 @@ BOOL animation = true;
     
     [super viewWillAppear: animated];
     
-    bgConSum -= backgroudTime;
-    
 }
 
 - (void)enterBackground {
     
-    [self.view.layer removeAllAnimations];
+    [self.view setNeedsDisplay];
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
@@ -93,6 +91,9 @@ BOOL animation = true;
 - (void)enterForeground {
     
     // NSLog(@"%@", self.view.backgroundColor);
+    
+    
+    [self.view.layer removeAllAnimations];
     
     if (pauseBool == false && bgColorOption && bgConSum != 0) {
         
@@ -151,8 +152,6 @@ BOOL animation = true;
         }
         
     }
-    
-    [self.view setNeedsDisplay];
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
@@ -456,6 +455,8 @@ BOOL animation = true;
     
     [[UIApplication sharedApplication] cancelLocalNotification:notification];
     
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
     notification = nil;
     
     [_startButton setEnabled: YES];
@@ -483,6 +484,8 @@ BOOL animation = true;
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
         
     }
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     self.aniSegment.hidden = NO;
     
