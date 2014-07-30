@@ -37,7 +37,7 @@
     BOOL pausePress;
     
     int remainder;
-        
+    
     NSTimeInterval countDownInterval;
     
     ECTProgressView *pacManView;
@@ -79,12 +79,12 @@ BOOL animation = true;
     NSLog(@"%@", self.view.backgroundColor);
     
     /*if (bgConSum) {
-    
-    [_autoTimer invalidate];
-    
-    _autoTimer = nil;
-        
-    }*/
+     
+     [_autoTimer invalidate];
+     
+     _autoTimer = nil;
+     
+     }*/
     
 }
 
@@ -97,20 +97,20 @@ BOOL animation = true;
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
     if (bgConSum != 0) {
-    
-    if (pauseBool == false && bgColorOption) {
         
-        [self.view setNeedsDisplay];
-        
-        // _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
-        
-    } else if (pauseBool == false) {
-        
-        // _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
-    
-        [self.view setNeedsDisplay];
-        
-    }
+        if (pauseBool == false && bgColorOption) {
+            
+            [self.view setNeedsDisplay];
+            
+            // _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+            
+        } else if (pauseBool == false) {
+            
+            // _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+            
+            [self.view setNeedsDisplay];
+            
+        }
         
     }
     
@@ -270,6 +270,22 @@ BOOL animation = true;
         
         self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
         
+        self.isRunning = !self.isRunning;
+        
+        if (self.isRunning == false) {
+            
+            [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+            
+        } else if (pausePress && bgColorOption == true && pauseBool != true) {
+            
+            [self.view setBackgroundColor:[UIColor greenColor]];
+            
+        } else if (pausePress && bgColorOption == false && pauseBool != true) {
+            
+            [self.view setBackgroundColor:[UIColor redColor]];
+            
+        }
+        
         if (userHours == 0) {
             
             convertedHours = 0;
@@ -330,27 +346,24 @@ BOOL animation = true;
             
             _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
             
+            if (afterRemainder == bgConSum) {
+                
+                [_autoTimer fire];
+                
+            }
+            
         } else {
             
             _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
-        }
-        
-        self.isRunning = !self.isRunning;
-        
-        if (self.isRunning == false) {
             
-            [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
-            
-        } else if (pausePress && bgColorOption == true && pauseBool != true) {
-            
-            [self.view setBackgroundColor:[UIColor greenColor]];
-            
-        } else if (pausePress && bgColorOption == false && pauseBool != true) {
-            
-            [self.view setBackgroundColor:[UIColor redColor]];
+            if (afterRemainder == bgConSum) {
+                
+                [_autoTimer fire];
+                
+            }
             
         }
-        
+    
         notification = [[UILocalNotification alloc] init];
         
         notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:afterRemainder];
@@ -373,7 +386,7 @@ BOOL animation = true;
     
     NSLog(@"%d", pauseTracker);
     
-    pausedAngleGR = 0.0;
+    // pausedAngleGR = 0.0;
     
     pausedAngleGR = angleGR;
     
@@ -398,6 +411,8 @@ BOOL animation = true;
 }
 
 - (IBAction)resetButton:(id)sender {
+    
+    pausedAngleGR = (M_PI * 2.0);
     
     aniPause = false;
     
