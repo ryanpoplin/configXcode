@@ -37,9 +37,7 @@
     BOOL pausePress;
     
     int remainder;
-    
-    IBOutlet UIButton *startButton;
-    
+        
     NSTimeInterval countDownInterval;
     
     ECTProgressView *pacManView;
@@ -64,11 +62,52 @@ BOOL animation = true;
 
 @implementation ECTViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [self.view setNeedsDisplay];
+    
+}
+
+- (void)enterBackground {
+    
+    // NSLog(@"%@", NSStringFromSelector(_cmd));
+    
+    [_autoTimer invalidate];
+    
+    _autoTimer = nil;
+    
+    [timer invalidate];
+    
+    timer = nil;
+    
+}
+
+- (void)enterForeground {
+    
+    // NSLog(@"%@", NSStringFromSelector(_cmd));
+    
+    if (pauseBool == false && bgColorOption) {
+        
+        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+        
+    } else if (pauseBool == false) {
+        
+        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+    }
+    
+}
+
 - (void)viewDidLoad
 
 {
     
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     if (self.view.bounds.size.height < 568) {
         
@@ -521,9 +560,9 @@ BOOL animation = true;
         
         [UIView commitAnimations];
         
-        [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+        [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
         
-        [startButton setEnabled: NO];
+        [_startButton setEnabled: NO];
         
         [_pauseButton setEnabled: NO];
         
@@ -684,9 +723,9 @@ BOOL animation = true;
         
         [UIView commitAnimations];
         
-        [startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
+        [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
         
-        [startButton setEnabled: NO];
+        [_startButton setEnabled: NO];
         
         [_pauseButton setEnabled: NO];
         
