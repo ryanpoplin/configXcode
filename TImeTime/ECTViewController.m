@@ -68,11 +68,15 @@ BOOL animation = true;
     
     [super viewWillAppear: animation];
     
+    bgConSum -= backgroudTime;
+    
 }
 
 - (void)enterBackground {
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
+    
+    NSLog(@"%@", self.view.backgroundColor);
     
     /*if (bgConSum) {
     
@@ -85,6 +89,8 @@ BOOL animation = true;
 }
 
 - (void)enterForeground {
+    
+    NSLog(@"%@", self.view.backgroundColor);
     
     [super viewWillAppear: animation];
     
@@ -113,6 +119,8 @@ BOOL animation = true;
 - (void)viewDidLoad
 
 {
+    
+    NSLog(@"%f", backgroudTime);
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
