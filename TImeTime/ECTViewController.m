@@ -62,17 +62,25 @@ BOOL animation = true;
 
 @implementation ECTViewController
 
-- (void)viewWillAppear:(BOOL)animated {
+/*- (void)viewWillAppear:(BOOL)animated {
     
-    // [super viewWillAppear:animated];
+    NSLog(@"%@", NSStringFromSelector(_cmd));
     
-    [self.view setNeedsDisplay];
+    NSLog(@"Sup bitch...");
     
-}
+    if (afterRemainder && pauseTracker != 0) {
+
+        [super viewWillAppear:animated];
+ 
+    }
+    
+}*/
 
 /*- (void)enterBackground {
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
+    
+    if (bgConSum) {
     
     [_autoTimer invalidate];
     
@@ -81,12 +89,16 @@ BOOL animation = true;
     [timer invalidate];
     
     timer = nil;
+        
+    }
     
 }
 
 - (void)enterForeground {
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
+    
+    if (bgConSum != 0) {
     
     if (pauseBool == false && bgColorOption) {
         
@@ -96,12 +108,16 @@ BOOL animation = true;
         
         _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
     }
+        
+    }
     
 }*/
 
 - (void)viewDidLoad
 
 {
+    
+    NSLog(@"%@", NSStringFromSelector(_cmd));
     
     [super viewDidLoad];
     
@@ -454,6 +470,8 @@ BOOL animation = true;
 
 - (void)updateCountDown {
     
+    [self.view setNeedsDisplay];
+    
     if (self.view.bounds.size.height == 568) {
         if (afterRemainder > 3600) {
             self.displayLabel.frame = CGRectMake(10, 225, 280, 80);
@@ -618,6 +636,8 @@ BOOL animation = true;
 
 
 - (void)updateCountDownReverse {
+    
+    [self.view setNeedsDisplay];
     
     if (self.view.bounds.size.height == 568) {
         if (afterRemainder > 3600) {
