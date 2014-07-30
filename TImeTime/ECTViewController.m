@@ -62,39 +62,31 @@ BOOL animation = true;
 
 @implementation ECTViewController
 
-/*- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated {
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
-    NSLog(@"Sup bitch...");
+    [super viewWillAppear: animation];
     
-    if (afterRemainder && pauseTracker != 0) {
+}
 
-        [super viewWillAppear:animated];
- 
-    }
-    
-}*/
-
-/*- (void)enterBackground {
+- (void)enterBackground {
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
-    if (bgConSum) {
+    /*if (bgConSum) {
     
     [_autoTimer invalidate];
     
     _autoTimer = nil;
-    
-    [timer invalidate];
-    
-    timer = nil;
         
-    }
+    }*/
     
 }
 
 - (void)enterForeground {
+    
+    [super viewWillAppear: animation];
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
@@ -102,16 +94,21 @@ BOOL animation = true;
     
     if (pauseBool == false && bgColorOption) {
         
-        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+        [self.view setNeedsDisplay];
+        
+        // _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
         
     } else if (pauseBool == false) {
         
-        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+        // _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+    
+        [self.view setNeedsDisplay];
+        
     }
         
     }
     
-}*/
+}
 
 - (void)viewDidLoad
 
@@ -121,9 +118,9 @@ BOOL animation = true;
     
     [super viewDidLoad];
     
-    /*[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];*/
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     if (self.view.bounds.size.height < 568) {
         
@@ -198,10 +195,6 @@ BOOL animation = true;
         angleGR = (percentageDone * (M_PI * 2.0));
         
         self.aniSegment.hidden = YES;
-        
-        [timer invalidate];
-        
-        timer = nil;
         
         if (animation) {
             
@@ -390,10 +383,6 @@ BOOL animation = true;
     
     _autoTimer = nil;
     
-    [timer invalidate];
-    
-    timer = nil;
-    
     pauseBool = true;
     
     pauseTime = pauseTracker;
@@ -470,8 +459,6 @@ BOOL animation = true;
 
 - (void)updateCountDown {
     
-    [self.view setNeedsDisplay];
-    
     if (self.view.bounds.size.height == 568) {
         if (afterRemainder > 3600) {
             self.displayLabel.frame = CGRectMake(10, 225, 280, 80);
@@ -494,13 +481,13 @@ BOOL animation = true;
     
     if (aniPause) {
         
-        angleGR = percentageDone * (M_PI * 2);
+        angleGR = percentageDone * (M_PI * 2.0);
         
         aniPause = false;
         
     } else {
         
-        angleGR = (percentageDone * (M_PI * 2));
+        angleGR = (percentageDone * (M_PI * 2.0));
         
     }
     
@@ -518,6 +505,8 @@ BOOL animation = true;
     
     if (afterRemainder > bgConSum * 0.80) {
         
+        [self.view setNeedsDisplay];
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -530,6 +519,8 @@ BOOL animation = true;
         
     } else if (afterRemainder < bgConSum * 0.80 && afterRemainder > bgConSum * 0.60) {
         
+        [self.view setNeedsDisplay];
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -539,6 +530,8 @@ BOOL animation = true;
         [UIView commitAnimations];
         
     } else if (afterRemainder < bgConSum * 0.60 && afterRemainder > bgConSum * 0.40) {
+        
+        [self.view setNeedsDisplay];
         
         [UIView beginAnimations:nil context:nil];
         
@@ -550,6 +543,8 @@ BOOL animation = true;
         
     } else if (afterRemainder < bgConSum * 0.40 && afterRemainder > bgConSum * 0.20) {
         
+        [self.view setNeedsDisplay];
+        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:bgConSum / 5];
@@ -559,6 +554,8 @@ BOOL animation = true;
         [UIView commitAnimations];
         
     } else if (afterRemainder < bgConSum * 0.20 && afterRemainder > 0) {
+        
+        [self.view setNeedsDisplay];
         
         [UIView beginAnimations:nil context:nil];
         
@@ -587,10 +584,6 @@ BOOL animation = true;
         [_autoTimer invalidate];
         
         _autoTimer = nil;
-        
-        [timer invalidate];
-        
-        timer = nil;
         
         pacManView.hidden = YES;
         
@@ -634,10 +627,7 @@ BOOL animation = true;
     
 }
 
-
 - (void)updateCountDownReverse {
-    
-    [self.view setNeedsDisplay];
     
     if (self.view.bounds.size.height == 568) {
         if (afterRemainder > 3600) {
@@ -752,10 +742,6 @@ BOOL animation = true;
         [_autoTimer invalidate];
         
         _autoTimer = nil;
-        
-        [timer invalidate];
-        
-        timer = nil;
         
         pacManView.hidden = YES;
         
