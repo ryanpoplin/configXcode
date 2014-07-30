@@ -66,13 +66,15 @@ BOOL animation = true;
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
-    [super viewWillAppear: animation];
+    [super viewWillAppear: animated];
     
     bgConSum -= backgroudTime;
     
 }
 
 - (void)enterBackground {
+    
+    [self.view.layer removeAllAnimations];
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
@@ -90,13 +92,9 @@ BOOL animation = true;
 
 - (void)enterForeground {
     
-    NSLog(@"%@", self.view.backgroundColor);
+    // NSLog(@"%@", self.view.backgroundColor);
     
-    [self.view setNeedsDisplay];
-    
-    [self.view.layer setNeedsDisplay];
-    
-    if (pauseBool == false && bgColorOption && bgConSum == 0) {
+    if (pauseBool == false && bgColorOption && bgConSum != 0) {
         
         if (afterRemainder > bgConSum * 0.80) {
             
@@ -124,7 +122,7 @@ BOOL animation = true;
             
         }
         
-    } else if (pauseBool == false && bgConSum == 0) {
+    } else if (pauseBool == false && bgConSum != 0) {
         
         if (afterRemainder > bgConSum * 0.80) {
             
@@ -153,6 +151,8 @@ BOOL animation = true;
         }
         
     }
+    
+    [self.view setNeedsDisplay];
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
@@ -188,7 +188,9 @@ BOOL animation = true;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillResignActiveNotification object:nil];
     
     if (self.view.bounds.size.height < 568) {
         
