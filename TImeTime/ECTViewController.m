@@ -64,7 +64,7 @@ BOOL animation = true;
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    // NSLog(@"%@", NSStringFromSelector(_cmd));
     
     [super viewWillAppear: animated];
     
@@ -72,9 +72,7 @@ BOOL animation = true;
 
 - (void)enterBackground {
     
-    [self.view setNeedsDisplay];
-    
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    // NSLog(@"%@", NSStringFromSelector(_cmd));
     
     NSLog(@"%@", self.view.backgroundColor);
     
@@ -90,68 +88,9 @@ BOOL animation = true;
 
 - (void)enterForeground {
     
-    // NSLog(@"%@", self.view.backgroundColor);
-    
-    
     [self.view.layer removeAllAnimations];
     
-    if (pauseBool == false && bgColorOption && bgConSum != 0) {
-        
-        if (afterRemainder > bgConSum * 0.80) {
-            
-            self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
-            
-        } else if (afterRemainder < bgConSum * 0.80 && afterRemainder > bgConSum * 0.60) {
-            
-            self.view.backgroundColor = [UIColor yellowColor];
-            
-        } else if (afterRemainder < bgConSum * 0.60 && afterRemainder > bgConSum * 0.40) {
-            
-            self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
-            
-        } else if (afterRemainder < bgConSum * 0.40 && afterRemainder > bgConSum * 0.20) {
-            
-            self.view.backgroundColor = [UIColor orangeColor];
-            
-        } else if (afterRemainder < bgConSum * 0.20 && afterRemainder > 0) {
-            
-            self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
-            
-        } else if (afterRemainder == 0) {
-            
-            self.view.backgroundColor = [UIColor redColor];
-            
-        }
-        
-    } else if (pauseBool == false && bgConSum != 0) {
-        
-        if (afterRemainder > bgConSum * 0.80) {
-            
-            self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
-            
-        } else if (afterRemainder < bgConSum * 0.80 && afterRemainder > bgConSum * 0.60) {
-            
-            self.view.backgroundColor = [UIColor orangeColor];
-            
-        } else if (afterRemainder < bgConSum * 0.60 && afterRemainder > bgConSum * 0.40) {
-            
-            self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
-            
-        } else if (afterRemainder < bgConSum * 0.40 && afterRemainder > bgConSum * 0.20) {
-            
-            self.view.backgroundColor = [UIColor yellowColor];
-            
-        } else if (afterRemainder < bgConSum * 0.20 && afterRemainder > 0) {
-            
-            self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
-            
-        } else if (afterRemainder == 0) {
-            
-            self.view.backgroundColor = [UIColor greenColor];
-            
-        }
-        
-    }
+    [self.view setNeedsDisplay];
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
     
@@ -593,9 +532,13 @@ BOOL animation = true;
     
     afterRemainder--;
     
+    
+    
     if (afterRemainder > bgConSum * 0.80) {
         
         [UIView beginAnimations:nil context:nil];
+        
+        // [UIView setAnimationBeginsFromCurrentState:YES];
         
         [UIView setAnimationDuration:bgConSum / 5];
         
@@ -609,6 +552,8 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        
         [UIView setAnimationDuration:bgConSum / 5];
         
         self.view.backgroundColor = [UIColor yellowColor];
@@ -618,6 +563,8 @@ BOOL animation = true;
     } else if (afterRemainder < bgConSum * 0.60 && afterRemainder > bgConSum * 0.40) {
         
         [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationBeginsFromCurrentState:YES];
         
         [UIView setAnimationDuration:bgConSum / 5];
         
@@ -629,6 +576,8 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        
         [UIView setAnimationDuration:bgConSum / 5];
         
         self.view.backgroundColor = [UIColor orangeColor];
@@ -639,6 +588,8 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        
         [UIView setAnimationDuration:bgConSum / 5];
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
@@ -648,6 +599,8 @@ BOOL animation = true;
     } else if (afterRemainder == 0) {
         
         [UIView beginAnimations:nil context:nil];
+        
+        [UIView setAnimationBeginsFromCurrentState:YES];
         
         [UIView setAnimationDuration:2.0];
         
