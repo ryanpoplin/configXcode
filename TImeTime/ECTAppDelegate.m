@@ -54,7 +54,7 @@ NSDate *lastMagicMoment;
 - (void)applicationDidEnterBackground:(UIApplication *)application
 
 {
-
+    
     NSLog(@"APP HAS ENTERED BACKGROUND...");
     
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
@@ -117,7 +117,9 @@ NSDate *lastMagicMoment;
                 afterRemainder -= backgroudTime - 1;
                 
                 pauseTracker += backgroudTime - 1;
-            
+                
+                backness -= (bgConSum - backgroudTime - 1);
+                
             }
             
             if (afterRemainder < 1) {

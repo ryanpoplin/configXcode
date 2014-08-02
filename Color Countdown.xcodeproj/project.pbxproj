@@ -440,7 +440,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TImeTime/Color Countdown-Prefix.pch";
 				INFOPLIST_FILE = "TImeTime/Color Countdown-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "Color Countdown";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -457,7 +457,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TImeTime/Color Countdown-Prefix.pch";
 				INFOPLIST_FILE = "TImeTime/Color Countdown-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				PRODUCT_NAME = "Color Countdown";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

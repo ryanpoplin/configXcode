@@ -34,8 +34,6 @@
     
     int convertedSeconds;
     
-    BOOL pausePress;
-    
     int remainder;
     
     NSTimeInterval countDownInterval;
@@ -64,53 +62,21 @@ BOOL animation = true;
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    // NSLog(@"%@", NSStringFromSelector(_cmd));
-    
     [super viewWillAppear: animated];
     
 }
 
 - (void)enterBackground {
     
-    // NSLog(@"%@", NSStringFromSelector(_cmd));
-    
-    NSLog(@"%@", self.view.backgroundColor);
-    
-    /*if (bgConSum) {
-     
-     [_autoTimer invalidate];
-     
-     _autoTimer = nil;
-     
-     }*/
+    [self.view.layer removeAllAnimations];
     
 }
 
 - (void)enterForeground {
     
-    [self.view.layer removeAllAnimations];
+    [UIView setAnimationBeginsFromCurrentState:YES];
     
     [self.view setNeedsDisplay];
-    
-    NSLog(@"%@", NSStringFromSelector(_cmd));
-    
-    /*if (bgConSum != 0) {
-        
-        if (pauseBool == false && bgColorOption) {
-            
-            [self.view setNeedsDisplay];
-            
-            _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
-            
-        } else if (pauseBool == false) {
-            
-            _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
-            
-            [self.view setNeedsDisplay];
-            
-        }
-        
-    }*/
     
 }
 
@@ -125,8 +91,6 @@ BOOL animation = true;
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
-    
-    // [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillResignActiveNotification object:nil];
     
@@ -168,8 +132,6 @@ BOOL animation = true;
     
     self.secondLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:24];
     
-    pausePress = true;
-    
     self.isRunning = false;
     
     bgColorOption = true;
@@ -194,7 +156,7 @@ BOOL animation = true;
         
         [alert show];
         
-    } else {
+        } else {
         
         backgroudTime = 0;
         
@@ -212,11 +174,11 @@ BOOL animation = true;
                 
             } else if (self.view.bounds.size.height == 568) {
                 
-                pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-25.0, 400.0, 370.0, 100.0)];
+                pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-22.0, 400.0, 370.0, 100.0)];
                 
             } else {
                 
-                pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-21.0, 320.0, 370.0, 100.0)];
+                pacManView = [[ECTProgressView alloc] initWithFrame:CGRectMake(-22.0, 320.0, 370.0, 100.0)];
                 
             }
             
@@ -264,23 +226,13 @@ BOOL animation = true;
         
         [_pauseButton setEnabled: YES];
         
-        self.startTime = [[NSDate alloc] init];
-        
-        self.startTime = [NSDate date];
-        
         self.displayLabel.font = [self.displayLabel.font fontWithSize:58];
         
-        self.isRunning = !self.isRunning;
-        
-        if (self.isRunning == false) {
-            
-            [_startButton setTitle:NSLocalizedString(@"Start", @"Start It...") forState:UIControlStateNormal];
-            
-        } else if (pausePress && bgColorOption == true && pauseBool != true) {
+        if (bgColorOption == true && pauseBool != true) {
             
             [self.view setBackgroundColor:[UIColor greenColor]];
             
-        } else if (pausePress && bgColorOption == false && pauseBool != true) {
+        } else if (bgColorOption == false && pauseBool != true) {
             
             [self.view setBackgroundColor:[UIColor redColor]];
             
@@ -414,6 +366,8 @@ BOOL animation = true;
 
 - (IBAction)resetButton:(id)sender {
     
+    backness = 0;
+    
     pausedAngleGR = (M_PI * 2.0);
     
     aniPause = false;
@@ -445,8 +399,6 @@ BOOL animation = true;
     bgConSum = 0;
     
     NSLog(@"%d and %d", afterRemainder, pauseTracker);
-    
-    pausePress = true;
     
     self.isRunning = false;
     
@@ -532,15 +484,17 @@ BOOL animation = true;
     
     afterRemainder--;
     
-    
+    NSLog(@"%d", backness);
     
     if (afterRemainder > bgConSum * 0.80) {
         
         [UIView beginAnimations:nil context:nil];
         
-        // [UIView setAnimationBeginsFromCurrentState:YES];
-        
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
         
@@ -552,9 +506,11 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationBeginsFromCurrentState:YES];
-        
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor yellowColor];
         
@@ -564,9 +520,11 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationBeginsFromCurrentState:YES];
-        
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
         
@@ -576,9 +534,11 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationBeginsFromCurrentState:YES];
-        
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor orangeColor];
         
@@ -588,9 +548,11 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationBeginsFromCurrentState:YES];
-        
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
         
@@ -599,8 +561,6 @@ BOOL animation = true;
     } else if (afterRemainder == 0) {
         
         [UIView beginAnimations:nil context:nil];
-        
-        [UIView setAnimationBeginsFromCurrentState:YES];
         
         [UIView setAnimationDuration:2.0];
         
@@ -710,7 +670,11 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
         
@@ -720,7 +684,11 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor orangeColor];
         
@@ -730,7 +698,11 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
         
@@ -740,7 +712,11 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor yellowColor];
         
@@ -750,7 +726,11 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:bgConSum / 5];
+        if (backness == 0) {
+            [UIView setAnimationDuration:bgConSum / 5];
+        } else {
+            [UIView setAnimationDuration:backness / 5];
+        }
         
         self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
         
@@ -785,6 +765,8 @@ BOOL animation = true;
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
+        
+        backgroudTime = 0;
         
     }
     
