@@ -22,8 +22,6 @@ int afterRemainder;
 
 NSTimer *timer;
 
-int backness;
-
 int bgConSum;
 
 BOOL pauseBool;
