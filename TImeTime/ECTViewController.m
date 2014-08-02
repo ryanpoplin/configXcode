@@ -78,6 +78,8 @@ BOOL animation = true;
     
     [self.view setNeedsDisplay];
     
+    backness = backness / 6;
+    
 }
 
 - (void)viewDidLoad
@@ -156,7 +158,7 @@ BOOL animation = true;
         
         [alert show];
         
-        } else {
+    } else {
         
         backgroudTime = 0;
         
@@ -315,7 +317,7 @@ BOOL animation = true;
             }
             
         }
-    
+        
         notification = [[UILocalNotification alloc] init];
         
         notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:afterRemainder];
@@ -490,10 +492,10 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
+        if (backness != 0) {
             [UIView setAnimationDuration:backness / 5];
+        } else {
+            [UIView setAnimationDuration:bgConSum / 5];
         }
         
         self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
@@ -506,10 +508,10 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
+        if (backness != 0) {
             [UIView setAnimationDuration:backness / 5];
+        } else {
+            [UIView setAnimationDuration:bgConSum / 5];
         }
         
         self.view.backgroundColor = [UIColor yellowColor];
@@ -520,24 +522,24 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
+        if (backness != 0) {
             [UIView setAnimationDuration:backness / 5];
+        } else {
+            [UIView setAnimationDuration:bgConSum / 5];
         }
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
-        
+            
         [UIView commitAnimations];
-        
+            
     } else if (afterRemainder < bgConSum * 0.40 && afterRemainder > bgConSum * 0.20) {
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
+        if (backness != 0) {
             [UIView setAnimationDuration:backness / 5];
+        } else {
+            [UIView setAnimationDuration:bgConSum / 5];
         }
         
         self.view.backgroundColor = [UIColor orangeColor];
@@ -548,10 +550,10 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
+        if (backness != 0) {
             [UIView setAnimationDuration:backness / 5];
+        } else {
+            [UIView setAnimationDuration:bgConSum / 5];
         }
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
@@ -585,6 +587,10 @@ BOOL animation = true;
         [alert show];
         
         AudioServicesPlaySystemSound(1304);
+        
+        backgroudTime = 0;
+        
+        backness = 0;
         
     }
     
@@ -670,11 +676,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
-            [UIView setAnimationDuration:backness / 5];
-        }
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
         
@@ -684,11 +686,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
-            [UIView setAnimationDuration:backness / 5];
-        }
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
         
         self.view.backgroundColor = [UIColor orangeColor];
         
@@ -698,11 +696,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
-            [UIView setAnimationDuration:backness / 5];
-        }
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
         
@@ -712,11 +706,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
-            [UIView setAnimationDuration:backness / 5];
-        }
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
         
         self.view.backgroundColor = [UIColor yellowColor];
         
@@ -726,11 +716,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        if (backness == 0) {
-            [UIView setAnimationDuration:bgConSum / 5];
-        } else {
-            [UIView setAnimationDuration:backness / 5];
-        }
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
         
         self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
         
@@ -767,6 +753,8 @@ BOOL animation = true;
         AudioServicesPlaySystemSound(1304);
         
         backgroudTime = 0;
+        
+        backness = 0;
         
     }
     
