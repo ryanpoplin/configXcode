@@ -30,6 +30,8 @@ UILocalNotification *notification;
 
 float angleGR;
 
+int backgroundSpeed;
+
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

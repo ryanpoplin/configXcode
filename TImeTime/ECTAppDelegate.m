@@ -118,6 +118,8 @@ NSDate *lastMagicMoment;
                 
                 pauseTracker += backgroudTime - 1;
                 
+                backgroundSpeed = backgroudTime - 1;
+                
             }
             
             if (afterRemainder < 1) {

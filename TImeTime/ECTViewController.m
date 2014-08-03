@@ -35,7 +35,7 @@
     int convertedSeconds;
     
     int remainder;
-    
+        
     NSTimeInterval countDownInterval;
     
     ECTProgressView *pacManView;
@@ -62,21 +62,21 @@ BOOL animation = true;
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    [super viewWillAppear: animated];
+    // [super viewWillAppear: animated];
     
 }
 
 - (void)enterBackground {
     
-    [self.view.layer removeAllAnimations];
+    // [self.view.layer removeAllAnimations];
     
 }
 
 - (void)enterForeground {
     
-    [UIView setAnimationBeginsFromCurrentState:YES];
+    // [UIView setAnimationBeginsFromCurrentState:YES];
     
-    [self.view setNeedsDisplay];
+    // [self.view setNeedsDisplay];
     
 }
 
@@ -396,6 +396,10 @@ BOOL animation = true;
     
     bgConSum = 0;
     
+    backgroudTime = 0;
+    
+    backgroundSpeed = 0;
+    
     NSLog(@"%d and %d", afterRemainder, pauseTracker);
     
     self.isRunning = false;
@@ -486,7 +490,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
         
@@ -498,7 +502,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
        
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor yellowColor];
         
@@ -508,7 +512,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
             
@@ -518,7 +522,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor orangeColor];
         
@@ -528,7 +532,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
         
@@ -563,6 +567,8 @@ BOOL animation = true;
         AudioServicesPlaySystemSound(1304);
         
         backgroudTime = 0;
+        
+        backgroundSpeed = 0;
         
     }
     
@@ -648,7 +654,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:66.0/255.0 alpha:1];
         
@@ -658,7 +664,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor orangeColor];
         
@@ -668,7 +674,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0/255.0 alpha:1];
         
@@ -678,7 +684,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor yellowColor];
         
@@ -688,7 +694,7 @@ BOOL animation = true;
         
         [UIView beginAnimations:nil context:nil];
         
-        [UIView setAnimationDuration:(bgConSum - backgroudTime) / 6];
+        [UIView setAnimationDuration:(bgConSum - backgroudTime) / (5 + backgroundSpeed)];
         
         self.view.backgroundColor = [UIColor colorWithRed:173.0/255.0 green:255.0/255.0 blue:47.0/255.0 alpha:1];
         
@@ -725,6 +731,8 @@ BOOL animation = true;
         AudioServicesPlaySystemSound(1304);
         
         backgroudTime = 0;
+        
+        backgroundSpeed = 0;
         
     }
     
