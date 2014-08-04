@@ -106,6 +106,12 @@ BOOL animation = true;
 
 {
     
+    _startButton.exclusiveTouch = YES;
+    
+    _pauseButton.exclusiveTouch = YES;
+    
+    _resetButton.exclusiveTouch = YES;
+    
     NSLog(@"%f", backgroudTime);
     
     NSLog(@"%@", NSStringFromSelector(_cmd));
