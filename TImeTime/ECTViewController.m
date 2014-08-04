@@ -62,21 +62,43 @@ BOOL animation = true;
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    // [super viewWillAppear: animated];
+    [super viewWillAppear: animated];
     
 }
 
 - (void)enterBackground {
     
-    // [self.view.layer removeAllAnimations];
+    /*[_autoTimer invalidate];
+   
+    _autoTimer = nil;*/
+    
+    [self.view.layer removeAllAnimations];
     
 }
 
 - (void)enterForeground {
     
-    // [UIView setAnimationBeginsFromCurrentState:YES];
-    
-    // [self.view setNeedsDisplay];
+    /*if (bgColorOption && pauseBool != true) {
+        
+        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
+        
+        if (afterRemainder == bgConSum) {
+            
+            [_autoTimer fire];
+            
+        }
+        
+    } else if (pauseBool != true) {
+        
+        _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
+        
+        if (afterRemainder == bgConSum) {
+            
+            [_autoTimer fire];
+            
+        }
+        
+    }*/
     
 }
 
@@ -92,7 +114,7 @@ BOOL animation = true;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     
     if (self.view.bounds.size.height < 568) {
         

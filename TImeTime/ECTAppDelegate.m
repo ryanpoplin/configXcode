@@ -27,22 +27,14 @@ NSDate *lastMagicMoment;
     // Override point for customization after application launch.
     
     return YES;
-
+    
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 
 {
-        
-    if (afterRemainder && pauseTracker != 0) {
-        
-        thisMagicMoment = [NSDate date];
-        
-        [[NSUserDefaults standardUserDefaults] setObject:thisMagicMoment forKey:@"lastMagicMoment"];
-        
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        
-    }
+    
+    logicGate = false;
     
     NSLog(@"APP HAS RESIGNED ACTIVE...");
     
@@ -56,8 +48,20 @@ NSDate *lastMagicMoment;
 {
     
     NSLog(@"APP HAS ENTERED BACKGROUND...");
+ 
+    logicGate = true;
     
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    if (afterRemainder && pauseTracker != 0 && logicGate == true) {
+        
+        thisMagicMoment = [NSDate date];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:thisMagicMoment forKey:@"lastMagicMoment"];
+        
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+    }
+    
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     
 }
@@ -77,10 +81,10 @@ NSDate *lastMagicMoment;
 {
     
     NSLog(@"APP DID BECOME ACTIVE...");
-
+    
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     
-    if (afterRemainder && pauseTracker != 0) {
+    if (afterRemainder && pauseTracker != 0 && logicGate == true) {
         
         NSDate *thisMagicMoment = [NSDate date];
         
@@ -93,25 +97,25 @@ NSDate *lastMagicMoment;
     }
     
     if (lastMagicMoment == nil) {
-    
+        
         NSLog (@"First launch!");
         
     } else {
         
-        if (afterRemainder && pauseTracker > 0) {
+        if (afterRemainder && pauseTracker > 0 && logicGate == true) {
             
             backgroudTime = (int)timeOfNoMagic;
             
             NSLog(@"Application was in background for %f...\n", backgroudTime);
-        
+            
         } else {
-        
+            
             backgroudTime = 0;
-        
+            
         }
-
-        if (pauseBool == false) {
-
+        
+        if (pauseBool == false && logicGate == true) {
+            
             if (afterRemainder && pauseTracker != 0) {
                 
                 afterRemainder -= backgroudTime - 1;
@@ -119,15 +123,17 @@ NSDate *lastMagicMoment;
                 pauseTracker += backgroudTime - 1;
                 
                 backgroundSpeed = backgroudTime - 1;
+             
+                logicGate = false;
                 
             }
             
             if (afterRemainder < 1) {
                 
                 afterRemainder = 1;
-            
+                
             }
-        
+            
         }
         
     }
@@ -139,7 +145,7 @@ NSDate *lastMagicMoment;
 {
     
     NSLog(@"APP WILL TERMINATE...");
-
+    
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];

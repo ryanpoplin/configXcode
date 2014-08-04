@@ -18,6 +18,8 @@ int pauseTracker;
 
 int pauseTime;
 
+BOOL logicGate;
+
 int afterRemainder;
 
 NSTimer *timer;
