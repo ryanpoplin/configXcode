@@ -32,7 +32,7 @@
                                     <action selector="hoursMoved:" destination="vXZ-lx-hvc" eventType="valueChanged" id="Jf0-zL-mjO"/>
                                 </connections>
                             </slider>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="59" id="W9Y-mO-7O7">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="59" id="W9Y-mO-7O7">
                                 <rect key="frame" x="17" y="235" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -40,7 +40,7 @@
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="59" id="G1J-mf-2Fv">
-                                <rect key="frame" x="18" y="306" width="284" height="31"/>
+                                <rect key="frame" x="18" y="301" width="284" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="secondsMoved:" destination="vXZ-lx-hvc" eventType="valueChanged" id="hBV-yx-YbU"/>
