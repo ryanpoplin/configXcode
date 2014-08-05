@@ -68,6 +68,8 @@ BOOL animation = true;
 
 - (void)enterBackground {
     
+    // what's is going on here...
+    
     if (afterRemainder && bgConSum != 0) {
      
         [self.view setNeedsDisplay];
@@ -95,7 +97,7 @@ BOOL animation = true;
         }
         
     } else if (pauseBool != true && afterRemainder && bgConSum != 0) {
-                
+     
         _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
         
         if (afterRemainder == bgConSum) {
