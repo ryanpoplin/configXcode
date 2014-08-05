@@ -122,13 +122,13 @@ NSDate *lastMagicMoment;
                 
                 pauseTracker += backgroudTime - 1;
                 
-                backgroundSpeed = backgroudTime - 1;
-             
+                backgroudSpeed = backgroudTime - 1;
+                
                 logicGate = false;
                 
             }
             
-            if (afterRemainder < 1) {
+            if (afterRemainder <= 1 && logicGate == false) {
                 
                 afterRemainder = 1;
                 

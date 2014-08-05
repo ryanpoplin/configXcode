@@ -24,6 +24,8 @@ int afterRemainder;
 
 NSTimer *timer;
 
+int backgroudSpeed;
+
 int bgConSum;
 
 BOOL pauseBool;
@@ -31,8 +33,6 @@ BOOL pauseBool;
 UILocalNotification *notification;
 
 float angleGR;
-
-int backgroundSpeed;
 
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 
