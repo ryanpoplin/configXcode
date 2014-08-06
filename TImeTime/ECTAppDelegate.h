@@ -26,6 +26,8 @@ NSTimer *timer;
 
 int backgroudSpeed;
 
+int coreLogic;
+
 int bgConSum;
 
 BOOL pauseBool;

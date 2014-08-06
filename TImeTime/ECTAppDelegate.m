@@ -122,8 +122,8 @@ NSDate *lastMagicMoment;
                 
                 pauseTracker += backgroudTime - 1;
                 
-                backgroudSpeed = backgroudTime - 1;
-                
+                backgroudSpeed = backgroudTime;
+                                
                 logicGate = false;
                 
             }
