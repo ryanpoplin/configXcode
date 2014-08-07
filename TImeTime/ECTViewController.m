@@ -7,55 +7,35 @@
 //
 
 #import "ECTViewController.h"
-
 #import "ECTProgressView.h"
-
 #import "ECTAppDelegate.h"
-
 #import <QuartzCore/QuartzCore.h>
-
 #import <AudioToolbox/AudioToolbox.h>
 
-@interface ECTViewController ()
-
-{
+@interface ECTViewController () {
     
     float percentageDone;
-    
     int userHours;
-    
     int userMinutes;
-    
     int userSeconds;
-    
     int convertedHours;
-    
     int convertedMinutes;
-    
     int convertedSeconds;
-    
     int remainder;
-    
     NSTimeInterval countDownInterval;
-    
     ECTProgressView *pacManView;
     
 }
 
 @property (nonatomic, strong) NSDate *startTime;
-
 @property (nonatomic) NSTimeInterval totalTime;
-
 @property (nonatomic) BOOL isRunning;
 
 @end
 
 float pausedAngleGR = 0.0;
-
 BOOL timerLabelOption = true;
-
 BOOL aniPause = false;
-
 BOOL animation = true;
 
 @implementation ECTViewController
@@ -66,11 +46,11 @@ BOOL animation = true;
     
 }
 
-- (void)enterBackground {
+- (void)resignActive {
     
     [self.view.layer removeAllAnimations];
     
-    if (afterRemainder && bgConSum != 0) {
+    if ([_autoTimer isValid]) {
         
         [_autoTimer invalidate];
         
@@ -80,7 +60,17 @@ BOOL animation = true;
     
 }
 
-- (void)enterForeground {
+- (void)active {
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
+    if (notification) {
+    
+        [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    
+    }
+        
+    [self.view setNeedsDisplay];
     
     if (bgColorOption && pauseBool != true && afterRemainder && bgConSum != 0) {
         
@@ -106,27 +96,17 @@ BOOL animation = true;
     
 }
 
-- (void)viewDidLoad
-
-{
-    
-    coreLogic = bgConSum;
-    
-    _startButton.exclusiveTouch = YES;
-    
-    _pauseButton.exclusiveTouch = YES;
-    
-    _resetButton.exclusiveTouch = YES;
-    
-    NSLog(@"%f", backgroudTime);
-    
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+- (void)viewDidLoad {
     
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    _startButton.exclusiveTouch = YES;
+    _pauseButton.exclusiveTouch = YES;
+    _resetButton.exclusiveTouch = YES;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resignActive) name:UIApplicationWillResignActiveNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(active) name:UIApplicationDidBecomeActiveNotification object:nil];
     
     if (self.view.bounds.size.height < 568) {
         
@@ -172,9 +152,7 @@ BOOL animation = true;
     
 }
 
-- (void)didReceiveMemoryWarning
-
-{
+- (void)didReceiveMemoryWarning {
     
     [super didReceiveMemoryWarning];
     
@@ -358,7 +336,7 @@ BOOL animation = true;
         
         notification.alertBody = NSLocalizedString(@"Your countdown has finished!", nil);
         
-        // [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
+        [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
         
         [[UIApplication sharedApplication] scheduleLocalNotification:notification];
         
@@ -431,10 +409,6 @@ BOOL animation = true;
     bgConSum = 0;
     
     backgroudTime = 0;
-    
-    backgroudSpeed = 0;
-    
-    NSLog(@"%d and %d", afterRemainder, pauseTracker);
     
     self.isRunning = false;
     
@@ -600,11 +574,9 @@ BOOL animation = true;
         
         [alert show];
         
-        // AudioServicesPlaySystemSound(1304);
+        AudioServicesPlaySystemSound(1304);
         
         backgroudTime = 0;
-        
-        backgroudSpeed = 0;
         
     }
     
@@ -763,8 +735,6 @@ BOOL animation = true;
         AudioServicesPlaySystemSound(1304);
         
         backgroudTime = 0;
-        
-        backgroudSpeed = 0;
         
     }
     

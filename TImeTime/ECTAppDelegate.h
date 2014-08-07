@@ -24,8 +24,6 @@ int afterRemainder;
 
 NSTimer *timer;
 
-int backgroudSpeed;
-
 int coreLogic;
 
 int bgConSum;
