@@ -45,23 +45,23 @@
 		5A9F98E31953F41600A77EC6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		5AA6F205197F1F6B0096AB07 /* ECTPacManLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECTPacManLayer.h; sourceTree = "<group>"; };
 		5AA6F206197F1F6B0096AB07 /* ECTPacManLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECTPacManLayer.m; sourceTree = "<group>"; };
-		5AD95259194584B900A70F3C /* Color Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD95259194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Countdown.temp_caseinsensitive_renamedown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD9525C194584B900A70F3C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AD9525E194584B900A70F3C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5AD95260194584B900A70F3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		5AD95264194584B900A70F3C /* Color Countdown-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Color Countdown-Info.plist"; sourceTree = "<group>"; };
+		5AD95264194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedown-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Color Countdown.temp_caseinsensitive_renamedown-Info.plist"; sourceTree = "<group>"; };
 		5AD95266194584B900A70F3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AD95268194584B900A70F3C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5AD9526A194584B900A70F3C /* Color Countdown-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Color Countdown-Prefix.pch"; sourceTree = "<group>"; };
+		5AD9526A194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedown-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Color Countdown.temp_caseinsensitive_renamedown-Prefix.pch"; sourceTree = "<group>"; };
 		5AD9526B194584B900A70F3C /* ECTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECTAppDelegate.h; sourceTree = "<group>"; };
 		5AD9526C194584B900A70F3C /* ECTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECTAppDelegate.m; sourceTree = "<group>"; };
 		5AD95272194584B900A70F3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		5AD95274194584B900A70F3C /* ECTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECTViewController.h; sourceTree = "<group>"; };
 		5AD95275194584B900A70F3C /* ECTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ECTViewController.m; sourceTree = "<group>"; };
 		5AD95277194584B900A70F3C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5AD9527D194584B900A70F3C /* Color CountdownTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Color CountdownTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AD9527D194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedownTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Color Countdown.temp_caseinsensitive_renamedownTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AD9527E194584B900A70F3C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		5AD95286194584B900A70F3C /* Color CountdownTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Color CountdownTests-Info.plist"; sourceTree = "<group>"; };
+		5AD95286194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedownTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Color Countdown.temp_caseinsensitive_renamedownTests-Info.plist"; sourceTree = "<group>"; };
 		5AD95288194584B900A70F3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AD9528A194584B900A70F3C /* TImeTimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TImeTimeTests.m; sourceTree = "<group>"; };
 		5AD952991946347700A70F3C /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main_iPhone.storyboard; path = ../Main_iPhone.storyboard; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 		5AD9525A194584B900A70F3C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AD95259194584B900A70F3C /* Color Countdown.app */,
-				5AD9527D194584B900A70F3C /* Color CountdownTests.xctest */,
+				5AD95259194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedown.app */,
+				5AD9527D194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedownTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,10 +171,10 @@
 		5AD95263194584B900A70F3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5AD95264194584B900A70F3C /* Color Countdown-Info.plist */,
+				5AD95264194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedown-Info.plist */,
 				5AD95265194584B900A70F3C /* InfoPlist.strings */,
 				5AD95268194584B900A70F3C /* main.m */,
-				5AD9526A194584B900A70F3C /* Color Countdown-Prefix.pch */,
+				5AD9526A194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedown-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -191,7 +191,7 @@
 		5AD95285194584B900A70F3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5AD95286194584B900A70F3C /* Color CountdownTests-Info.plist */,
+				5AD95286194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedownTests-Info.plist */,
 				5AD95287194584B900A70F3C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -214,12 +214,12 @@
 			);
 			name = "Color Countdown";
 			productName = TImeTime;
-			productReference = 5AD95259194584B900A70F3C /* Color Countdown.app */;
+			productReference = 5AD95259194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedown.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5AD9527C194584B900A70F3C /* Color CountdownTests */ = {
+		5AD9527C194584B900A70F3C /* Color Countdown Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AD95291194584B900A70F3C /* Build configuration list for PBXNativeTarget "Color CountdownTests" */;
+			buildConfigurationList = 5AD95291194584B900A70F3C /* Build configuration list for PBXNativeTarget "Color Countdown Tests" */;
 			buildPhases = (
 				5AD95279194584B900A70F3C /* Sources */,
 				5AD9527A194584B900A70F3C /* Frameworks */,
@@ -230,9 +230,9 @@
 			dependencies = (
 				5AD95283194584B900A70F3C /* PBXTargetDependency */,
 			);
-			name = "Color CountdownTests";
+			name = "Color Countdown Tests";
 			productName = TImeTimeTests;
-			productReference = 5AD9527D194584B900A70F3C /* Color CountdownTests.xctest */;
+			productReference = 5AD9527D194584B900A70F3C /* Color Countdown.temp_caseinsensitive_renamedownTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -272,7 +272,7 @@
 			projectRoot = "";
 			targets = (
 				5AD95258194584B900A70F3C /* Color Countdown */,
-				5AD9527C194584B900A70F3C /* Color CountdownTests */,
+				5AD9527C194584B900A70F3C /* Color Countdown Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -438,10 +438,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TImeTime/Color Countdown-Prefix.pch";
-				INFOPLIST_FILE = "TImeTime/Color Countdown-Info.plist";
+				GCC_PREFIX_HEADER = "TImeTime/Color Countdown.temp_caseinsensitive_renamedown-Prefix.pch";
+				INFOPLIST_FILE = "TImeTime/Color Countdown.temp_caseinsensitive_renamedown-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "Color Countdown";
+				PRODUCT_NAME = "Color Countdown.temp_caseinsensitive_renamedown";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -455,10 +455,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TImeTime/Color Countdown-Prefix.pch";
-				INFOPLIST_FILE = "TImeTime/Color Countdown-Info.plist";
+				GCC_PREFIX_HEADER = "TImeTime/Color Countdown.temp_caseinsensitive_renamedown-Prefix.pch";
+				INFOPLIST_FILE = "TImeTime/Color Countdown.temp_caseinsensitive_renamedown-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "Color Countdown";
+				PRODUCT_NAME = "Color Countdown.temp_caseinsensitive_renamedown";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -479,8 +479,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "TImeTimeTests/Color CountdownTests-Info.plist";
-				PRODUCT_NAME = "Color CountdownTests";
+				INFOPLIST_FILE = "TImeTimeTests/Color Countdown.temp_caseinsensitive_renamedownTests-Info.plist";
+				PRODUCT_NAME = "Color Countdown.temp_caseinsensitive_renamedownTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -497,8 +497,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TImeTime/TImeTime-Prefix.pch";
-				INFOPLIST_FILE = "TImeTimeTests/Color CountdownTests-Info.plist";
-				PRODUCT_NAME = "Color CountdownTests";
+				INFOPLIST_FILE = "TImeTimeTests/Color Countdown.temp_caseinsensitive_renamedownTests-Info.plist";
+				PRODUCT_NAME = "Color Countdown.temp_caseinsensitive_renamedownTests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -525,7 +525,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AD95291194584B900A70F3C /* Build configuration list for PBXNativeTarget "Color CountdownTests" */ = {
+		5AD95291194584B900A70F3C /* Build configuration list for PBXNativeTarget "Color Countdown Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5AD95292194584B900A70F3C /* Debug */,

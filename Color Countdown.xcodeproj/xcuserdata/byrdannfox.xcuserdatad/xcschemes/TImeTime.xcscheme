@@ -34,7 +34,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5AD9527C194584B900A70F3C"
                BuildableName = "Color CountdownTests.xctest"
-               BlueprintName = "Color CountdownTests"
+               BlueprintName = "Color Countdown Tests"
                ReferencedContainer = "container:Color Countdown.xcodeproj">
             </BuildableReference>
          </TestableReference>

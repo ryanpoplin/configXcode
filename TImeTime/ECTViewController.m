@@ -62,6 +62,8 @@ BOOL animation = true;
 
 - (void)active {
     
+    [self.view setNeedsDisplay];
+    
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
     if (notification) {
@@ -69,8 +71,6 @@ BOOL animation = true;
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
     
     }
-        
-    [self.view setNeedsDisplay];
     
     if (bgColorOption && pauseBool != true && afterRemainder && bgConSum != 0) {
         
