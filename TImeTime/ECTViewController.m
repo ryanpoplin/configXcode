@@ -62,15 +62,15 @@ BOOL animation = true;
 
 - (void)active {
     
-    [self.view setNeedsDisplay];
+    if (notification) {
+        [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    }
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
+
+    [self pushMessage];
     
-    if (notification) {
-    
-        [[UIApplication sharedApplication] cancelLocalNotification:notification];
-    
-    }
+    [self.view setNeedsDisplay];
     
     if (bgColorOption && pauseBool != true && afterRemainder && bgConSum != 0) {
         
@@ -328,22 +328,42 @@ BOOL animation = true;
             
         }
         
-        notification = [[UILocalNotification alloc] init];
+        [self pushMessage];
         
-        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:afterRemainder];
-        
-        notification.timeZone = [[NSCalendar currentCalendar] timeZone];
-        
-        notification.alertBody = NSLocalizedString(@"Your countdown has finished!", nil);
-        
-        [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
-        
-        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-        
-        pauseBool = false;
+//        notification = [[UILocalNotification alloc] init];
+//        
+//        notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:afterRemainder];
+//        
+//        notification.timeZone = [[NSCalendar currentCalendar] timeZone];
+//        
+//        notification.alertBody = NSLocalizedString(@"Your countdown has finished!", nil);
+//        
+//        [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
+//        
+//        [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+//        
+//        pauseBool = false;
         
     }
     
+}
+
+- (void)pushMessage {
+    
+    notification = [[UILocalNotification alloc] init];
+    
+    notification.fireDate = [NSDate dateWithTimeIntervalSinceNow:afterRemainder];
+    
+    notification.timeZone = [[NSCalendar currentCalendar] timeZone];
+    
+    notification.alertBody = NSLocalizedString(@"Your countdown has finished!", nil);
+    
+    [notification setSoundName: @"AudioServicesPlaySystemSound(1304)"];
+    
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+    
+    pauseBool = false;
+
 }
 
 - (IBAction)pauseMeth:(id)sender {
@@ -356,7 +376,9 @@ BOOL animation = true;
     
     aniPause = true;
     
-    [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    if (notification) {
+        [[UIApplication sharedApplication] cancelLocalNotification:notification];
+    }
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     

@@ -7,19 +7,15 @@
 //
 
 #import "ECTAppDelegate.h"
-
 #import <HockeySDK/HockeySDK.h>
 
 NSDate *thisMagicMoment;
-
 NSTimeInterval timeOfNoMagic;
-
 NSDate *lastMagicMoment;
 
 @implementation ECTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-
 {
     
     [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"4ea9a0dabdef7c4a178808f7b16bec25"];
@@ -34,7 +30,6 @@ NSDate *lastMagicMoment;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
-
 {
     
     logicGate = false;
@@ -47,7 +42,6 @@ NSDate *lastMagicMoment;
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
-
 {
     
     NSLog(@"APP HAS ENTERED BACKGROUND...");
@@ -70,7 +64,6 @@ NSDate *lastMagicMoment;
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
-
 {
     
     NSLog(@"APP WILL ENTER FOREGROUND...");
@@ -80,7 +73,6 @@ NSDate *lastMagicMoment;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
-
 {
     
     NSLog(@"APP DID BECOME ACTIVE...");
@@ -144,7 +136,6 @@ NSDate *lastMagicMoment;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
-
 {
     
     NSLog(@"APP WILL TERMINATE...");
