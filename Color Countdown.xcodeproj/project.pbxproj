@@ -493,13 +493,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/byrdannfox/Downloads/HockeySDK-iOS",
-					2/HockeySDK.embeddedframework,
-					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
-				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Poplin (Q69W64MYTG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryan Poplin (Q69W64MYTG)";
+				FRAMEWORK_SEARCH_PATHS = "/Users/byrdannfox/Documents/TImeTime/HockeySDK-iOS/HockeySDK.embeddedframework";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TImeTime/Color Countdown-Prefix.pch";
 				INFOPLIST_FILE = "TImeTime/Color Countdown-Info.plist";
@@ -515,13 +511,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/byrdannfox/Downloads/HockeySDK-iOS",
-					2/HockeySDK.embeddedframework,
-					"$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
-				);
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ryan Poplin (Q69W64MYTG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ryan Poplin (Q69W64MYTG)";
+				FRAMEWORK_SEARCH_PATHS = "/Users/byrdannfox/Documents/TImeTime/HockeySDK-iOS/HockeySDK.embeddedframework";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TImeTime/Color Countdown-Prefix.pch";
 				INFOPLIST_FILE = "TImeTime/Color Countdown-Info.plist";

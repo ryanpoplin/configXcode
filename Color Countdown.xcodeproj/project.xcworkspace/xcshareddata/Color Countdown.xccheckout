@@ -10,29 +10,29 @@
 	<string>Color Countdown</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>CB38655B-195A-4016-A73E-7899C33CA3BE</key>
+		<key>8D8814DAEBF491A0D606B128648A8A39D5FC1638</key>
 		<string>ssh://github.com/ryanpoplin/configXcode.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Color Countdown.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>CB38655B-195A-4016-A73E-7899C33CA3BE</key>
+		<key>8D8814DAEBF491A0D606B128648A8A39D5FC1638</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/ryanpoplin/configXcode.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>CB38655B-195A-4016-A73E-7899C33CA3BE</string>
+	<string>8D8814DAEBF491A0D606B128648A8A39D5FC1638</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CB38655B-195A-4016-A73E-7899C33CA3BE</string>
+			<string>8D8814DAEBF491A0D606B128648A8A39D5FC1638</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TImeTime</string>
 		</dict>
