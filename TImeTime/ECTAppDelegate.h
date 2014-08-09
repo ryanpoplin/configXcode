@@ -9,35 +9,20 @@
 #import <UIKit/UIKit.h>
 
 float backgroudTime;
-
 BOOL bgColorOption;
-
 BOOL timerLabelOption;
-
 int pauseTracker;
-
 int pauseTime;
-
 BOOL logicGate;
-
 int afterRemainder;
-
 NSTimer *timer;
-
 int coreLogic;
-
 int bgConSum;
-
 BOOL pauseBool;
-
 UILocalNotification *notification;
-
 float angleGR;
-
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
-
 @property (strong, nonatomic) UIWindow *window;
-
 @property (nonatomic, strong) NSTimer *autoTimer;
 
 @end

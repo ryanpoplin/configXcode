@@ -62,17 +62,17 @@ BOOL animation = true;
 
 - (void)active {
     
+    [self.view setNeedsDisplay];
+    
     if (notification) {
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
     }
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
-
-    [self pushMessage];
-    
-    [self.view setNeedsDisplay];
     
     if (bgColorOption && pauseBool != true && afterRemainder && bgConSum != 0) {
+        
+        [self pushMessage];
         
         _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
         
@@ -83,6 +83,8 @@ BOOL animation = true;
         }
         
     } else if (pauseBool != true && afterRemainder && bgConSum != 0) {
+        
+        [self pushMessage];
         
         _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
         
@@ -308,6 +310,8 @@ BOOL animation = true;
         
         if (bgColorOption) {
             
+            [self pushMessage];
+            
             _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDown) userInfo:nil repeats:YES];
             
             if (afterRemainder == bgConSum) {
@@ -318,6 +322,8 @@ BOOL animation = true;
             
         } else {
             
+            [self pushMessage];
+            
             _autoTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateCountDownReverse) userInfo:nil repeats:YES];
             
             if (afterRemainder == bgConSum) {
@@ -327,8 +333,6 @@ BOOL animation = true;
             }
             
         }
-        
-        [self pushMessage];
         
         pauseBool = false;
         
@@ -350,8 +354,6 @@ BOOL animation = true;
     
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
     
-    pauseBool = false;
-
 }
 
 - (IBAction)pauseMeth:(id)sender {

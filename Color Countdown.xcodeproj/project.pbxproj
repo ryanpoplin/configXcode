@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A2508761995439F000E1ECF /* HockeySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A2508721995439F000E1ECF /* HockeySDK.framework */; };
-		5A2508771995439F000E1ECF /* HockeySDK.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5A2508741995439F000E1ECF /* HockeySDK.xcconfig */; };
-		5A2508781995439F000E1ECF /* HockeySDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5A2508751995439F000E1ECF /* HockeySDKResources.bundle */; };
 		5A61891F1995301900EF05E9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A61891E1995301900EF05E9 /* CoreText.framework */; };
 		5A6189211995302900EF05E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6189201995302900EF05E9 /* Security.framework */; };
 		5A6189231995303B00EF05E9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A6189221995303B00EF05E9 /* SystemConfiguration.framework */; };
@@ -45,9 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5A2508721995439F000E1ECF /* HockeySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HockeySDK.framework; sourceTree = "<group>"; };
-		5A2508741995439F000E1ECF /* HockeySDK.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = HockeySDK.xcconfig; sourceTree = "<group>"; };
-		5A2508751995439F000E1ECF /* HockeySDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = HockeySDKResources.bundle; sourceTree = "<group>"; };
 		5A61891E1995301900EF05E9 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		5A6189201995302900EF05E9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5A6189221995303B00EF05E9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -89,7 +83,6 @@
 				5A61891F1995301900EF05E9 /* CoreText.framework in Frameworks */,
 				5A9F98E41953F41600A77EC6 /* AudioToolbox.framework in Frameworks */,
 				5A9F98E219537D7900A77EC6 /* QuartzCore.framework in Frameworks */,
-				5A2508761995439F000E1ECF /* HockeySDK.framework in Frameworks */,
 				5AD9525F194584B900A70F3C /* CoreGraphics.framework in Frameworks */,
 				5AD95261194584B900A70F3C /* UIKit.framework in Frameworks */,
 				5AD9525D194584B900A70F3C /* Foundation.framework in Frameworks */,
@@ -121,25 +114,6 @@
 				5A365B9019497F1100AF1958 /* testone */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		5A2508711995439F000E1ECF /* HockeySDK.embeddedframework */ = {
-			isa = PBXGroup;
-			children = (
-				5A2508721995439F000E1ECF /* HockeySDK.framework */,
-				5A2508731995439F000E1ECF /* Resources */,
-			);
-			name = HockeySDK.embeddedframework;
-			path = "HockeySDK-iOS/HockeySDK.embeddedframework";
-			sourceTree = "<group>";
-		};
-		5A2508731995439F000E1ECF /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				5A2508741995439F000E1ECF /* HockeySDK.xcconfig */,
-				5A2508751995439F000E1ECF /* HockeySDKResources.bundle */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		5A365B9019497F1100AF1958 /* testone */ = {
@@ -180,7 +154,6 @@
 		5AD9525B194584B900A70F3C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5A2508711995439F000E1ECF /* HockeySDK.embeddedframework */,
 				5A6189221995303B00EF05E9 /* SystemConfiguration.framework */,
 				5A6189201995302900EF05E9 /* Security.framework */,
 				5A61891E1995301900EF05E9 /* CoreText.framework */,
@@ -323,11 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD9529A1946347700A70F3C /* Main_iPhone.storyboard in Resources */,
-				5A2508771995439F000E1ECF /* HockeySDK.xcconfig in Resources */,
 				5AD95273194584B900A70F3C /* Main_iPad.storyboard in Resources */,
 				5AD95278194584B900A70F3C /* Images.xcassets in Resources */,
 				5AD95267194584B900A70F3C /* InfoPlist.strings in Resources */,
-				5A2508781995439F000E1ECF /* HockeySDKResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

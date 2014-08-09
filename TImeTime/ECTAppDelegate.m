@@ -7,7 +7,7 @@
 //
 
 #import "ECTAppDelegate.h"
-#import <HockeySDK/HockeySDK.h>
+
 
 NSDate *thisMagicMoment;
 NSTimeInterval timeOfNoMagic;
@@ -18,10 +18,7 @@ NSDate *lastMagicMoment;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"4ea9a0dabdef7c4a178808f7b16bec25"];
-    [[BITHockeyManager sharedHockeyManager] startManager];
-    [[BITHockeyManager sharedHockeyManager].authenticator
-     authenticateInstallation];
+    
     
     // Override point for customization after application launch.
     
