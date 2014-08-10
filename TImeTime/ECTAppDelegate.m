@@ -23,6 +23,8 @@ NSDate *lastMagicMoment;
     [[BITHockeyManager sharedHockeyManager].authenticator
      authenticateInstallation];
     
+    // [[BITHockeyManager sharedHockeyManager] testIdentifier];
+    
     // Override point for customization after application launch.
     
     return YES;
