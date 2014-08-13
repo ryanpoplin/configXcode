@@ -500,19 +500,7 @@ BOOL animation = true;
     
     afterRemainder--;
     
-    if (afterRemainder > bgConSum * 0.96) {
-        
-        [self.view setNeedsDisplay];
-        
-        [UIView beginAnimations:nil context:nil];
-        
-        [UIView setAnimationDuration:(bgConSum + backgroudTime) / (5 + backgroudTime)];
-        
-        self.view.backgroundColor = [UIColor greenColor];
-        
-        [UIView commitAnimations];
-        
-    } else if (afterRemainder > bgConSum * 0.80) {
+    if (afterRemainder > bgConSum * 0.80) {
         
         [self.view setNeedsDisplay];
         
@@ -676,19 +664,7 @@ BOOL animation = true;
     
     afterRemainder--;
     
-    if (afterRemainder > bgConSum * 0.96) {
-        
-        [self.view setNeedsDisplay];
-        
-        [UIView beginAnimations:nil context:nil];
-        
-        [UIView setAnimationDuration:(bgConSum + backgroudTime) / (5 + backgroudTime)];
-        
-        self.view.backgroundColor = [UIColor redColor];
-        
-        [UIView commitAnimations];
-        
-    } else if (afterRemainder > bgConSum * 0.80) {
+    if (afterRemainder > bgConSum * 0.80) {
         
         [UIView beginAnimations:nil context:nil];
         
