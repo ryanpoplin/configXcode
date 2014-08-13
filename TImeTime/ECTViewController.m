@@ -48,7 +48,7 @@ BOOL animation = true;
 
 - (void)resignActive {
     
-    [self.view.layer removeAllAnimations];
+    [self.view setNeedsDisplay];
     
     if ([_autoTimer isValid]) {
         
@@ -61,9 +61,7 @@ BOOL animation = true;
 }
 
 - (void)active {
-    
-    [self.view setNeedsDisplay];
-    
+        
     if (notification) {
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
     }
@@ -502,8 +500,6 @@ BOOL animation = true;
     
     if (afterRemainder > bgConSum * 0.80) {
         
-        [self.view setNeedsDisplay];
-        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:(bgConSum + backgroudTime) / (5 + backgroudTime)];
@@ -513,8 +509,6 @@ BOOL animation = true;
         [UIView commitAnimations];
         
     } else if (afterRemainder < bgConSum * 0.80 && afterRemainder > bgConSum * 0.60) {
-        
-        [self.view setNeedsDisplay];
         
         [UIView beginAnimations:nil context:nil];
         
@@ -526,8 +520,6 @@ BOOL animation = true;
         
     } else if (afterRemainder < bgConSum * 0.60 && afterRemainder > bgConSum * 0.40) {
         
-        [self.view setNeedsDisplay];
-        
         [UIView beginAnimations:nil context:nil];
         
         [UIView setAnimationDuration:(bgConSum + backgroudTime) / (5 + backgroudTime)];
@@ -537,8 +529,6 @@ BOOL animation = true;
         [UIView commitAnimations];
         
     } else if (afterRemainder < bgConSum * 0.40 && afterRemainder > bgConSum * 0.20) {
-        
-        [self.view setNeedsDisplay];
         
         [UIView beginAnimations:nil context:nil];
         
