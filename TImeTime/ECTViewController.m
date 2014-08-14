@@ -48,8 +48,6 @@ BOOL animation = true;
 
 - (void)resignActive {
     
-    [self.view setNeedsDisplay];
-    
     if ([_autoTimer isValid]) {
         
         [_autoTimer invalidate];
@@ -61,7 +59,9 @@ BOOL animation = true;
 }
 
 - (void)active {
-        
+    
+    [self.view setNeedsDisplay];
+    
     if (notification) {
         [[UIApplication sharedApplication] cancelLocalNotification:notification];
     }
