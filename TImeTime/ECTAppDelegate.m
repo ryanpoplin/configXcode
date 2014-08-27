@@ -72,7 +72,7 @@
     }
     
     if (lastMagicMoment == nil) {
-
+        
         // do nothing...
         
     } else {
@@ -94,7 +94,7 @@
                 afterRemainder -= backgroudTime - 1;
                 
                 pauseTracker += backgroudTime - 1;
-                                                
+                
                 logicGate = false;
                 
             }
