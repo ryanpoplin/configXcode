@@ -21,6 +21,9 @@ int bgConSum;
 BOOL pauseBool;
 UILocalNotification *notification;
 float angleGR;
+NSDate *thisMagicMoment;
+NSTimeInterval timeOfNoMagic;
+NSDate *lastMagicMoment;
 @interface ECTAppDelegate : UIResponder <UIApplicationDelegate>
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) NSTimer *autoTimer;

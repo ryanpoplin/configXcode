@@ -386,6 +386,14 @@ BOOL animation = true;
 
 - (IBAction)resetButton:(id)sender {
     
+    thisMagicMoment = nil;
+    timeOfNoMagic = 0;
+    lastMagicMoment = nil;
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastMagicMoment"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
     pausedAngleGR = (M_PI * 2.0);
     
     aniPause = false;

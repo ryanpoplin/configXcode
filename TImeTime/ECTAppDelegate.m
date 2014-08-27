@@ -8,10 +8,6 @@
 
 #import "ECTAppDelegate.h"
 
-NSDate *thisMagicMoment;
-NSTimeInterval timeOfNoMagic;
-NSDate *lastMagicMoment;
-
 @implementation ECTAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -119,6 +115,10 @@ NSDate *lastMagicMoment;
 {
     
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"lastMagicMoment"];
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     
